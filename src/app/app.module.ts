@@ -9,11 +9,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatGridList, MatGridListModule, MatGridTile} from '@angular/material/grid-list';
+import { VillageComponent } from './components/village/village.component';
+import { WorldMapComponent } from './components/world-map/world-map.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VillageComponent,
+    WorldMapComponent
   ],
   imports: [
     BrowserModule,
@@ -24,11 +29,14 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatSidenavModule,
     MatButtonModule,
+    MatGridListModule,
 
 
   ],
   providers: [
-    MatIcon
+    MatIcon,
+    MatGridList,
+    MatGridTile
   ],
   bootstrap: [AppComponent]
 })
