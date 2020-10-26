@@ -1,8 +1,69 @@
 
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
+.top-nav {
 
-.village {
+  padding: 0px 20px 50px;
+
+  background-image: url("src/assets/home/sidenav_background_turned.bmp");
+  background-position: bottom;
+
+}
+
+.toolbar {
+  background-image: url("src/assets/home/background.png");
+  box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
+
+}
+
+img.toolbar-logo {
+  position: relative;
+  height: 50px;
+  left: 30px;
+  margin: 10px;
+}
+
+.menu-icon {
+  font-size: 50px;
+  color: white;
+}
+
+.example-sidenav-container {
+  flex: 1 0 auto;
+
+}
+
+.side-nav {
+  background-image: url("src/assets/home/sidenav_background.bmp");
+  background-position: right;
+}
+
+.nav-button {
+  display: block;
+  background-image: url("src/assets/home/background.png");
+  background-position: right;
+  margin: 5px 40px 20px 10px;
+  box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
+  border-radius: 5px;
+}
+
+.nav-button a {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  font-size: 20px;
+  color: white;
+  padding-right: 10px;
+
+}
+
+.side-content {
+  box-shadow: inset 0 0 10px 5px black;
 }

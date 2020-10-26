@@ -1,7 +1,37 @@
-<div class="village">
+<div class="example-container">
+  <div class="top-nav">
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>
+      </button>
+      <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
+      <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
+      <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
+    </mat-toolbar>
+  </div>
 
-  <img src="assets/buildings/inn_inprogress.bmp" alt="" class="tavern">
-  <img src="assets/buildings/storehouse.bmp" alt="" class="storehouse">
-  <img src="assets/buildings/school.bmp" alt="" class="school">
- <p>drugi test</p>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav class="side-nav" #snav [mode]="'over'">
+      <mat-nav-list>
+        <div class="nav-button">
+          <a mat-list-item>Village</a>
+        </div>
+        <div class="nav-button">
+          <a mat-list-item>World map</a>
+        </div>
+        <div class="nav-button">
+          <a mat-list-item>Guild</a>
+        </div>
+        <div class="nav-button">
+          <a mat-list-item>Post</a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="side-content">
+
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
+
