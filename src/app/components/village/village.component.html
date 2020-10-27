@@ -1,1 +1,26 @@
-<img src="assets/home/map2.png" alt="Village map" class="village-map">
+<div class="village-map">
+  <img class="village-map-image" src="assets/home/map2.png" alt="Village map">
+
+
+  <mat-grid-list class="grid-list" cols="3" rowHeight="fit" gutterSize="20px">
+    <mat-grid-tile class="grid-component" [colspan]="1" [rowspan]="2">
+      Resources
+    </mat-grid-tile>
+    <mat-grid-tile class="grid-component" [colspan]="1" [rowspan]="1">
+      Mines
+    </mat-grid-tile>
+    <mat-grid-tile class="grid-component" [colspan]="1" [rowspan]="4">
+      Gate
+    </mat-grid-tile>
+    <mat-grid-tile class="grid-component" [colspan]="1" [rowspan]="2" [routerLink]="'/city'">
+      City
+    </mat-grid-tile>
+    <mat-grid-tile class="grid-component" [colspan]="1" [rowspan]="2">
+      Farms
+    </mat-grid-tile>
+    <mat-grid-tile class="grid-component" [colspan]="1" [rowspan]="1">
+      UnderCity
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

@@ -12,13 +12,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridList, MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { VillageComponent } from './components/village/village.component';
 import { WorldMapComponent } from './components/world-map/world-map.component';
+import { CityComponent } from './components/village/city/city.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     VillageComponent,
-    WorldMapComponent
+    WorldMapComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,
