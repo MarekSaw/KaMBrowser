@@ -10,9 +10,15 @@ import {MatListModule} from '@angular/material/list';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridList, MatGridListModule, MatGridTile} from '@angular/material/grid-list';
-import { VillageComponent } from './components/village/village.component';
-import { WorldMapComponent } from './components/world-map/world-map.component';
-import { CityComponent } from './components/village/city/city.component';
+import { VillageComponent } from './components/game/gui-components/village/village.component';
+import { WorldMapComponent } from './components/game/gui-components/world-map/world-map.component';
+import { CityComponent } from './components/game/gui-components/village/city/city.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { GameComponent } from './components/game/game.component';
+import { MainSiteComponent } from './components/main-site/main-site.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -20,7 +26,13 @@ import { CityComponent } from './components/village/city/city.component';
     AppComponent,
     VillageComponent,
     WorldMapComponent,
-    CityComponent
+    CityComponent,
+    LoginComponent,
+    RegisterComponent,
+    ContactComponent,
+    GameComponent,
+    MainSiteComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
