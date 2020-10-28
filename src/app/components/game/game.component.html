@@ -1,0 +1,67 @@
+<div class="example-container">
+  <div class="top-nav">
+    <mat-toolbar class="toolbar">
+
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>
+      </button>
+      <div class="logo-container">
+        <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
+        <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
+        <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
+      </div>
+
+      <div class="resource">
+        <img class="resource-icon" src="assets/resources/plank.bmp" alt="Plank">
+        <p class="resource-value">100000</p>
+      </div>
+      <div class="resource">
+        <img class="resource-icon" src="assets/resources/stone.bmp" alt="Stone">
+        <p class="resource-value">10000</p>
+      </div>
+
+      <div class="food">
+        <img class="resource-icon" src="assets/resources/wine.bmp" alt="Wine">
+        <p class="resource-value">1000</p>
+      </div>
+      <div class="food">
+        <img class="resource-icon" src="assets/resources/bread.bmp" alt="Bread">
+        <p class="resource-value">100</p>
+      </div>
+      <div class="food">
+        <img class="resource-icon" src="assets/resources/sausage.bmp" alt="Sausage">
+        <p class="resource-value">10</p>
+      </div>
+      <div class="food">
+        <img class="resource-icon" src="assets/resources/fish.bmp" alt="Fish">
+        <p class="resource-value">1</p>
+      </div>
+
+    </mat-toolbar>
+  </div>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav class="side-nav" #snav [mode]="'over'">
+      <mat-nav-list>
+        <div class="nav-button">
+          <a mat-list-item [routerLink]="'/game/village'">Village</a>
+        </div>
+        <div class="nav-button">
+          <a mat-list-item [routerLink]="'/game/world_map'">World map</a>
+        </div>
+        <div class="nav-button">
+          <a mat-list-item>Guild</a>
+        </div>
+        <div class="nav-button">
+          <a mat-list-item>Post</a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="side-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
