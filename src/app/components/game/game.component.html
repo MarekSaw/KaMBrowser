@@ -44,16 +44,16 @@
     <mat-sidenav class="side-nav" #snav [mode]="'over'">
       <mat-nav-list>
         <div class="nav-button">
-          <a mat-list-item [routerLink]="'/game/village'">Village</a>
+          <a mat-list-item [routerLink]="'/game/village'" (click)="snav.toggle()">Village</a>
         </div>
         <div class="nav-button">
-          <a mat-list-item [routerLink]="'/game/world_map'">World map</a>
+          <a mat-list-item [routerLink]="'/game/world_map'" (click)="snav.toggle()">World map</a>
         </div>
         <div class="nav-button">
-          <a mat-list-item>Guild</a>
+          <a mat-list-item (click)="snav.toggle()">Guild</a>
         </div>
         <div class="nav-button">
-          <a mat-list-item>Post</a>
+          <a mat-list-item (click)="snav.toggle()">Post</a>
         </div>
         <div class="nav-button">
           <a mat-list-item [routerLink]="'/'">Logout</a>
