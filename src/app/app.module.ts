@@ -21,6 +21,15 @@ import { MainSiteComponent } from './components/main-site/main-site.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
+import {MainNavComponent} from "./components/main-nav/main-nav.component";
+import {LayoutModule} from "@angular/cdk/layout";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatInputModule} from "@angular/material/input";
+import {HttpClientModule} from "@angular/common/http";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -34,7 +43,8 @@ import {FormsModule} from '@angular/forms';
     ContactComponent,
     GameComponent,
     MainSiteComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +58,8 @@ import {FormsModule} from '@angular/forms';
     MatGridListModule,
     MatCheckboxModule,
     FormsModule,
-
-
+    LayoutModule,
+    HttpClientModule,
   ],
   providers: [
     MatIcon,

@@ -1,0 +1,105 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer class="sidenav"
+    [ngClass]="{hidden: !(isHandset$ | async)}"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <!--    toolbar od sidenav-->
+    <mat-toolbar id="sidenav-menu-text">Menu</mat-toolbar>
+    <mat-nav-list>
+      <!--      sidenav home-->
+      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/']">
+        Home
+      </a>
+
+      <!--      sidenav login-->
+      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/','login']">
+        Login
+      </a>
+
+      <!--      sidenav register-->
+      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/','register']">
+        Register
+      </a>
+
+      <!--      sidenav contact-->
+      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/','contact']">
+        Contact
+      </a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="top-nav">
+      <!--    toolbar główny-->
+      <mat-toolbar class="toolbar">
+        <!--      przycisk menu widoczny po zmniejszeniu-->
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          class="circle-button"
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <!--      tekst widoczny po rozszerzeniu-->
+        <!--        toolbar przycisk home-->
+        <a mat-mini-fab class="circle-button" [routerLink]="['/']">
+          <mat-icon>home</mat-icon>
+        </a>
+<!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
+              <div class="logo-container">
+                          <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
+                          <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
+                          <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
+                        </div>
+<!--      </span>-->
+        <!--      rozdzielacz na lewo i prawo-->
+        <span class="spacer"></span>
+
+        <!--      elementy na toolbarze widoczne po rozszerzeniu-->
+        <div [ngClass]="{hidden: (isHandset$ | async)}">
+          <!--          toolbar przycisk login-->
+          <a mat-flat-button class="nav-button" [routerLink]="['/','login']">
+            Login
+          </a>
+          <!--          toolbar przycisk register-->
+          <a mat-flat-button class="nav-button" [routerLink]="['/','register']">
+            Register
+          </a>
+          <!--          toolbar przycisk contect-->
+          <a mat-flat-button class="nav-button" [routerLink]="['/','contact']">
+            Contect
+          </a>
+
+        </div>
+
+        <!--      elementy na toolbarze widoczne po zmiejszeniu-->
+        <div>
+        </div>
+      </mat-toolbar>
+    </div>
+    <!--    content wstawiany na stronie-->
+    <div class="ng-content">
+    <ng-content></ng-content>
+    </div>
+    <div class="footer-container">
+      <footer>
+        <div class="icons">
+          <a href="https://www.facebook.com"><img class="social-link" src="assets/icons/facebook.svg" alt="Facebook"></a>
+          <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg" alt="Instagram"></a>
+          <a href="https://www.twitter.com"><img class="social-link" src="assets/icons/twitter.svg" alt="Twitter"></a>
+        </div>
+      </footer>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+
