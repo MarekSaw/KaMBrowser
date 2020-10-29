@@ -1,9 +1,89 @@
 
 .content {
+  display: flex;
+  justify-content: center;
   background-image: url("src/assets/home/scroll6.png");
   background-size: cover;
-  margin: 0 200px 0 200px;
-  padding: 100px 100px 50px 100px;
+  margin: 0 20% 0 20%;
+  padding: 80px 100px 50px 100px;
   box-shadow: inset 0 0 15px black, 0 0 30px 15px black;
   border-radius: 20px 20px 5px 5px;
+}
+
+.register-area {
+  float: top;
+}
+
+.input {
+  display: flex;
+  background-image: url("src/assets/home/input.png");
+  background-size: cover;
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 5px 3px 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 10px 2px black;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.input::placeholder {
+  color: white;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+.terms-container {
+
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 15px;
+  padding: 5px 5px 0 10px;
+}
+
+.terms {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.terms:hover {
+  color: white;
+}
+
+
+.register-img {
+  height: 180px;
+  margin: 0 50px 0 50px;
+}
+
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  background-image: url("src/assets/home/background.png");
+  background-position: right;
+  margin: 30px 10px 20px 10px;
+  box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
+  border-radius: 5px;
+  border: black solid 3px;
+}
+
+.nav-button:hover {
+  box-shadow: inset 0 0 10px red, 10px 10px 10px 2px red;
+}
+
+.nav-button a {
+  font-size: 20px;
+  color: white;
+  font-family: "Architects Daughter", sans-serif;
+  text-decoration: none;
+
 }

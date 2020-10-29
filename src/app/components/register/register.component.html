@@ -1,4 +1,27 @@
 <div class="content">
-  <p>REGISTER WINDOW</p>
+
+  <img class="register-img" src="assets/home/leftarm.bmp" alt="">
+
+  <div class="register-area">
+
+    <input class="input" type="text" placeholder="Username">
+    <input class="input" type="text" placeholder="E-mail">
+    <input class="input" type="password" placeholder="Password">
+
+    <div class="terms-container">
+    <mat-checkbox class="checkbox" color="warn"></mat-checkbox>
+    I accept the
+      <a class="terms" href="">Terms and Conditions</a>
+      and the
+      <a class="terms" href="">Data policy</a>.
+    </div>
+
+    <div class="nav-button">
+      <a mat-list-item [routerLink]="'/login'">Sign Up</a>
+    </div>
+  </div>
+
+  <img class="register-img" src="assets/home/rightarm.bmp" alt="">
+
 </div>
 

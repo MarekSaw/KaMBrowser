@@ -19,6 +19,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { GameComponent } from './components/game/game.component';
 import { MainSiteComponent } from './components/main-site/main-site.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatSidenavModule,
     MatButtonModule,
     MatGridListModule,
+    MatCheckboxModule,
+    FormsModule,
 
 
   ],

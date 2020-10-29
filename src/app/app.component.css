@@ -33,6 +33,10 @@ img.toolbar-logo {
   margin: 10px;
 }
 
+.navigation {
+  display: flex;
+}
+
 .nav-button {
   display: block;
   float: left;
