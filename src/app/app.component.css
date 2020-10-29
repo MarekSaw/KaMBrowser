@@ -34,7 +34,9 @@ img.toolbar-logo {
 }
 
 .navigation {
-  display: flex;
+  /*display: flex;*/
+  display: block;
+  width: 100%;
 }
 
 .nav-button {
@@ -64,10 +66,18 @@ img.toolbar-logo {
 }
 
 .content {
-  background-image: url("src/assets/home/background.png");
+  background-image: url("src/assets/home/background_h.png");
+
+  background-position: center;
   height: 100%;
-  padding: 5% 200px 5% 200px;
-  box-shadow: inset 0 0 30px 10px black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 30px 8px black;
 }
 
 footer {
@@ -90,3 +100,4 @@ footer {
   background-color: red;
   box-shadow: 0 0 10px red;
 }
+
