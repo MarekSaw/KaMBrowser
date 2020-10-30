@@ -8,32 +8,32 @@
     [opened]="(isHandset$ | async) === false">
     <!--    toolbar od sidenav-->
     <mat-toolbar id="sidenav-menu-text">Menu</mat-toolbar>
-    <mat-nav-list>
+    <div class="sidenav-buttons-list">
       <!--      sidenav home-->
-      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/']">
+      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/']">
         Home
       </a>
 
       <!--      sidenav login-->
-      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/','login']">
+      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/','login']">
         Login
       </a>
 
       <!--      sidenav register-->
-      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/','register']">
+      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/','register']">
         Register
       </a>
 
       <!--      sidenav contact-->
-      <a mat-list-item (click)="drawer.toggle()" [routerLink]="['/','contact']">
+      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/','contact']">
         Contact
       </a>
 
 
-    </mat-nav-list>
+    </div>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content class="toolbar-container">
     <div class="top-nav">
       <!--    toolbar główny-->
       <mat-toolbar class="toolbar">
@@ -52,13 +52,13 @@
         <a mat-mini-fab class="circle-button" [routerLink]="['/']">
           <mat-icon>home</mat-icon>
         </a>
-<!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
-              <div class="logo-container">
-                          <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
-                          <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
-                          <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
-                        </div>
-<!--      </span>-->
+        <!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
+        <div class="logo-container">
+          <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
+          <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
+          <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
+        </div>
+        <!--      </span>-->
         <!--      rozdzielacz na lewo i prawo-->
         <span class="spacer"></span>
 
@@ -72,7 +72,7 @@
           <a mat-flat-button class="nav-button" [routerLink]="['/','register']">
             Register
           </a>
-          <!--          toolbar przycisk contect-->
+          <!--          toolbar przycisk conact-->
           <a mat-flat-button class="nav-button" [routerLink]="['/','contact']">
             Contact
           </a>
@@ -85,9 +85,23 @@
       </mat-toolbar>
     </div>
     <!--    content wstawiany na stronie-->
-    <div class="ng-content">
-    <ng-content></ng-content>
+    <div>
+      <div class="ng-content">
+      <ng-content></ng-content>
+      </div>
+      <div class="footer-container">
+        <footer>
+          <div class="icons">
+            <a href="https://www.facebook.com"><img class="social-link" src="assets/icons/facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.twitter.com"><img class="social-link" src="assets/icons/twitter.svg" alt="Twitter"></a>
+          </div>
+        </footer>
+      </div>
     </div>
+
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 
