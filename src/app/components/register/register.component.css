@@ -10,7 +10,6 @@
 }
 
 .register-area {
-  float: top;
   display: grid;
   grid-area: 1 / 2 / span 1 / span 1;
   align-self: center;
@@ -22,7 +21,7 @@
   justify-self: center;
   background-image: url("src/assets/home/input.png");
   background-size: cover;
-  width: 70%;
+  width: auto;
   height: auto;
   border: none;
   border-radius: 5px;
@@ -32,7 +31,6 @@
   font-family: "Architects Daughter", sans-serif;
   font-size: 18px;
   font-weight: bold;
-
 }
 
 .input::placeholder {

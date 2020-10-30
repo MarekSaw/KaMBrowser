@@ -13,18 +13,18 @@
 .navigation {
   display: grid;
   grid-area: 1 / 1 / span 1 / span 1;
+  min-width: max-content;
 }
 
-.content {
+.app-content {
   display: flex;
-  background-image: url("src/assets/home/background_h.png");
-  background-position: center;
-
   justify-content: center;
   align-items: center;
-  height: 100%;
+  background-image: url("src/assets/home/background_h.png");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100%;
   box-shadow: inset 0 0 30px 8px black;
 }
 
