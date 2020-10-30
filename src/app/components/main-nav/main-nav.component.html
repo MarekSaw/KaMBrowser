@@ -7,30 +7,34 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
     <!--    toolbar od sidenav-->
-    <mat-toolbar id="sidenav-menu-text">Menu</mat-toolbar>
-    <div class="sidenav-buttons-list">
+    <mat-toolbar id="sidenav-menu-text"><a>Menu</a></mat-toolbar>
+    <mat-nav-list class="sidenav-buttons-list">
       <!--      sidenav home-->
-      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/']">
-        Home
-      </a>
-
+      <div class="sidenav-button">
+        <a (click)="drawer.toggle()" [routerLink]="['/']">
+          Home
+        </a>
+      </div>
       <!--      sidenav login-->
-      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/','login']">
-        Login
-      </a>
-
+      <div class="sidenav-button">
+        <a (click)="drawer.toggle()" [routerLink]="['/','login']">
+          Login
+        </a>
+      </div>
       <!--      sidenav register-->
-      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/','register']">
-        Register
-      </a>
-
+      <div class="sidenav-button">
+        <a (click)="drawer.toggle()" [routerLink]="['/','register']">
+          Register
+        </a>
+      </div>
       <!--      sidenav contact-->
-      <a mat-flat-button class="sidenav-button" (click)="drawer.toggle()" [routerLink]="['/','contact']">
-        Contact
-      </a>
+      <div class="sidenav-button">
+        <a (click)="drawer.toggle()" [routerLink]="['/','contact']">
+          Contact
+        </a>
+      </div>
 
-
-    </div>
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content class="toolbar-container">
@@ -39,18 +43,18 @@
       <mat-toolbar class="toolbar">
         <!--      przycisk menu widoczny po zmniejszeniu-->
         <a mat-button type="button"
-                aria-label="Toggle sidenav"
-                (click)="drawer.toggle()"
-                *ngIf="isHandset$ | async">
-            <img src="assets/icons/table.bmp"
-                 alt="menu icon">
+           aria-label="Toggle sidenav"
+           (click)="drawer.toggle()"
+           *ngIf="isHandset$ | async">
+          <img src="assets/icons/table.bmp"
+               alt="menu icon" width="40px" height="40px">
         </a>
 
         <!--      tekst widoczny po rozszerzeniu-->
         <!--        toolbar przycisk home-->
         <a mat-button [routerLink]="['/']">
           <img src="assets/icons/store2.bmp"
-               alt="home icon" width="27px" height="26px">
+               alt="home icon" width="40px" height="40px">
         </a>
 
         <!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
@@ -88,19 +92,19 @@
     <!--    content wstawiany na stronie-->
     <div>
       <div class="ng-content">
-      <ng-content></ng-content>
+        <ng-content></ng-content>
       </div>
       <div class="footer-container">
         <footer>
           <div class="icons">
             <a href="https://www.facebook.com"><img class="social-link" src="assets/icons/facebook.svg" alt="Facebook"></a>
-            <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg"
+                                                     alt="Instagram"></a>
             <a href="https://www.twitter.com"><img class="social-link" src="assets/icons/twitter.svg" alt="Twitter"></a>
           </div>
         </footer>
       </div>
     </div>
-
 
 
   </mat-sidenav-content>
