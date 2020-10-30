@@ -38,20 +38,21 @@
       <!--    toolbar główny-->
       <mat-toolbar class="toolbar">
         <!--      przycisk menu widoczny po zmniejszeniu-->
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          class="circle-button"
-          (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
+        <a mat-button type="button"
+                aria-label="Toggle sidenav"
+                (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+            <img src="assets/icons/table.bmp"
+                 alt="menu icon">
+        </a>
+
         <!--      tekst widoczny po rozszerzeniu-->
         <!--        toolbar przycisk home-->
-        <a mat-mini-fab class="circle-button" [routerLink]="['/']">
-          <mat-icon>home</mat-icon>
+        <a mat-button [routerLink]="['/']">
+          <img src="assets/icons/store2.bmp"
+               alt="home icon" width="27px" height="26px">
         </a>
+
         <!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
         <div class="logo-container">
           <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">

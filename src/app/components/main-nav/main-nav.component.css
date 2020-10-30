@@ -68,7 +68,10 @@
 
 .circle-button{
   color: black;
-  background-color: rgba(169,164,166,0.7);
+  /*background-color: rgba(169,164,166,0.7);*/
+  /*background-image: url("src/assets/icons/arrow1.bmp");*/
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 2px;
 }
 .circle-button:hover{
