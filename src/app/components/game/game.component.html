@@ -3,39 +3,57 @@
     <mat-toolbar class="toolbar">
 
       <button mat-icon-button (click)="snav.toggle()">
-        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>
+<!--        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>-->
+        <img class="menu-icon" src="assets/icons/table.bmp"
+             alt="menu icon" >
       </button>
-      <div class="logo-container">
-        <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
-        <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
-        <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
-      </div>
-
-      <div class="resource">
-        <img class="resource-icon" src="assets/resources/plank.bmp" alt="Plank">
+<!--      <div class="logo-container">-->
+<!--        <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">-->
+<!--        <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">-->
+<!--        <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">-->
+<!--      </div>-->
+    <div class="resources-grid-container">
+      <div class="resource-workers resource">
+        <img class="resource-icon" src="assets/resources/worker.bmp" alt="workers">
         <p class="resource-value">100000</p>
       </div>
-      <div class="resource">
-        <img class="resource-icon" src="assets/resources/stone.bmp" alt="Stone">
+      <div class="resource-builders resource">
+        <img class="resource-icon" src="assets/resources/builder.bmp" alt="builders">
         <p class="resource-value">10000</p>
       </div>
-
-      <div class="food">
-        <img class="resource-icon" src="assets/resources/wine.bmp" alt="Wine">
-        <p class="resource-value">1000</p>
+      <div class="resource-treasure resource">
+        <img class="resource-icon" src="assets/resources/treasure.bmp" alt="treasure">
+        <p class="resource-value">100000</p>
       </div>
-      <div class="food">
-        <img class="resource-icon" src="assets/resources/bread.bmp" alt="Bread">
-        <p class="resource-value">100</p>
+      <div class="resource-army resource">
+        <img class="resource-icon" src="assets/resources/army.bmp" alt="resource">
+        <p class="resource-value">10000</p>
       </div>
-      <div class="food">
-        <img class="resource-icon" src="assets/resources/sausage.bmp" alt="Sausage">
-        <p class="resource-value">10</p>
+      <div class="resource-plank resource">
+        <img class="resource-icon" src="assets/resources/plank.bmp" alt="plank">
+        <p class="resource-value">100000</p>
       </div>
-      <div class="food">
-        <img class="resource-icon" src="assets/resources/fish.bmp" alt="Fish">
-        <p class="resource-value">1</p>
+      <div class="resource-stone resource">
+        <img class="resource-icon" src="assets/resources/stone.bmp" alt="stone">
+        <p class="resource-value">10000</p>
       </div>
+      <div class="resource-bread resource">
+        <img class="resource-icon" src="assets/resources/bread.bmp" alt="bread">
+        <p class="resource-value">100000</p>
+      </div>
+      <div class="resource-sausage resource">
+        <img class="resource-icon" src="assets/resources/sausage.bmp" alt="builders">
+        <p class="resource-value">10000</p>
+      </div>
+      <div class="resource-fish resource">
+        <img class="resource-icon" src="assets/resources/fish.bmp" alt="fish">
+        <p class="resource-value">100000</p>
+      </div>
+      <div class="resource-wine resource">
+        <img class="resource-icon" src="assets/resources/wine.bmp" alt="wine">
+        <p class="resource-value">10000</p>
+      </div>
+    </div>
 
     </mat-toolbar>
   </div>

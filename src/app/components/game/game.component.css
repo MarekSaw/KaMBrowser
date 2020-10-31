@@ -10,9 +10,87 @@
   cursor: url('src/assets/home/cursor.bmp'), auto;
 }
 
-.example-container:active{
+.example-container:active {
   cursor: url('src/assets/home/cursor-focus.bmp'), auto;
 }
+
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 6px;
+}
+
+.menu-icon:hover {
+  background-color: rgba(169, 164, 166, 0.1);
+}
+
+.nav-button {
+  background-image: url("src/assets/home/sidenav-button.bmp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 5px 40px 20px 10px;
+  padding: 2px 0 2px 0;
+  box-shadow: inset 0 0 5px 2px black, 0 0 5px 2px black;
+
+}
+
+.nav-button:hover {
+  box-shadow: inset 0 0 5px 2px rgba(169, 164, 166, 0.1), 0 0 5px 2px rgba(169, 164, 166, 0.1);
+}
+
+.nav-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: black;
+  font-family: "Architects Daughter", sans-serif;
+}
+
+
+.resources-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 110px);
+  grid-template-rows: 30px 30px;
+  column-gap: 5px;
+  row-gap: 4px;
+  grid-template-areas:
+                  "worker treasure plank bread fish"
+                  "builder army stone sasuage wine";
+  margin: 2px 0 0 30px;
+}
+
+.resource-workers{
+  grid-area: worker;
+}
+
+.resource-builders{
+  grid-area: builder;
+}
+.resource-treasure{
+  grid-area: treasure;
+}
+.resource-army{
+  grid-area: plank;
+}
+.resource-plank{
+  grid-area: stone;
+}
+.resource-bread{
+  grid-area: bread;
+}
+.resource-sausage{
+  grid-area: sasuage;
+}
+.resource-fish{
+  grid-area: fish;
+}
+.resource-wine{
+  grid-area: wine;
+}
+
+
 
 .top-nav {
   padding: 0px 20px 50px;
@@ -39,16 +117,6 @@ img.toolbar-logo {
   margin: 10px;
 }
 
-.menu-icon {
-  display: block;
-  font-size: 50px;
-  color: white;
-}
-
-.menu-icon strong:hover {
-  box-shadow: inset 0 0 10px 2px red, 5px 5px 10px 2px red;
-}
-
 .resource {
   display: block;
   width: 100px;
@@ -56,21 +124,6 @@ img.toolbar-logo {
   position: relative;
   float: left;
   left: 5%;
-  background-image: url("src/assets/resources/background.bmp");
-  background-size: cover;
-  padding: 5px;
-  box-shadow: 5px 5px 10px 2px black;
-  margin-right: 20px;
-
-}
-
-.food {
-  display: block;
-  width: 100px;
-  max-height: 20px;
-  position: relative;
-  float: left;
-  left: 10%;
   background-image: url("src/assets/resources/background.bmp");
   background-size: cover;
   padding: 5px;
@@ -103,31 +156,6 @@ img.toolbar-logo {
 .side-nav {
   background-image: url("src/assets/home/sidenav_background.bmp");
   background-position: right top;
-}
-
-.nav-button {
-  display: block;
-
-  background-image: url("src/assets/home/background.png");
-  background-position: right;
-  margin: 5px 40px 20px 10px;
-  box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
-  border-radius: 5px;
-  border: black solid 3px;
-}
-
-.nav-button:hover {
-  box-shadow: inset 0 0 10px red, 10px 10px 10px 2px red;
-}
-
-.nav-button a {
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
-  color: white;
-  padding-right: 10px;
-  font-family: "Architects Daughter", sans-serif;
-
 }
 
 .site-content {
