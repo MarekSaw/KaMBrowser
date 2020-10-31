@@ -56,7 +56,7 @@
   align-items: center;
 }
 #sidenav-menu-text a{
-  background-image: url("src/assets/home/background.png");
+  background-image: url("src/assets/home/stone-button.bmp");
   font-size: 46px;
   font-family: 'Architects Daughter', cursive;
   font-weight: bold;
@@ -151,7 +151,8 @@
 }
 
 footer {
-  background-image: url("src/assets/home/background.png");
+  background-image: url("src/assets/home/buttons-background-gui.png");
+  /*background-size: cover;*/
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
