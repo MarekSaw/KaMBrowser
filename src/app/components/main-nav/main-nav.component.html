@@ -6,28 +6,29 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
-    <!--    toolbar od sidenav-->
+    <!--    toolbar of sidenav-->
     <mat-toolbar id="sidenav-menu-text"><a>Menu</a></mat-toolbar>
+    <!--    sidenav elements-->
     <mat-nav-list class="sidenav-buttons-list">
-      <!--      sidenav home-->
+      <!--      sidenav button home-->
       <div class="sidenav-button">
         <a (click)="drawer.toggle()" [routerLink]="['/']">
           Home
         </a>
       </div>
-      <!--      sidenav login-->
+      <!--      sidenav button login-->
       <div class="sidenav-button">
         <a (click)="drawer.toggle()" [routerLink]="['/','login']">
           Login
         </a>
       </div>
-      <!--      sidenav register-->
+      <!--      sidenav button register-->
       <div class="sidenav-button">
         <a (click)="drawer.toggle()" [routerLink]="['/','register']">
           Register
         </a>
       </div>
-      <!--      sidenav contact-->
+      <!--      sidenav button contact-->
       <div class="sidenav-button">
         <a (click)="drawer.toggle()" [routerLink]="['/','contact']">
           Contact
@@ -37,66 +38,62 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content class="toolbar-container">
+  <mat-sidenav-content>
     <div class="top-nav">
-      <!--    toolbar główny-->
+      <!--    elements of toolbar-->
       <mat-toolbar class="toolbar">
-        <!--      przycisk menu widoczny po zmniejszeniu-->
+        <!--      button menu visible on mobile screen-->
         <a mat-button type="button"
            aria-label="Toggle sidenav"
            (click)="drawer.toggle()"
            *ngIf="isHandset$ | async">
-          <img src="assets/icons/table.bmp"
-               alt="menu icon" width="40px" height="40px">
+          <img class="sidenav-menu-icon" src="assets/icons/table.bmp"
+               alt="menu icon" >
         </a>
 
-        <!--      tekst widoczny po rozszerzeniu-->
-        <!--        toolbar przycisk home-->
-<!--        <a mat-button [routerLink]="['/']">-->
-<!--          <img src="assets/icons/store2.bmp"-->
-<!--               alt="home icon" width="40px" height="40px">-->
-<!--        </a>-->
-
-        <!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
-        <div [routerLink]="['/']" class="logo-container">
-          <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
-          <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
-          <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
+        <!--        logo img as home button-->
+        <div [routerLink]="['/']" class="home-logo-container">
+          <img class="toolbar-home-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
+          <img class="toolbar-home-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
+          <img class="toolbar-home-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
         </div>
-        <!--      </span>-->
-        <!--      rozdzielacz na lewo i prawo-->
+
+        <!--      split elements on left and right side-->
         <span class="spacer"></span>
 
-        <!--      elementy na toolbarze widoczne po rozszerzeniu-->
+        <!--      elements of toolbar which are visible on desktop screen-->
         <div [ngClass]="{hidden: (isHandset$ | async)}">
-          <!--          toolbar przycisk login-->
+          <!--          toolbar button home-->
+          <a mat-flat-button class="nav-button" [routerLink]="['/']">
+            Home
+          </a>
+          <!--          toolbar button login-->
           <a mat-flat-button class="nav-button" [routerLink]="['/','login']">
             Login
           </a>
-          <!--          toolbar przycisk register-->
+          <!--          toolbar button register-->
           <a mat-flat-button class="nav-button" [routerLink]="['/','register']">
             Register
           </a>
-          <!--          toolbar przycisk conact-->
+          <!--          toolbar button contact-->
           <a mat-flat-button class="nav-button" [routerLink]="['/','contact']">
             Contact
           </a>
 
         </div>
-
-        <!--      elementy na toolbarze widoczne po zmiejszeniu-->
-        <div>
-        </div>
       </mat-toolbar>
     </div>
-    <!--    content wstawiany na stronie-->
+
+
     <div>
-      <div class="ng-content">
+      <!--    content -->
+      <div>
         <ng-content></ng-content>
       </div>
+      <!--      footer-->
       <div class="footer-container">
         <footer>
-          <div class="icons">
+          <div>
             <a href="https://www.facebook.com"><img class="social-link" src="assets/icons/facebook.svg" alt="Facebook"></a>
             <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg" alt="Instagram"></a>
             <a href="https://www.twitter.com"><img class="social-link" src="assets/icons/twitter.svg" alt="Twitter"></a>
@@ -105,8 +102,8 @@
       </div>
     </div>
 
-
   </mat-sidenav-content>
+
 </mat-sidenav-container>
 
 

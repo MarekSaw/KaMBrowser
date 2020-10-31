@@ -22,12 +22,12 @@
 
 }
 
-.logo-container {
+.home-logo-container {
   display: block;
   float: left;
 }
 
-img.toolbar-logo {
+img.toolbar-home-logo {
   position: relative;
   height: 50px;
   left: 30px;
