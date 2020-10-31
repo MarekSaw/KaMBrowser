@@ -6,24 +6,25 @@
 .village-map-image {
   position: absolute;
   width: 100%;
-  min-height: 100%;
-
+  /*min-height: 100%;*/
+  height: calc(100vh - 114px);
 }
 
 .grid-list {
-  height: 1080px;
+  /*height: 1080px;*/
+  height: calc(100vh - 114px);
 }
 
 .grid-component {
   font-weight: bold;
   font-family: "Architects Daughter", sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
 }
 
 .grid-component:hover {
   background-color: rgba(255,255,255,0.2);
-  border-radius: 100px;
-  box-shadow: 0 0 10px 10px black;
+  border-radius: 10%;
+  box-shadow: 0 0 10px 2px black;
 }
 
