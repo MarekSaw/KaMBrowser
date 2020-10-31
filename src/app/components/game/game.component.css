@@ -7,6 +7,11 @@
   bottom: 0;
   left: 0;
   right: 0;
+  cursor: url('src/assets/home/cursor.bmp'), auto;
+}
+
+.example-container:active{
+  cursor: url('src/assets/home/cursor-focus.bmp'), auto;
 }
 
 .top-nav {
