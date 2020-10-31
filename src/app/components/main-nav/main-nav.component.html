@@ -52,13 +52,13 @@
 
         <!--      tekst widoczny po rozszerzeniu-->
         <!--        toolbar przycisk home-->
-        <a mat-button [routerLink]="['/']">
-          <img src="assets/icons/store2.bmp"
-               alt="home icon" width="40px" height="40px">
-        </a>
+<!--        <a mat-button [routerLink]="['/']">-->
+<!--          <img src="assets/icons/store2.bmp"-->
+<!--               alt="home icon" width="40px" height="40px">-->
+<!--        </a>-->
 
         <!--        <span [ngClass]="{hidden: (isHandset$ | async)}">-->
-        <div class="logo-container">
+        <div [routerLink]="['/']" class="logo-container">
           <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
           <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
           <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
@@ -98,8 +98,7 @@
         <footer>
           <div class="icons">
             <a href="https://www.facebook.com"><img class="social-link" src="assets/icons/facebook.svg" alt="Facebook"></a>
-            <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg"
-                                                     alt="Instagram"></a>
+            <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg" alt="Instagram"></a>
             <a href="https://www.twitter.com"><img class="social-link" src="assets/icons/twitter.svg" alt="Twitter"></a>
           </div>
         </footer>
