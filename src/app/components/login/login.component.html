@@ -3,15 +3,17 @@
   <img class="left-login-img" src="assets/home/leftarm.bmp" alt="">
 
   <div class="login-area">
+    <form class="container" [formGroup]="loginGroup">
 
-    <input class="input" type="text" placeholder="Username">
-    <input class="input" type="password" placeholder="Password">
+    <input class="input" type="text" placeholder="Username" formControlName="usernameControl">
+    <input class="input" type="password" placeholder="Password" formControlName="passwordControl">
 
     <a class="password-reminder" href="">Forgot password?</a>
 
-    <div class="nav-button">
-      <a mat-list-item [routerLink]="'/game'">Get to game!</a>
-    </div>
+      <button class="login-button" [disabled]="!loginGroup.valid" [routerLink]="'/game'">
+      Get to game!
+      </button>
+    </form>
   </div>
 
   <img class="right-login-img" src="assets/home/rightarm.bmp" alt="">

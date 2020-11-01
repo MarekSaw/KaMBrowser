@@ -2,7 +2,7 @@
 
 .content {
   display: grid;
-  justify-content: space-between;
+  justify-content: center;
   grid-template: 100% / 30% 40% 30%;
   background-image: url("src/assets/home/scroll6.png");
   background-size: cover;
@@ -14,8 +14,12 @@
 .login-area {
   display: grid;
   grid-area: 1 / 2 / span 1 / span 1;
-  align-self: center;
   justify-self: center;
+}
+
+.container {
+  display: grid;
+  justify-items: center;
 }
 
 .input {
@@ -75,26 +79,22 @@
 }
 
 
-.nav-button {
+.login-button {
   display: flex;
   justify-content: center;
-  width: auto;
+  width: 10vw;
   background-image: url("src/assets/home/background.png");
   background-position: right;
   margin: 30px 10px 20px 10px;
   box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
   border-radius: 5px;
   border: black solid 3px;
-}
-
-.nav-button:hover {
-  box-shadow: inset 0 0 10px red, 10px 10px 10px 2px red;
-}
-
-.nav-button a {
   font-size: 20px;
   color: white;
   font-family: "Architects Daughter", sans-serif;
-  text-decoration: none;
-
 }
+
+.login-button:hover:enabled {
+  box-shadow: inset 0 0 10px red, 10px 10px 10px 2px red;
+}
+
