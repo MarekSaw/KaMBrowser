@@ -1,8 +1,72 @@
 .content {
-  background-image: url("src/assets/home/scroll5.png");
-  background-size: cover;
-  border-radius: 20px 20px 5px 5px;
-  box-shadow: inset 0 0 15px black, 0 0 30px 15px black;
-  padding: 100px 100px 100px 100px;
+  /*background-image: url("src/assets/home/scroll5.png");*/
+  /*background-size: cover;*/
+  /*border-radius: 20px 20px 5px 5px;*/
+  /*box-shadow: inset 0 0 15px black, 0 0 30px 15px black;*/
+  /*padding: 100px 100px 100px 100px;*/
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: calc(100vh - 114px) 72px 100vh 72px 100vh 72px calc(100vh - 114px);
+  /*row-gap: 20px;*/
+  grid-template-areas:
+                  "title"
+                  "home-row-spacer1"
+                  "story"
+                  "home-row-spacer2"
+                  "mechanics"
+                  "home-row-spacer3"
+                  "gameplay";
+}
 
+.title-container{
+  grid-area: title;
+  background-color: #FEDCC8;
+}
+
+.story-container{
+  grid-area: story;
+  background-color: #FEDCC8;
+}
+.mechanics-container{
+  grid-area: mechanics;
+  background-color: darkgrey;
+}
+.gameplay-container{
+  grid-area: gameplay;
+  background-color: darkkhaki;
+}
+.home-row-spacer{
+  background-image: url("src/assets/home/home-row-spacer.bmp");
+}
+.row-spacer1{
+  grid-area: home-row-spacer1;
+}
+.row-spacer2{
+  grid-area: home-row-spacer2;
+}
+.row-spacer3{
+  grid-area: home-row-spacer3;
+}
+
+
+.parallax__layer__0{
+  transform: translateZ(-300px) scale(4);
+}
+.parallax__layer__1{
+  transform: translateZ(-250px) scale(3.5);
+}
+.parallax__layer__2{
+  transform: translateZ(-200px) scale(3);
+}
+.parallax__layer__3{
+  transform: translateZ(-150px) scale(2.5);
+}
+.parallax__layer__4{
+  transform: translateZ(-100px) scale(2);
+}
+.parallax__layer__5{
+  transform: translateZ(-50px) scale(1.5);
+}
+.parallax__layer__6{
+  transform: translateZ(0px) scale(1);
 }

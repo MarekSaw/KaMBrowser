@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-main-site',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainSiteComponent implements OnInit {
 
+  public scrollHeight: ElementRef;
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public onScroll(): void{
+    const scrollHeight = this.scrollHeight.nativeElement as HTMLElement;
+    console.log(' dupa ' + scrollHeight);
+  }
 }
