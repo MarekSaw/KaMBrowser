@@ -1,3 +1,22 @@
 <div class="content">
-  <p>CONTACT WINDOW</p>
+  <form class="contact-area">
+    <div class="input-area">
+      <input [formControl]="emailControl" class="input" type="email" placeholder="E-mail">
+      <div class="tooltip" [@showHide]="emailControl.hasError('pattern') ? 'show' : 'hide'">
+        <span class="tooltip-text">E-mail is not valid!</span>
+      </div>
+    </div>
+
+    <div class="message-area">
+      <textarea [formControl]="messageControl" class="message" placeholder="Message..."></textarea>
+    </div>
+
+    <div class="send-area">
+    <button class="send-button" [routerLink]="'/'"
+            [disabled]="!messageControl.valid || !emailControl.valid">
+      Send message
+    </button>
+    </div>
+  </form>
+
 </div>
