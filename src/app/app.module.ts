@@ -25,6 +25,7 @@ import {MainNavComponent} from './components/main-nav/main-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -58,6 +59,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatTooltipModule,
   ],
   providers: [
     MatIcon,
