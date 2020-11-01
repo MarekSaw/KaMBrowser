@@ -1,0 +1,95 @@
+@import '~compass-mixins/lib/compass/css3';
+
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+
+
+.parallax {
+  perspective: 100px;
+  height: calc(100vh - 114px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  //overflow-y: hidden;
+  position: absolute;
+  //top: 0;
+  left: 50%;
+  right: 0;
+  //bottom: 0;
+  margin-left: -1500px;
+}
+.parallax::-webkit-scrollbar{
+  display: none;
+}
+.parallax2::-webkit-scrollbar{
+  display: none;
+}
+.parallax2 {
+  perspective: 100px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  //overflow-y: hidden;
+  position: absolute;
+  //top: 0;
+  left: 50%;
+  right: 0;
+  //bottom: 0;
+  margin-left: -1500px;
+}
+.parallax__layer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  img{
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.parallax__cover{
+  background: #2D112B;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 35vh;
+  z-index: 2;
+}
+
+//$parallax__layers: 6;
+//
+//@for $i from 0 through $parallax__layers {
+//  $x: ($parallax__layers - $i) / 2;
+//  .parallax__layer__#{$i}{
+//    transform: translateZ(-100 * $x#{px}) scale($x + 1);
+//  }
+//}
+//.parallax__layer__0{
+//  transform: translateZ(-100 * 3#{px}) scale(3 + 1);
+//}
+//.parallax__layer__1{
+//  transform: translateZ(-100 * 2.5#{px}) scale(2.5 + 1);
+//}
+//.parallax__layer__2{
+//  transform: translateZ(-100 * 2#{px}) scale(2 + 1);
+//}
+//.parallax__layer__3{
+//  transform: translateZ(-100 * 1.5#{px}) scale(1.5 + 1);
+//}
+//.parallax__layer__4{
+//  transform: translateZ(-100 * 1#{px}) scale(1 + 1);
+//}
+//.parallax__layer__5{
+//  transform: translateZ(-100 * 0.5#{px}) scale(0.5 + 1);
+//}
+//.parallax__layer__6{
+//  transform: translateZ(-100 * 0#{px}) scale(0 + 1);
+//}
+
+
