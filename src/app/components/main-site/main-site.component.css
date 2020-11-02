@@ -20,16 +20,43 @@
 
 .title-container{
   grid-area: title;
-  background-color: #FEDCC8;
+  background-color: rgb(139,197,247);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+.register-button-from-main-site{
+  background-image: url("src/assets/home/stone-button.bmp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 270px;
+  height: 70px;
+  border-radius: 8px;
+  box-shadow:  inset 0 0 4px 3px black, 0 0 20px 4px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  margin-top: 20px;
+}
+.register-button-from-main-site a {
+  font-size: 28px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Architects Daughter', cursive;
 }
 
+.register-button-from-main-site:hover{
+  /*box-shadow: inset 0 0 4px 3px rgba(169, 164, 166, 0.1), 0 0 10px 4px rgba(169, 164, 166, 0.2);*/
+}
 .story-container{
   grid-area: story;
   background-color: #FEDCC8;
 }
 .mechanics-container{
   grid-area: mechanics;
-  background-color: darkgrey;
+  background-color: #FEDCC8;
 }
 .gameplay-container{
   grid-area: gameplay;
@@ -66,7 +93,12 @@
 }
 .parallax__layer__5{
   transform: translateZ(-50px) scale(1.5);
+
 }
 .parallax__layer__6{
   transform: translateZ(0px) scale(1);
+}
+
+.parallax__cover-1 {
+  background-image: url("src/assets/parallax/parallal-cover-1.png");
 }

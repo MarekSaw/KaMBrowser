@@ -17,6 +17,7 @@
   right: 0;
   //bottom: 0;
   margin-left: -1500px;
+  max-width: 3000px;
 }
 .parallax::-webkit-scrollbar{
   display: none;
@@ -36,6 +37,7 @@
   right: 0;
   //bottom: 0;
   margin-left: -1500px;
+  max-width: 3000px;
 }
 .parallax__layer{
   position: absolute;
@@ -50,7 +52,16 @@
     bottom: 0;
   }
 }
-
+.parallax__cover-1{
+  //background-image: url("src/assets/parallax/parallal-cover-1.png");
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 35vh;
+  z-index: 2;
+}
 .parallax__cover{
   background: #2D112B;
   display: block;
