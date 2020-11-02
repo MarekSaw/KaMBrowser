@@ -23,9 +23,10 @@
 .toolbar {
   background-image: url("src/assets/home/background.png");
   box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
-  grid-template: 100% / 5% 30% auto;
+  grid-template: 100% / max-content max-content max-content auto;
   display: grid;
-  grid-template-areas: "menu-icon logo resources";
+  column-gap: 10px;
+  grid-template-areas: "menu-icon logo resources-icon rest";
 }
 
 .logo-container {
@@ -37,7 +38,6 @@
 img.toolbar-logo {
   position: relative;
   height: 50px;
-  left: 30px;
   margin: 10px;
 }
 
@@ -54,6 +54,24 @@ img.toolbar-logo {
 }
 
 .menu-icon:active {
+  cursor: url('src/assets/home/cursor-focus.bmp'), auto;
+}
+
+.resources-icon {
+  display: flex;
+  justify-content: flex-end;
+  width: 50px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 6px;
+  cursor: url('src/assets/home/cursor.bmp'), auto;
+  grid-area: resources-icon;
+}
+
+.resources-icon:hover {
+  background-color: rgba(169, 164, 166, 0.1);
+}
+
+.resources-icon:active {
   cursor: url('src/assets/home/cursor-focus.bmp'), auto;
 }
 
@@ -87,19 +105,25 @@ img.toolbar-logo {
 
 
 .resources-grid-container {
-  grid-area: resources;
   display: grid;
-  grid-template-columns: repeat(8, 110px);
-  grid-template-rows: 100%;
-  column-gap: 5px;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(8, auto);
+  row-gap: 10px;
+  margin: 20px 10px 0 30px;
   grid-template-areas:
-                  "worker builder plank stone wine bread fish sausage";
-
-
+                  "worker"
+                  "builder"
+                  "plank"
+                  "stone"
+                  "wine"
+                  "bread"
+                  "fish"
+                  "sausage";
 }
 
 .resource-workers{
   grid-area: worker;
+
 }
 .resource-builders{
   grid-area: builder;
@@ -125,14 +149,17 @@ img.toolbar-logo {
   grid-area: wine;
 }
 
+.mb {
+  margin: 0 0 20px 0;
+}
+
 .resource {
   display: grid;
   width: 100px;
   max-height: 30px;
   background-image: url("src/assets/resources/background.bmp");
   background-size: cover;
-  box-shadow: 5px 5px 10px 2px black;
-  align-content: center;
+  box-shadow: 5px 5px 5px 1px black;
   grid-template: 100% / 20% 80%;
   grid-template-areas: "resource-icon resource-value";
 }
@@ -147,16 +174,18 @@ img.toolbar-logo {
 .resource-value {
   display: grid;
   justify-self: flex-end;
-  align-items: center;
-  margin-right: 8px;
+  align-self: center;
+  margin: 6px 8px 6px 0;
+
   font-size: 16px;
   color: white;
   font-family: "Comic Sans MS", sans-serif;
 }
 
-.example-sidenav-container {
-  flex: 1 0 auto;
-
+.side-resources {
+  background-image: url("src/assets/home/sidenav_resource.png");
+  box-shadow: 0 0 20px 5px black;
+  z-index: 2;
 }
 
 .side-nav {
@@ -168,5 +197,3 @@ img.toolbar-logo {
   box-shadow: inset 0 0 10px 5px black;
   height: calc(100vh - 114px);
 }
-
-

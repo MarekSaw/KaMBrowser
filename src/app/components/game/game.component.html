@@ -3,55 +3,27 @@
     <mat-toolbar class="toolbar">
 
       <button mat-icon-button (click)="snav.toggle()">
-<!--        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>-->
+        <!--        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>-->
         <img class="menu-icon" src="assets/icons/table.bmp"
-             alt="menu icon" >
+             alt="menu icon">
       </button>
       <div class="logo-container">
         <img class="toolbar-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
         <img class="toolbar-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
         <img class="toolbar-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
       </div>
+      <button mat-icon-button (click)="resources.toggle()">
+        <!--        <mat-icon class="menu-icon"><strong>menu</strong></mat-icon>-->
+        <img class="resources-icon" src="assets/icons/resources.png"
+             alt="resources icon">
+      </button>
 
-    <div class="resources-grid-container">
-      <div class="resource-workers resource">
-        <img class="resource-icon" src="assets/resources/worker.bmp" alt="workers">
-        <p class="resource-value">100000</p>
-      </div>
-      <div class="resource-builders resource">
-        <img class="resource-icon" src="assets/resources/builder.bmp" alt="builders">
-        <p class="resource-value">10000</p>
-      </div>
-      <div class="resource-plank resource">
-        <img class="resource-icon" src="assets/resources/plank.bmp" alt="plank">
-        <p class="resource-value">100000</p>
-      </div>
-      <div class="resource-stone resource">
-        <img class="resource-icon" src="assets/resources/stone.bmp" alt="stone">
-        <p class="resource-value">10000</p>
-      </div>
-      <div class="resource-bread resource">
-        <img class="resource-icon" src="assets/resources/bread.bmp" alt="bread">
-        <p class="resource-value">100000</p>
-      </div>
-      <div class="resource-sausage resource">
-        <img class="resource-icon" src="assets/resources/sausage.bmp" alt="builders">
-        <p class="resource-value">10000</p>
-      </div>
-      <div class="resource-fish resource">
-        <img class="resource-icon" src="assets/resources/fish.bmp" alt="fish">
-        <p class="resource-value">100000</p>
-      </div>
-      <div class="resource-wine resource">
-        <img class="resource-icon" src="assets/resources/wine.bmp" alt="wine">
-        <p class="resource-value">10000</p>
-      </div>
-    </div>
+
 
     </mat-toolbar>
   </div>
 
-  <mat-sidenav-container class="example-sidenav-container">
+  <mat-sidenav-container class="example-sidenav-container" [hasBackdrop]="!(resources.opened && !snav.opened)">
     <mat-sidenav class="side-nav" #snav [mode]="'over'">
       <mat-nav-list>
         <div class="nav-button">
@@ -70,6 +42,43 @@
           <a mat-list-item [routerLink]="'/'">Logout</a>
         </div>
       </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav class="side-resources" #resources [mode]="'over'" [position]="'end'">
+      <div class="resources-grid-container">
+        <div class="resource-workers resource">
+          <img class="resource-icon" src="assets/resources/worker.bmp" alt="workers">
+          <p class="resource-value">100000</p>
+        </div>
+        <div class="resource-builders resource mb">
+          <img class="resource-icon" src="assets/resources/builder.bmp" alt="builders">
+          <p class="resource-value">10000</p>
+        </div>
+        <div class="resource-plank resource">
+          <img class="resource-icon" src="assets/resources/plank.bmp" alt="plank">
+          <p class="resource-value">100000</p>
+        </div>
+        <div class="resource-stone resource mb">
+          <img class="resource-icon" src="assets/resources/stone.bmp" alt="stone">
+          <p class="resource-value">10000</p>
+        </div>
+        <div class="resource-bread resource">
+          <img class="resource-icon" src="assets/resources/bread.bmp" alt="bread">
+          <p class="resource-value">100000</p>
+        </div>
+        <div class="resource-sausage resource">
+          <img class="resource-icon" src="assets/resources/sausage.bmp" alt="builders">
+          <p class="resource-value">10000</p>
+        </div>
+        <div class="resource-fish resource">
+          <img class="resource-icon" src="assets/resources/fish.bmp" alt="fish">
+          <p class="resource-value">100000</p>
+        </div>
+        <div class="resource-wine resource">
+          <img class="resource-icon" src="assets/resources/wine.bmp" alt="wine">
+          <p class="resource-value">10000</p>
+        </div>
+      </div>
     </mat-sidenav>
 
     <mat-sidenav-content class="site-content">
