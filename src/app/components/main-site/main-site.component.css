@@ -52,7 +52,7 @@
 }
 .story-container{
   grid-area: story;
-  background-color: #FEDCC8;
+  /*background-color: #FEDCC8;*/
 }
 .mechanics-container{
   grid-area: mechanics;
@@ -102,3 +102,11 @@
 .parallax__cover-1 {
   background-image: url("src/assets/parallax/parallal-cover-1.png");
 }
+
+.parallax__cover-food-1 {
+  background-image: url("src/assets/parallax/layer-cover-food.png");
+}
+
+/*.parallax__layer-food__1{*/
+/*  transform: translateZ(0px) scale(1);*/
+/*}*/

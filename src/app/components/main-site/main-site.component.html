@@ -7,7 +7,7 @@
       </a>
     </div>
 
-    <div class="parallax">
+    <div class="parallax" (scroll) = "onContentScroll($event)">
       <div class="parallax__layer parallax__layer__0">
         <img
           src="assets/parallax/layer-1-0.png"/>
@@ -32,9 +32,17 @@
         <img
           src="assets/parallax/layer-1-5.png"/>
       </div>
+      <div class="parallax__layer parallax__layer__5">
+        <img
+          [src]="layer5Flags"/>
+      </div>
       <div class="parallax__layer parallax__layer__6">
         <img
           src="assets/parallax/layer-1-6.png"/>
+      </div>
+      <div class="parallax__layer parallax__layer__6">
+        <img
+          [src]="layer6Flags"/>
       </div>
       <div class="parallax__cover-1"></div>
     </div>
@@ -43,14 +51,27 @@
 
 
   <div class="home-row-spacer row-spacer1"></div>
+
   <div class="story-container">
-    <p>TAKSSADADADWDW</p>
+
+    <div class="parallax2">
+      <div class="parallax__layer-food-1">
+        <img
+          src="../../../assets/parallax/layer-cover-food.png"/>
+      </div>
+            <div class="parallax__layer-food-1">
+              <img
+                [src]="layersOfFood"/>
+            </div>
+    </div>
   </div>
+
   <div class="home-row-spacer row-spacer2"></div>
+
   <div class="mechanics-container">
 
 
-    <div class="parallax2">
+    <div class="parallax3" >
       <div class="parallax__layer parallax__layer__0">
         <img
           src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_0.png?raw=true"/>
@@ -73,16 +94,16 @@
       </div>
       <div class="parallax__layer parallax__layer__5">
         <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_5.png?raw=true"/>
+          src="../../../assets/parallax/flags-1.png"/>
       </div>
       <div class="parallax__layer parallax__layer__6">
         <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true"/>
+          [src]="activeImage"/>
       </div>
       <div class="parallax__cover"></div>
     </div>
 
-
+<!--    [src]="testAnimation()"/>-->
   </div>
   <div class="home-row-spacer row-spacer3"></div>
   <div class="gameplay-container">
