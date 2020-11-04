@@ -18,4 +18,7 @@ export class MainNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  public scrollTopOfWindowScreen(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

@@ -1,18 +1,16 @@
 <div class="content">
 
   <div class="title-container">
-    <div class="register-button-from-main-site">
-      <a [routerLink]="['/','register']">
-        Start the adventure
-      </a>
+    <div class="register-button-from-main-site mat-flat-button" [routerLink]="['/','register']">
+      <a>Start the adventure</a>
     </div>
 
-    <div class="parallax" (scroll) = "onContentScroll($event)">
+    <div class="parallax">
       <div class="parallax__layer parallax__layer__0">
         <img
           src="assets/parallax/layer-1-0.png"/>
       </div>
-      <div class="parallax__layer parallax__layer__1" >
+      <div class="parallax__layer parallax__layer__1">
         <img
           src="assets/parallax/layer-1-1.png"/>
       </div>
@@ -52,17 +50,17 @@
 
   <div class="home-row-spacer row-spacer1"></div>
 
-  <div class="story-container">
+  <div class="food-production-container">
 
-    <div class="parallax2">
+    <div class="parallax-food-production" id="parallax-food-production" (scroll)="onContentScroll()">
       <div class="parallax__layer-food-1">
         <img
           src="../../../assets/parallax/layer-cover-food.png"/>
       </div>
-            <div class="parallax__layer-food-1">
-              <img
-                [src]="layersOfFood"/>
-            </div>
+      <div class="parallax__layer-food-1">
+        <img
+          [src]="layersOfFood"/>
+      </div>
     </div>
   </div>
 
@@ -71,12 +69,12 @@
   <div class="mechanics-container">
 
 
-    <div class="parallax3" >
+    <div class="parallax3">
       <div class="parallax__layer parallax__layer__0">
         <img
           src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_0.png?raw=true"/>
       </div>
-      <div class="parallax__layer parallax__layer__1" >
+      <div class="parallax__layer parallax__layer__1">
         <img
           src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_1.png?raw=true"/>
       </div>
@@ -94,20 +92,23 @@
       </div>
       <div class="parallax__layer parallax__layer__5">
         <img
-          src="../../../assets/parallax/flags-1.png"/>
+          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_5.png?raw=true"/>
       </div>
       <div class="parallax__layer parallax__layer__6">
         <img
-          [src]="activeImage"/>
+          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true"/>
       </div>
       <div class="parallax__cover"></div>
     </div>
 
-<!--    [src]="testAnimation()"/>-->
+
   </div>
   <div class="home-row-spacer row-spacer3"></div>
   <div class="gameplay-container">
-    <p>TAKSSADADADWDW</p>
+
+
+
+
   </div>
 
 </div>

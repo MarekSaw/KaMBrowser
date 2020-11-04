@@ -16,10 +16,10 @@ import {
 })
 export class MainSiteComponent implements OnInit {
 
-  public activeImage = 'https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true';
-  public layer5Flags = '../../../assets/parallax/layer5Flags-1.png';
-  public layer6Flags;
-  public layersOfFood;
+
+  public layer5Flags: string;
+  public layer6Flags: string;
+  public layersOfFood: string;
 
   constructor(private cdRef: ChangeDetectorRef) {
   }
@@ -46,11 +46,30 @@ export class MainSiteComponent implements OnInit {
 
     // Your Code Here
 
+    const scrollTop = e.target.scrollingElement.scrollTop;
+    const docHeight = e.target.scrollingElement.scrollHeight - document.documentElement.offsetHeight;
+    const winHeight = window.innerHeight;
+    const scrollPercent = scrollTop / (docHeight - winHeight);
+    const scrollPercentRounded = Math.round(scrollPercent * 100);
+    console.log(scrollPercentRounded + '%');
+
   }
 
-  public onContentScroll(e: Event): void {
-    console.log('parallax' + (e.target as Element).scrollTop);
+  public onContentScroll(): void {
+
+    const scrollPercent = this.scrollPercentForElementById('parallax-food-production');
+    console.log('scrollPercent ' + scrollPercent + '%');
   }
+
+  private scrollPercentForElementById(id: string): number {
+    const parallaxFoodProduction = document.getElementById(id);
+    const scrollTop = parallaxFoodProduction.scrollTop;
+    const offsetHeight = parallaxFoodProduction.offsetHeight;
+    const scrollHeight = parallaxFoodProduction.scrollHeight;
+
+    return Math.round((scrollTop / (scrollHeight - offsetHeight)) * 100);
+  }
+
 
 
 }

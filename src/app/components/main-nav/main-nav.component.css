@@ -172,3 +172,23 @@ footer {
   box-shadow: 0 0 10px 5px rgba(16, 147, 244, 1);
 }
 
+.scrollTop-button{
+  background-image: url("src/assets/home/stone-button.bmp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  box-shadow:  inset 0 0 10px black, 10px 10px 10px 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 0 30px;
+}
+.scrollTop-button a {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-family: 'Architects Daughter', cursive;
+}
