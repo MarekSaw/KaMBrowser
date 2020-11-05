@@ -21,6 +21,12 @@ export class MainSiteComponent implements OnInit {
   public layer6Flags: string;
   public layersOfFood: string;
 
+  private windowScrollPercent: number;
+  private parallaxFoodProductionScrollPercent: number;
+  private parallaxTitleScrollPercent: number;
+  private contentScrollPercent: number;
+  private isWindowScrolledTo = false;
+
   constructor(private cdRef: ChangeDetectorRef) {
   }
 
@@ -42,23 +48,65 @@ export class MainSiteComponent implements OnInit {
 
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e): void {
-    console.log(e.target.scrollingElement.scrollTop);
+    // console.log(e.target.scrollingElement.scrollTop);
 
     // Your Code Here
 
     const scrollTop = e.target.scrollingElement.scrollTop;
-    const docHeight = e.target.scrollingElement.scrollHeight - document.documentElement.offsetHeight;
-    const winHeight = window.innerHeight;
-    const scrollPercent = scrollTop / (docHeight - winHeight);
-    const scrollPercentRounded = Math.round(scrollPercent * 100);
-    console.log(scrollPercentRounded + '%');
+    console.log('window scroll top' + scrollTop);
+    const docHeight = e.target.scrollingElement.scrollHeight;
+    const clientHeight = e.target.scrollingElement.clientHeight;
+    const contentHeight = docHeight - clientHeight;
+    const scrollPercent = scrollTop / contentHeight;
+
+    this.windowScrollPercent = Math.round((scrollPercent * 100 + Number.EPSILON) * 100) / 100;
+    console.log(this.windowScrollPercent + '%');
+
+
+
+    if (this.windowScrollPercent <= 34.44) {
+
+      document.getElementById('parallax-food-production').scrollTop = 0;
+      document.getElementById('parallax-food-production').style.overflowY = 'hidden';
+      this.isWindowScrolledTo = false;
+    } else if (this.windowScrollPercent > 34.44) {
+      document.getElementById('parallax-food-production').style.overflowY = 'auto';
+      if (this.parallaxFoodProductionScrollPercent < 99) {
+      window.scrollTo(0, 34.45 / 100 * contentHeight);
+      console.log('test scroll to ' + 34.45 / 100 * contentHeight);
+      }
+    }
+
 
   }
 
   public onContentScroll(): void {
+    this.contentScrollPercent = this.scrollPercentForElementById('main-site-content');
+    console.log('contentScrollPercent ' + this.contentScrollPercent + '%');
+  }
 
-    const scrollPercent = this.scrollPercentForElementById('parallax-food-production');
-    console.log('scrollPercent ' + scrollPercent + '%');
+
+
+  public  onParallaxTitleScroll():
+    void {
+    this.parallaxTitleScrollPercent = this.scrollPercentForElementById('parallax-title');
+    console.log('scrollPercentTitle ' + this.parallaxFoodProductionScrollPercent + '%');
+
+
+  }
+
+  public onParallaxFoodProductionScroll(): void {
+
+    this.parallaxFoodProductionScrollPercent = this.scrollPercentForElementById('parallax-food-production');
+    console.log('scrollPercentFood ' + this.parallaxFoodProductionScrollPercent + '%');
+
+
+    if (this.parallaxFoodProductionScrollPercent > 20
+    ) {
+      console.log('nastąpiłą zmiana opacity');
+      document.getElementById('scroll-layer-1').style.opacity = '0.2';
+    }
+
   }
 
   private scrollPercentForElementById(id: string): number {
