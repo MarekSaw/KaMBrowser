@@ -1,11 +1,8 @@
 import {
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
-  ElementRef,
   HostListener,
-  OnDestroy,
   OnInit,
-  Renderer2, ViewChild
 } from '@angular/core';
 
 @Component({
@@ -101,7 +98,7 @@ export class MainSiteComponent implements OnInit {
 
     if (this.parallaxFoodProductionScrollPercent > 20
     ) {
-      console.log('nastąpiłą zmiana opacity');
+      console.log('oppacity changed');
       document.getElementById('scroll-layer-1').style.opacity = '0.2';
     }
 

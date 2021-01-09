@@ -48,3 +48,58 @@
   background-color: white;
   color: black;
 }
+/**/
+.grid-component-building-1 {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  background-image: url('src/assets/buildings/1.bmp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.grid-component-building-8 {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  background-image: url('src/assets/buildings/8.bmp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.grid-component-building-9 {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  background-image: url('src/assets/buildings/9.bmp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.grid-component-building-19 {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  background-image: url('src/assets/buildings/19.bmp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.grid-component-building-7 {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  background-image: url('src/assets/buildings/7.bmp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.grid-component-building-10 {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  background-image: url('src/assets/buildings/10.bmp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
