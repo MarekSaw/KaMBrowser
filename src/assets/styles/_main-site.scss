@@ -19,7 +19,7 @@
 .parallax-title::-webkit-scrollbar{
   display: none;
 }
-.parallax-food-production::-webkit-scrollbar{
+.food-production-elements::-webkit-scrollbar{
   display: none;
 }
 .parallax3::-webkit-scrollbar{
@@ -35,6 +35,16 @@
   right: 0;
   margin-left: -1500px;
   max-width: 3000px;
+}
+.parallax__cover-1{
+
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 35vh;
+  z-index: 2;
 }
 
 .parallax__layer{
@@ -52,9 +62,9 @@
 }
 
 
-.parallax-food-production {
-  perspective: 100px;
-  height: 100vh;
+.food-production-elements {
+  //perspective: 100px;
+  height: 2358px;
   overflow-x: hidden;
   overflow-y: auto;
   position: absolute;
@@ -63,7 +73,7 @@
   margin-left: -1500px;
   max-width: 3000px;
 }
-.parallax__layer-food-1{
+.food-production-layer-1{
   position: absolute;
   top: 0;
   right: 0;
@@ -79,16 +89,6 @@
 }
 
 
-.parallax__cover-1{
-
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 35vh;
-  z-index: 2;
-}
 
 
 

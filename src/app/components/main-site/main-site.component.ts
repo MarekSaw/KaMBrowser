@@ -50,7 +50,6 @@ export class MainSiteComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onWindowScroll(e): void {
     // console.log(e.target.scrollingElement.scrollTop);
 
-    // Your Code Here
 
     const scrollTop = e.target.scrollingElement.scrollTop;
     console.log('window scroll top' + scrollTop);
@@ -64,18 +63,18 @@ export class MainSiteComponent implements OnInit {
 
 
 
-    if (this.windowScrollPercent <= 34.44) {
-
-      document.getElementById('parallax-food-production').scrollTop = 0;
-      document.getElementById('parallax-food-production').style.overflowY = 'hidden';
-      this.isWindowScrolledTo = false;
-    } else if (this.windowScrollPercent > 34.44) {
-      document.getElementById('parallax-food-production').style.overflowY = 'auto';
-      if (this.parallaxFoodProductionScrollPercent < 99) {
-      window.scrollTo(0, 34.45 / 100 * contentHeight);
-      console.log('test scroll to ' + 34.45 / 100 * contentHeight);
-      }
-    }
+    // if (this.windowScrollPercent <= 34.44) {
+    //
+    //   document.getElementById('parallax-food-production').scrollTop = 0;
+    //   document.getElementById('parallax-food-production').style.overflowY = 'hidden';
+    //   this.isWindowScrolledTo = false;
+    // } else if (this.windowScrollPercent > 34.44) {
+    //   document.getElementById('parallax-food-production').style.overflowY = 'auto';
+    //   if (this.parallaxFoodProductionScrollPercent < 99) {
+    //   window.scrollTo(0, 34.45 / 100 * contentHeight);
+    //   console.log('test scroll to ' + 34.45 / 100 * contentHeight);
+    //   }
+    // }
 
 
   }
@@ -87,10 +86,9 @@ export class MainSiteComponent implements OnInit {
 
 
 
-  public  onParallaxTitleScroll():
-    void {
+  public  onParallaxTitleScroll(): void {
     this.parallaxTitleScrollPercent = this.scrollPercentForElementById('parallax-title');
-    console.log('scrollPercentTitle ' + this.parallaxFoodProductionScrollPercent + '%');
+    console.log('scrollPercentTitle ' + this.parallaxTitleScrollPercent + '%');
 
 
   }
