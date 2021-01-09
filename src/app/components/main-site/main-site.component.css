@@ -6,7 +6,7 @@
   /*padding: 100px 100px 100px 100px;*/
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: calc(100vh - 114px) 72px 100vh 72px 100vh 72px calc(100vh - 114px);
+  grid-template-rows: 100vh 72px 100vh 72px 100vh 72px 100vh;
   /*row-gap: 20px;*/
   grid-template-areas:
                   "title"
@@ -103,6 +103,9 @@
   background-image: url("src/assets/parallax/parallal-cover-1.png");
 }
 
-
+#scroll-layer-1{
+  position: absolute;
+  z-index: 3;
+}
 
 

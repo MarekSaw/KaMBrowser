@@ -1,11 +1,11 @@
-<div class="content">
+<div class="content" id="main-site-content" (scroll)="onContentScroll()">
 
   <div class="title-container">
     <div class="register-button-from-main-site mat-flat-button" [routerLink]="['/','register']">
       <a>Start the adventure</a>
     </div>
 
-    <div class="parallax">
+    <div class="parallax-title" id="parallax-title" (scroll)="onParallaxTitleScroll()">
       <div class="parallax__layer parallax__layer__0">
         <img
           src="assets/parallax/layer-1-0.png"/>
@@ -52,7 +52,7 @@
 
   <div class="food-production-container">
 
-    <div class="parallax-food-production" id="parallax-food-production" (scroll)="onContentScroll()">
+    <div class="parallax-food-production" id="parallax-food-production" (scroll)="onParallaxFoodProductionScroll()">
       <div class="parallax__layer-food-1">
         <img
           src="../../../assets/parallax/layer-cover-food.png"/>
@@ -60,6 +60,10 @@
       <div class="parallax__layer-food-1">
         <img
           [src]="layersOfFood"/>
+      </div>
+      <div id="scroll-layer-1">
+        <img
+          src="../../../assets/parallax/scroll-layer-1.png"/>
       </div>
     </div>
   </div>
@@ -69,37 +73,37 @@
   <div class="mechanics-container">
 
 
-    <div class="parallax3">
-      <div class="parallax__layer parallax__layer__0">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_0.png?raw=true"/>
-      </div>
-      <div class="parallax__layer parallax__layer__1">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_1.png?raw=true"/>
-      </div>
-      <div class="parallax__layer parallax__layer__2">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_2.png?raw=true"/>
-      </div>
-      <div class="parallax__layer parallax__layer__3">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_3.png?raw=true"/>
-      </div>
-      <div class="parallax__layer parallax__layer__4">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_4.png?raw=true"/>
-      </div>
-      <div class="parallax__layer parallax__layer__5">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_5.png?raw=true"/>
-      </div>
-      <div class="parallax__layer parallax__layer__6">
-        <img
-          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true"/>
-      </div>
-      <div class="parallax__cover"></div>
-    </div>
+<!--    <div class="parallax3">-->
+<!--      <div class="parallax__layer parallax__layer__0">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_0.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__layer parallax__layer__1">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_1.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__layer parallax__layer__2">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_2.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__layer parallax__layer__3">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_3.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__layer parallax__layer__4">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_4.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__layer parallax__layer__5">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_5.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__layer parallax__layer__6">-->
+<!--        <img-->
+<!--          src="https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true"/>-->
+<!--      </div>-->
+<!--      <div class="parallax__cover"></div>-->
+<!--    </div>-->
 
 
   </div>
