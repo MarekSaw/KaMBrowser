@@ -1,3 +1,18 @@
+
+
 .grid-list {
-  min-height: 100vh;
+  height: 100%;
+
+}
+
+.grid-tile {
+  display: flex;
+  flex-direction: row;
+}
+
+.tile {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
 }
