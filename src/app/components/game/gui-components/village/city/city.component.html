@@ -7,13 +7,12 @@
       *ngFor="let tile of tiles"
       [colspan]="tile.cols"
       [rowspan]="tile.rows"
-      (click)="openMenu(tile)"
       class="{{tile.className}}">
       <a class="link"
-         *ngIf="!isMenuOpen"
          [routerLink]="tile.routerLink"
          target="_self"
       >
+        <img *ngIf="tile.imgId!=0" [src]="pathStart+tile.imgId+pathEnd">
       </a>
     </mat-grid-tile>
   </mat-grid-list>
