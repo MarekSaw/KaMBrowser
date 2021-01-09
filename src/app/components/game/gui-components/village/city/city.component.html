@@ -1,1 +1,26 @@
-<p>city works!</p>
+<div class="city-map">
+  <img class="city-map-image" src="assets/city/city.png" alt="City map">
+
+
+  <mat-grid-list class="grid-list" cols="43" rowHeight="fit">
+    <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      (click)="openMenu(tile)"
+      class="{{tile.className}}">
+      <a class="link"
+         *ngIf="!isMenuOpen"
+         [routerLink]="tile.routerLink"
+         target="_self"
+      >
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+
+
+
+</div>

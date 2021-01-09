@@ -9,6 +9,10 @@ import {RegisterComponent} from './components/register/register.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {GameComponent} from './components/game/game.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {BuildingMenuComponent} from './components/game/gui-components/village/city/components/building-menu/building-menu.component';
+import {StorehouseMenuComponent} from './components/game/gui-components/village/city/components/storehouse-menu/storehouse-menu.component';
+import {InnMenuComponent} from './components/game/gui-components/village/city/components/inn-menu/inn-menu.component';
+import {SchoolMenuComponent} from './components/game/gui-components/village/city/components/school-menu/school-menu.component';
 
 const routes: Routes = [
   { path: '', component: MainSiteComponent },
@@ -19,6 +23,10 @@ const routes: Routes = [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
       { path: 'city', component: CityComponent },
+          { path: 'building_menu', component: BuildingMenuComponent },
+          { path: 'storehouse_menu', component: StorehouseMenuComponent },
+          { path: 'inn_menu', component: InnMenuComponent },
+          { path: 'school_menu', component: SchoolMenuComponent },
       { path: 'world_map', component: WorldMapComponent }
     ] },
   { path: '**', component: PageNotFoundComponent }

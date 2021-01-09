@@ -26,6 +26,10 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { BuildingMenuComponent } from './components/game/gui-components/village/city/components/building-menu/building-menu.component';
+import { StorehouseMenuComponent } from './components/game/gui-components/village/city/components/storehouse-menu/storehouse-menu.component';
+import { InnMenuComponent } from './components/game/gui-components/village/city/components/inn-menu/inn-menu.component';
+import { SchoolMenuComponent } from './components/game/gui-components/village/city/components/school-menu/school-menu.component';
 
 
 
@@ -41,7 +45,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     GameComponent,
     MainSiteComponent,
     PageNotFoundComponent,
-    MainNavComponent
+    MainNavComponent,
+    BuildingMenuComponent,
+    StorehouseMenuComponent,
+    InnMenuComponent,
+    SchoolMenuComponent
   ],
   imports: [
     BrowserModule,
