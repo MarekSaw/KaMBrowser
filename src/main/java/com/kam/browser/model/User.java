@@ -48,6 +48,9 @@ public class User {
   @OneToOne(mappedBy = "user")
   private Resources resources;
 
+  @OneToOne(mappedBy = "user")
+  private Units units;
+
 
   public void addFields(Field field) {
     fields.add(field);
