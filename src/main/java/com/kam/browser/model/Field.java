@@ -15,9 +15,11 @@ public class Field {
   @Id
   @GeneratedValue
   private Long id;
+
   @ManyToOne(fetch = FetchType.LAZY)
-  @Getter(value=AccessLevel.NONE)
+  @Getter(value = AccessLevel.NONE)
   private User user;
+
   private String map;
   private Integer fieldNumber;
   private Integer cols;

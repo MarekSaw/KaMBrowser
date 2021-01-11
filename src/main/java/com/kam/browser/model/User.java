@@ -52,7 +52,7 @@ public class User {
   private Units units;
 
 
-  public void addFields(Field field) {
+  public void addField(Field field) {
     fields.add(field);
   }
 

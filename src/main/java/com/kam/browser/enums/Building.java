@@ -1,6 +1,8 @@
 package com.kam.browser.enums;
 
+import lombok.Getter;
 
+@Getter
 public enum Building {
 
   STOREHOUSE(1, "city", 6, 5, 5L),
@@ -28,9 +30,11 @@ public enum Building {
   ARMOR_SMITH( 23, "gate", 4, 3, 5L),
   BARRACKS(24, "gate", 6, 6, 5L),
   WATCHTOWER(25, "gate", 3, 2, 5L),
-  FISHERMAN(26, "farm", 4, 3, 5L),
+  FISHERMAN(26, "farms", 4, 3, 5L),
   TOWNHALL(27, "city", 6, 5, 5L),
-  MARKETPLACE(27, "city", 6, 6, 5L);
+  MARKETPLACE(28, "city", 6, 6, 5L);
+
+  //city: 9; resources: 3; farms: 4; mines: 4; underCity: 4; gate:4;
 
   private final Integer id;
   private final String mapBelonging;
