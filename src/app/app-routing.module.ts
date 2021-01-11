@@ -14,6 +14,10 @@ import {StorehouseMenuComponent} from './components/game/gui-components/village/
 import {InnMenuComponent} from './components/game/gui-components/village/city/components/inn-menu/inn-menu.component';
 import {SchoolMenuComponent} from './components/game/gui-components/village/city/components/school-menu/school-menu.component';
 import {ResourcesComponent} from './components/game/gui-components/village/resources/resources.component';
+import {FarmsComponent} from './components/game/gui-components/village/farms/farms.component';
+import {MinesComponent} from './components/game/gui-components/village/mines/mines.component';
+import {UnderCityComponent} from './components/game/gui-components/village/under-city/under-city.component';
+import {GateComponent} from './components/game/gui-components/village/gate/gate.component';
 
 const routes: Routes = [
   { path: '', component: MainSiteComponent },
@@ -29,6 +33,10 @@ const routes: Routes = [
           { path: 'inn_menu', component: InnMenuComponent },
           { path: 'school_menu', component: SchoolMenuComponent },
       { path: 'resources', component: ResourcesComponent },
+      { path: 'farms', component: FarmsComponent },
+      { path: 'mines', component: MinesComponent },
+      { path: 'underCity', component: UnderCityComponent },
+      { path: 'gate', component: GateComponent },
       { path: 'world_map', component: WorldMapComponent }
     ] },
   { path: '**', component: PageNotFoundComponent }

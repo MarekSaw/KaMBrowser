@@ -31,6 +31,10 @@ import { StorehouseMenuComponent } from './components/game/gui-components/villag
 import { InnMenuComponent } from './components/game/gui-components/village/city/components/inn-menu/inn-menu.component';
 import { SchoolMenuComponent } from './components/game/gui-components/village/city/components/school-menu/school-menu.component';
 import { ResourcesComponent } from './components/game/gui-components/village/resources/resources.component';
+import { FarmsComponent } from './components/game/gui-components/village/farms/farms.component';
+import { MinesComponent } from './components/game/gui-components/village/mines/mines.component';
+import { GateComponent } from './components/game/gui-components/village/gate/gate.component';
+import { UnderCityComponent } from './components/game/gui-components/village/under-city/under-city.component';
 
 
 
@@ -51,7 +55,11 @@ import { ResourcesComponent } from './components/game/gui-components/village/res
     StorehouseMenuComponent,
     InnMenuComponent,
     SchoolMenuComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    FarmsComponent,
+    MinesComponent,
+    GateComponent,
+    UnderCityComponent
   ],
   imports: [
     BrowserModule,
