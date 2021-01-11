@@ -13,6 +13,7 @@ import {BuildingMenuComponent} from './components/game/gui-components/village/ci
 import {StorehouseMenuComponent} from './components/game/gui-components/village/city/components/storehouse-menu/storehouse-menu.component';
 import {InnMenuComponent} from './components/game/gui-components/village/city/components/inn-menu/inn-menu.component';
 import {SchoolMenuComponent} from './components/game/gui-components/village/city/components/school-menu/school-menu.component';
+import {ResourcesComponent} from './components/game/gui-components/village/resources/resources.component';
 
 const routes: Routes = [
   { path: '', component: MainSiteComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
           { path: 'storehouse_menu', component: StorehouseMenuComponent },
           { path: 'inn_menu', component: InnMenuComponent },
           { path: 'school_menu', component: SchoolMenuComponent },
+      { path: 'resources', component: ResourcesComponent },
       { path: 'world_map', component: WorldMapComponent }
     ] },
   { path: '**', component: PageNotFoundComponent }
