@@ -1,5 +1,8 @@
 package com.kam.browser.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.kam.browser.enums.Building;
 import com.kam.browser.model.User;
 import com.kam.browser.service.BuildingService;
@@ -22,16 +25,12 @@ public class BuildingController {
     this.buildingService = buildingService;
   }
 
-//  @GetMapping()
-  @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<?> getMapBuildings(@RequestParam String map, @RequestParam Integer fieldNumber){
-    List<Building> buildings = buildingService.getBuildingsByMapAndFieldNumber(map, fieldNumber);
-//    List<String> buildingsStringList = new ArrayList<>();
-//    for (int i = 0; i < buildings.size(); i++) {
-//      buildingsStringList.add(buildings.get(i).toString());
-//    }
 
-    return Objects.isNull(buildings) ? ResponseEntity.badRequest().build() : ResponseEntity.status(HttpStatus.CREATED).body(buildings);
+  @GetMapping
+  public ResponseEntity<?> getMapBuildings(@RequestParam String map, @RequestParam Integer fieldNumber){
+    Building building = buildingService.getBuildingByMapAndFieldNumber(map, fieldNumber);
+
+    return Objects.isNull(building) ? ResponseEntity.badRequest().build() : ResponseEntity.status(HttpStatus.CREATED).body(building);
   }
 
 

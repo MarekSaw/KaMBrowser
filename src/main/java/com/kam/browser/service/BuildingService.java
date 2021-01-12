@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface BuildingService {
 
-  List<Building> getBuildingsByMapAndFieldNumber(String map, Integer fieldNumber);
+  Building getBuildingByMapAndFieldNumber(String map, Integer fieldNumber);
 
 }
