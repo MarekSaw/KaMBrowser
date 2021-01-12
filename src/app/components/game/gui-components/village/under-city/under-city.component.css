@@ -12,7 +12,7 @@
 .grid-container {
   display: grid;
   min-height: 100vh;
-  grid-template: 43% 15% 14% auto / 13% 12% 1% 9% 5% 9% 4% 10% auto;
+  grid-template: 43% 15% 14% auto / 12% 13.5% 9.5% 5% 10% 1.5% 11.5% auto;
 }
 
 .field:hover {
@@ -37,7 +37,7 @@
 }
 
 .tannery {
-  grid-column: 4 / 4;
+  grid-column: 3 / 3;
   grid-row: 3 / 3;
 }
 .build-tannery {
@@ -45,12 +45,12 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  grid-column: 4 / 4;
+  grid-column: 3 / 3;
   grid-row: 3 / 3;
 }
 
 .armory-workshop {
-  grid-column: 6 / 6;
+  grid-column: 5 / 5;
   grid-row: 3 / 3;
 }
 
@@ -59,12 +59,12 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  grid-column: 6 / 6;
+  grid-column: 5 / 5;
   grid-row: 3 / 3;
 }
 
 .weapon-workshop {
-  grid-column: 8 / 8;
+  grid-column: 7 / 7;
   grid-row: 2 / 2;
 }
 .build-weapon-workshop {
@@ -72,6 +72,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  grid-column: 8 / 8;
+  grid-column: 7 / 7;
   grid-row: 2 / 2;
 }

@@ -1,22 +1,28 @@
-<div class="city-map">
-  <img class="city-map-image" src="assets/city/city.png" alt="City map">
+<div class="map">
+  <img class="map-image" src="assets/maps/city_map.png" alt="City map">
 
+  <div class="grid-container">
 
-  <mat-grid-list class="grid-list" cols="43" rowHeight="fit">
-    <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.cols"
-      [rowspan]="tile.rows"
-      class="{{tile.className}}">
-      <a class="link"
-         (click)="setField(tile.tileNumber,'map')"
-         [routerLink]="tile.routerLink"
-         target="_self">
-<!--        <img *ngIf="tile.imgId!=0" [src]="pathStart+tile.imgId+pathEnd">-->
-      </a>
+    <div class="field build-butcher" [routerLink]="'/game'">
+    </div>
+    <div class="field build-inn" [routerLink]="'/game'">
+    </div>
+    <div class="field build-storehouse" [routerLink]="'/game'">
+    </div>
+    <div class="field build-school" [routerLink]="'/game'">
+    </div>
+    <div class="field build-gold-smith" [routerLink]="'/game'">
+    </div>
+    <div class="field build-bakery" [routerLink]="'/game'">
+    </div>
+    <div class="field build-mill" [routerLink]="'/game'">
+    </div>
+    <div class="field build-marketplace" [routerLink]="'/game'">
+    </div>
+    <div class="field build-townhall" [routerLink]="'/game'">
+    </div>
 
-    </mat-grid-tile>
-  </mat-grid-list>
+  </div>
 
 
 </div>
