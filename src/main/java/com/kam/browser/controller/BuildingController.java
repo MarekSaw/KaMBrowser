@@ -24,8 +24,8 @@ public class BuildingController {
 
 //  @GetMapping()
   @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<?> getMapBuildings(@RequestParam String map){
-    List<Building> buildings = buildingService.getBuildingsByMap(map);
+  public ResponseEntity<?> getMapBuildings(@RequestParam String map, @RequestParam Integer fieldNumber){
+    List<Building> buildings = buildingService.getBuildingsByMapAndFieldNumber(map, fieldNumber);
 //    List<String> buildingsStringList = new ArrayList<>();
 //    for (int i = 0; i < buildings.size(); i++) {
 //      buildingsStringList.add(buildings.get(i).toString());

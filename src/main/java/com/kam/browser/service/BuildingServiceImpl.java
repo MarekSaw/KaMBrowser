@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 public class BuildingServiceImpl implements BuildingService{
 
 
-
   @Override
-  public List<Building> getBuildingsByMap(String map) {
-    return Arrays.stream(Building.values()).filter(building -> building.getMapBelonging().equals(map)).collect(Collectors.toList());
+  public List<Building> getBuildingsByMapAndFieldNumber(String map, Integer fieldNumber) {
+    return Arrays.stream(Building.values())
+      .filter(building -> building.getMapBelonging().equals(map) && building.getId().equals(fieldNumber))
+      .collect(Collectors.toList());
   }
-
 }
