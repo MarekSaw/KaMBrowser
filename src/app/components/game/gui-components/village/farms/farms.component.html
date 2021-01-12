@@ -5,7 +5,7 @@
 
     <div *ngFor="let field of fields"
          class="field {{field.className}}"
-         [routerLink]="['/game/village/farms/',field.className]"
+         [routerLink]="field.buildingLevel == 0 ? ['/game/village/building-menu'] : ['/game/village/farms/',field.className]"
          (click)="setField(field.map ,field.fieldNumber)">
     </div>
 

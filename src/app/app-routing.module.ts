@@ -19,8 +19,8 @@ import {MinesComponent} from './components/game/gui-components/village/mines/min
 import {UnderCityComponent} from './components/game/gui-components/village/under-city/under-city.component';
 import {GateComponent} from './components/game/gui-components/village/gate/gate.component';
 import {BuildFarmComponent} from './components/game/gui-components/village/farms/farms-components/build-farm/build-farm.component';
-import {BuildVineyardComponent} from './components/game/gui-components/village/farms/farms-components/build-vineyard/build-vineyard.component';
 import {FishermanComponent} from './components/game/gui-components/village/farms/farms-components/fisherman/fisherman.component';
+import {BuildVineyardComponent} from './components/game/gui-components/village/farms/farms-components/build-vineyard/build-vineyard.component';
 
 const routes: Routes = [
   { path: '', component: MainSiteComponent },
@@ -30,8 +30,8 @@ const routes: Routes = [
   { path: 'game', component: GameComponent, children: [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
+          { path: 'village/building-menu', component: BuildingMenuComponent },
           { path: 'village/city', component: CityComponent },
-              { path: 'building_menu', component: BuildingMenuComponent },
               { path: 'storehouse_menu', component: StorehouseMenuComponent },
               { path: 'inn_menu', component: InnMenuComponent },
               { path: 'school_menu', component: SchoolMenuComponent },
