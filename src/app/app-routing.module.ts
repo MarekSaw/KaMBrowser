@@ -30,20 +30,22 @@ const routes: Routes = [
   { path: 'game', component: GameComponent, children: [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
-      { path: 'city', component: CityComponent },
-          { path: 'building_menu', component: BuildingMenuComponent },
-          { path: 'storehouse_menu', component: StorehouseMenuComponent },
-          { path: 'inn_menu', component: InnMenuComponent },
-          { path: 'school_menu', component: SchoolMenuComponent },
-      { path: 'resources', component: ResourcesComponent },
-      { path: 'farms', component: FarmsComponent},
-          {path: 'build-farm', component: BuildFarmComponent},
-          {path: 'build-vineyard', component: BuildVineyardComponent},
-          {path: 'fisherman', component: FishermanComponent},
+          { path: 'village/city', component: CityComponent },
+              { path: 'building_menu', component: BuildingMenuComponent },
+              { path: 'storehouse_menu', component: StorehouseMenuComponent },
+              { path: 'inn_menu', component: InnMenuComponent },
+              { path: 'school_menu', component: SchoolMenuComponent },
+          { path: 'village/resources', component: ResourcesComponent },
+          { path: 'village/farms', component: FarmsComponent},
+              {path: 'village/farms/build-farm', component: BuildFarmComponent},
+              {path: 'village/farms/build-vineyard', component: BuildVineyardComponent},
+              {path: 'village/farms/fisherman', component: FishermanComponent},
 
-      { path: 'mines', component: MinesComponent },
-      { path: 'underCity', component: UnderCityComponent },
-      { path: 'gate', component: GateComponent },
+          { path: 'village/mines', component: MinesComponent },
+          { path: 'village/underCity', component: UnderCityComponent },
+          { path: 'village/gate', component: GateComponent },
+
+
       { path: 'world_map', component: WorldMapComponent }
     ] },
   { path: '**', component: PageNotFoundComponent }
