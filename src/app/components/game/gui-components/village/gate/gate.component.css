@@ -12,7 +12,7 @@
 .grid-container {
   display: grid;
   min-height: 100vh;
-  grid-template: 8% 17% 5% 13% 17% 13% 5% 13% auto / 14% 12% 39.5% 5.5% auto;
+  grid-template: 5% 20% 5% 13% 17% 13% 5% 13% auto / 14% 15% 36% 7.5% auto;
 }
 
 .field:hover {
@@ -22,13 +22,6 @@
   cursor: url('src/assets/home/cursor-hover.bmp'), auto;
 }
 
-.link {
-  padding: 100%;
-}
-
-.link:hover {
-  cursor: url('src/assets/home/cursor-hover.bmp'), auto;
-}
 
 .barracks {
   grid-column: 2 / 2;

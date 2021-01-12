@@ -12,7 +12,7 @@
 .grid-container {
   display: grid;
   min-height: 100vh;
-  grid-template: 18% 8% 11% 9% 23% 10.5% auto / 17% 6% 13% 9% 27% 7% auto;
+  grid-template: 17% 10% 10% 10% 21% 12% auto / 17% 8% 11% 12% 23% 9% auto;
 }
 
 .field:hover {
@@ -22,13 +22,6 @@
   cursor: url('src/assets/home/cursor-hover.bmp'), auto;
 }
 
-.link {
-  padding: 100%;
-}
-
-.link:hover {
-  cursor: url('src/assets/home/cursor-hover.bmp'), auto;
-}
 
 .gold-mine {
   grid-column: 2 / 2;

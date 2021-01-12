@@ -12,7 +12,7 @@
 .grid-container {
   display: grid;
   min-height: 100vh;
-  grid-template: 22% 14% 32% 12.5% auto / 34% 11% 22% 11% auto;
+  grid-template: 22% 14% 32% 12.5% auto / 34% 13% 20% 13% auto;
 }
 
 .field:hover {
@@ -21,6 +21,7 @@
   box-shadow: 0 0 10px 2px black;
   cursor: url('src/assets/home/cursor-hover.bmp'), auto;
 }
+
 
 .farm {
   grid-column: 2 / 2;
@@ -75,10 +76,4 @@
   grid-row: 4 / 4;
 }
 
-.link {
-  padding: 100%;
-}
 
-.link:hover {
-  cursor: url('src/assets/home/cursor-hover.bmp'), auto;
-}
