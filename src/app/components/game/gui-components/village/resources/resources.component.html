@@ -1,10 +1,12 @@
-<div class="resources-map">
-  <img class="resources-map-image" src="assets/maps/resources_map.png" alt="Resources map">
+<div class="map">
+  <img class="map-image" src="assets/maps/resources_map.png" alt="Resources map">
 
   <div class="grid-container">
 
-    <div class="field {{field.className}}" *ngFor="let field of fields">
-      <a [routerLink]="'/game'" class="link"></a>
+    <div *ngFor="let field of fields"
+         class="field {{field.className}}"
+         [routerLink]="field.buildingLevel == 0 ? ['/game/village/building-menu'] : ['/game/village/resources/',field.className]"
+         (click)="setField(field.map, field.fieldNumber)">
     </div>
 
   </div>

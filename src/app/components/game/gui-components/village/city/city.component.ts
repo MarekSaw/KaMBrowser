@@ -21,13 +21,14 @@ export class CityComponent implements OnInit {
   constructor(private fieldService: FieldServiceService) { }
 
   ngOnInit(): void {
-    this.fieldService.findFieldsByMap('farms').subscribe(value => this.fields = value);
+    this.fieldService.findFieldsByMap('city').subscribe(value => this.fields = value);
   }
 
   setField(map: string, fileNumber: number): void {
-    this.fieldService.findFieldByMapAndFieldNumber(map, fileNumber).subscribe(value => this.field = value);
-    console.log('CityF: ' + this.field.buildingId);
-    this.fieldService.saveField(this.field);
+    this.fieldService.findFieldByMapAndFieldNumber(map, fileNumber).subscribe(value => {
+      this.field = value;
+      this.fieldService.saveField(this.field);
+    });
   }
 
 

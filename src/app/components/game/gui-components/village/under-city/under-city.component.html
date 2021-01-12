@@ -3,13 +3,10 @@
 
   <div class="grid-container">
 
-    <div class="field build-stable" [routerLink]="'/game'">
-    </div>
-    <div class="field build-tannery" [routerLink]="'/game'">
-    </div>
-    <div class="field build-armory-workshop" [routerLink]="'/game'">
-    </div>
-    <div class="field build-weapon-workshop" [routerLink]="'/game'">
+    <div *ngFor="let field of fields"
+         class="field {{field.className}}"
+         [routerLink]="field.buildingLevel == 0 ? ['/game/village/building-menu'] : ['/game/village/',field.className]"
+         (click)="setField(field.map, field.fieldNumber)">
     </div>
 
 

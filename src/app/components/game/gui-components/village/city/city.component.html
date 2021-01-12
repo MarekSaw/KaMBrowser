@@ -3,24 +3,12 @@
 
   <div class="grid-container">
 
-    <div class="field build-butcher" [routerLink]="'/game'">
+    <div *ngFor="let field of fields"
+         class="field {{field.className}}"
+         [routerLink]="field.buildingLevel == 0 ? ['/game/village/building-menu'] : ['/game/village/city/', field.className]"
+         (click)="setField(field.map, field.fieldNumber)">
     </div>
-    <div class="field build-inn" [routerLink]="'/game'">
-    </div>
-    <div class="field build-storehouse" [routerLink]="'/game'">
-    </div>
-    <div class="field build-school" [routerLink]="'/game'">
-    </div>
-    <div class="field build-gold-smith" [routerLink]="'/game'">
-    </div>
-    <div class="field build-bakery" [routerLink]="'/game'">
-    </div>
-    <div class="field build-mill" [routerLink]="'/game'">
-    </div>
-    <div class="field build-marketplace" [routerLink]="'/game'">
-    </div>
-    <div class="field build-townhall" [routerLink]="'/game'">
-    </div>
+
 
   </div>
 

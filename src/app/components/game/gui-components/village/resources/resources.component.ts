@@ -10,6 +10,7 @@ import {FieldServiceService} from '../../../../../services/field-service.service
 export class ResourcesComponent implements OnInit {
 
   fields: FieldModel[];
+  field: FieldModel;
 
   constructor(private fieldService: FieldServiceService) { }
 
@@ -17,4 +18,10 @@ export class ResourcesComponent implements OnInit {
     this.fieldService.findFieldsByMap('resources').subscribe(value => this.fields = value);
   }
 
+  setField(map: string, fieldNumber: number): void {
+    this.fieldService.findFieldByMapAndFieldNumber(map, fieldNumber).subscribe(value => {
+      this.field = value;
+      this.fieldService.saveField(this.field);
+    });
+  }
 }

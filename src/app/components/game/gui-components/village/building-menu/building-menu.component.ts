@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FieldServiceService} from '../../../../../../../services/field-service.service';
 import {Router} from '@angular/router';
+import {FieldServiceService} from '../../../../../services/field-service.service';
 
 export interface Building {
   buildingId: number;
