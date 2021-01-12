@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/kam-api/fields")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FieldController {
 
   private final FieldService fieldService;
@@ -21,7 +22,7 @@ public class FieldController {
   }
 
   @GetMapping("/map/{id}")
-  public ResponseEntity<?> getUserFields(@PathVariable Long id, @RequestParam String map){
+  public ResponseEntity<?> getUserMapFields(@PathVariable Long id, @RequestParam String map){
     List<Field> fields = fieldService.getFieldsFromMapByUserId(map, id);
     return Objects.isNull(fields) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(fields);
   }

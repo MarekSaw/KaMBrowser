@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FieldModel} from '../../../../../models/FieldModel';
+import {FieldServiceService} from '../../../../../services/field-service.service';
 
 @Component({
   selector: 'app-gate',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GateComponent implements OnInit {
 
-  constructor() { }
+  fields: FieldModel[];
+
+  constructor(private fieldService: FieldServiceService) { }
 
   ngOnInit(): void {
+    this.fieldService.findFieldsByMap('gate').subscribe(value => this.fields = value);
   }
 
 }

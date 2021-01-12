@@ -3,19 +3,7 @@
 
   <div class="grid-container">
 
-    <div class="field barracks">
-      <a [routerLink]="'/game'" class="link"></a>
-    </div>
-    <div class="field weapon-smith">
-      <a [routerLink]="'/game'" class="link"></a>
-    </div>
-    <div class="field armor-smith">
-      <a [routerLink]="'/game'" class="link"></a>
-    </div>
-    <div class="field upper-tower">
-      <a [routerLink]="'/game'" class="link"></a>
-    </div>
-    <div class="field down-tower">
+    <div class="field {{field.className}}" *ngFor="let field of fields">
       <a [routerLink]="'/game'" class="link"></a>
     </div>
 

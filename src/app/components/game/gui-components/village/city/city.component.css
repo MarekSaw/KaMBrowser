@@ -54,7 +54,7 @@
   font-family: "Architects Daughter", sans-serif;
   font-size: 30px;
   background-image: url('src/assets/buildings/1.bmp');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
