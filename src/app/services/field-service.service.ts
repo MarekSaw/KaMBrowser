@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Field} from '../models/Field';
-import {Tile} from '../models/Tile';
+import {FieldModel} from '../models/FieldModel';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
 
 
 @Injectable({
@@ -8,47 +10,54 @@ import {Tile} from '../models/Tile';
 })
 export class FieldServiceService {
 
-  public field: Field;
+  public field: FieldModel;
+  public fields: FieldModel[];
 
-  public tiles: Tile[];
+  private fieldsUrl: string;
+  private fieldsMapUrl: string;
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    this.fieldsUrl = 'http://localhost:8080/kam-api/fields/';
+    this.fieldsMapUrl = 'http://localhost:8080/kam-api/fields/map/';
   }
 
-  public saveField(fieldToSave: Field): void {
+  public saveField(fieldToSave: FieldModel): void {
     this.field = fieldToSave;
   }
 
-  public selectField(): Field {
+  public selectField(): FieldModel {
     return this.field;
   }
 
-  public saveTiles(tiles: Tile[]): void {
-    this.tiles = tiles;
-    console.log('saveTiles: ' + tiles);
-    console.log('savedTiles: ' + this.tiles);
+  public saveFields(fields: FieldModel[]): void {
+    this.fields = fields;
+    console.log('saveTiles: ' + fields);
+    console.log('savedTiles: ' + this.fields);
   }
 
-  public selectTiles(): Tile[] {
-    console.log('selectTiles: ' + this.tiles);
-    return this.tiles;
+  public selectFields(): FieldModel[] {
+    console.log('selectTiles: ' + this.fields);
+    return this.fields;
   }
 
-  public findFieldByWhereAndMap(where: number, map: string): Field {
-    // todo get one field from repository?
+  public findFieldByMapAndFieldNumber(map: string, fieldNumber: number): Observable<FieldModel> {
     console.log('findFieldByWhereAndMap!');
-    return new Field(1, map, where, 123, 5, 1);
+    const userId = 1;
+    const url = `${this.fieldsUrl}${userId}?map=${map}&fieldNumber=${fieldNumber}`;
+    console.log('url' + url);
+    return this.http.get<FieldModel>(url);
   }
 
-  updateField(field: Field): void {
+  public findFieldsByMap(map: string): Observable<FieldModel[]> {
+    console.log('findFieldMap!');
+    const userId = 1;
+    return this.http.get<FieldModel[]>(`${this.fieldsMapUrl}${userId}?map=${map}`);
+  }
+
+  public updateField(fieldUpdate: FieldModel): Observable<FieldModel> {
     console.log('updateField!');
-    const where = field.where;
-    this.tiles.forEach(value => {
-      if (value.tileNumber === where) {
-        value.imgId = field.buildingId;
-        value.className = 'grid-component-building-' + value.imgId;
-      }
-    });
-    // todo update field in repository
+    console.log('updateField:' + fieldUpdate.className);
+    const userId = 1;
+    return this.http.put<FieldModel>(`${this.fieldsUrl}${userId}`, fieldUpdate);
   }
 }

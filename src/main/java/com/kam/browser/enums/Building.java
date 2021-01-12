@@ -1,8 +1,10 @@
 package com.kam.browser.enums;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public enum Building {
 
   STOREHOUSE(1, "city", 6, 5, 5L),

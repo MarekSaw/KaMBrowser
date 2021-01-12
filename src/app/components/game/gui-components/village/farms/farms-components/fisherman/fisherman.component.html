@@ -1,0 +1,11 @@
+<div class="content">
+  <mat-grid-list class="grid-list" cols="1" rowHeight="150px" gutterSize="40px">
+    <mat-grid-tile class="grid-tile" *ngFor="let building of buildings">
+      <div class="tile">
+        <img [src]="building.imgSource" [alt]="building.imgAlt">
+        <p [textContent]="building.resourceInfo"></p>
+        <button class="mat-raised-button" (click)="setBuildingId()">Build</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

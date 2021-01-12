@@ -59,7 +59,7 @@ export class BuildingMenuComponent implements OnInit {
   setBuildingId(buildingId: number): void {
     const selectField = this.fieldService.selectField();
     console.log('fieldBU:' + selectField.buildingId);
-    console.log('fieldBUwhere:' + selectField.where);
+    console.log('fieldBUwhere:' + selectField.fieldNumber);
     selectField.buildingId = buildingId;
     this.fieldService.updateField(selectField);
     console.log('fieldU:' + selectField.buildingId);

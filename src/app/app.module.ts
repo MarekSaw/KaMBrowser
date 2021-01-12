@@ -35,6 +35,10 @@ import { FarmsComponent } from './components/game/gui-components/village/farms/f
 import { MinesComponent } from './components/game/gui-components/village/mines/mines.component';
 import { GateComponent } from './components/game/gui-components/village/gate/gate.component';
 import { UnderCityComponent } from './components/game/gui-components/village/under-city/under-city.component';
+import { BuildFarmComponent } from './components/game/gui-components/village/farms/farms-components/build-farm/build-farm.component';
+import { BuildVineyardComponent } from './components/game/gui-components/village/farms/farms-components/build-vineyard/build-vineyard.component';
+import { FishermanComponent } from './components/game/gui-components/village/farms/farms-components/fisherman/fisherman.component';
+import { BuildFishermanComponent } from './components/game/gui-components/village/farms/farms-components/build-fisherman/build-fisherman.component';
 
 
 
@@ -59,7 +63,11 @@ import { UnderCityComponent } from './components/game/gui-components/village/und
     FarmsComponent,
     MinesComponent,
     GateComponent,
-    UnderCityComponent
+    UnderCityComponent,
+    BuildFarmComponent,
+    BuildVineyardComponent,
+    FishermanComponent,
+    BuildFishermanComponent
   ],
   imports: [
     BrowserModule,

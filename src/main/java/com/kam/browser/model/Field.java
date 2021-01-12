@@ -22,8 +22,6 @@ public class Field {
 
   private String map;
   private Integer fieldNumber;
-  private Integer cols;
-  private Integer rows;
   private String className;
   private Integer buildingId;
   private Integer buildingLevel;

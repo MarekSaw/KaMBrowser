@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FieldServiceService} from '../../../../../services/field-service.service';
-import {Tile} from '../../../../../models/Tile';
+import {FieldModel} from '../../../../../models/FieldModel';
 
 
 
@@ -15,21 +15,19 @@ export class CityComponent implements OnInit {
   pathStart = 'assets/buildings/';
   pathEnd = '.bmp';
 
-  tiles: Tile[];
+  fields: FieldModel[];
+  field: FieldModel;
 
-
-  constructor(private fieldService: FieldServiceService) {
-  }
+  constructor(private fieldService: FieldServiceService) { }
 
   ngOnInit(): void {
-    this.tiles = this.fieldService.selectTiles();
-    console.log('cityInit!');
+    this.fieldService.findFieldsByMap('farms').subscribe(value => this.fields = value);
   }
 
-  setField(tileNumber: number, map: string): void {
-    const field = this.fieldService.findFieldByWhereAndMap(tileNumber, map);
-    console.log('CityF: ' + field.buildingId);
-    this.fieldService.saveField(field);
+  setField(map: string, fileNumber: number): void {
+    this.fieldService.findFieldByMapAndFieldNumber(map, fileNumber).subscribe(value => this.field = value);
+    console.log('CityF: ' + this.field.buildingId);
+    this.fieldService.saveField(this.field);
   }
 
 
