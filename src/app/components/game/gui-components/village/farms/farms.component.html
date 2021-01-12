@@ -4,7 +4,7 @@
   <div class="grid-container">
 
     <div class="field {{field.className}}" *ngFor="let field of fields">
-    <a [routerLink]="'/game'" class="link"></a>
+    <a [routerLink]="['/game/',field.className]" (click)="setField(field.map ,field.fieldNumber)" class="link"></a>
     </div>
 
   </div>

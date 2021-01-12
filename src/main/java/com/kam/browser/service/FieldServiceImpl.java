@@ -3,6 +3,7 @@ package com.kam.browser.service;
 import com.kam.browser.model.Field;
 import com.kam.browser.model.User;
 import com.kam.browser.repository.FieldRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
+@Slf4j
 public class FieldServiceImpl implements FieldService {
 
   private final FieldRepository fieldRepository;
@@ -45,6 +47,8 @@ public class FieldServiceImpl implements FieldService {
 
   @Override
   public Field updateFieldByUserId(Field field, Long id) {
+    log.info("up: "+field.toString());
+    log.info("us: "+id);
     if (Objects.nonNull(userService.getUserById(id))) {
       Field fieldToUpdate = fieldRepository.findFieldByMapAndFieldNumberAndUser_Id(field.getMap(), field.getFieldNumber(), id);
       field.setId(fieldToUpdate.getId());

@@ -10,6 +10,7 @@ import {FieldModel} from '../../../../../models/FieldModel';
 export class FarmsComponent implements OnInit {
 
   fields: FieldModel[];
+  field: FieldModel;
 
   constructor(private fieldService: FieldServiceService) { }
 
@@ -17,4 +18,11 @@ export class FarmsComponent implements OnInit {
     this.fieldService.findFieldsByMap('farms').subscribe(value => this.fields = value);
   }
 
+  setField(map: string, fieldNumber: number): void {
+    this.fieldService.findFieldByMapAndFieldNumber(map, fieldNumber).subscribe(value => {
+      console.log(value);
+      this.field = value;
+      this.fieldService.saveField(this.field);
+      console.log('setField: ' + this.field.className); });
+  }
 }
