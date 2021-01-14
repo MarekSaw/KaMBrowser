@@ -22,6 +22,7 @@ import {FishermanComponent} from './components/game/gui-components/village/farms
 import {BuildVineyardComponent} from './components/game/gui-components/village/farms/farms-components/build-vineyard/build-vineyard.component';
 import {BuildingMenuComponent} from './components/game/gui-components/village/building-menu/building-menu.component';
 import {BuildFishermanComponent} from './components/game/gui-components/village/farms/farms-components/build-fisherman/build-fisherman.component';
+import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 
 const routes: Routes = [
   { path: '', component: MainSiteComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
           { path: 'village/building-menu', component: BuildingMenuComponent },
+          { path: 'village/upgrade-menu', component: UpgradeMenuComponent},
           { path: 'village/city', component: CityComponent },
               { path: 'storehouse_menu', component: StorehouseMenuComponent },
               { path: 'inn_menu', component: InnMenuComponent },

@@ -40,6 +40,7 @@ import { FishermanComponent } from './components/game/gui-components/village/far
 import { BuildFishermanComponent } from './components/game/gui-components/village/farms/farms-components/build-fisherman/build-fisherman.component';
 import {BuildingMenuComponent} from './components/game/gui-components/village/building-menu/building-menu.component';
 import { MessageComponent } from './Messages/message/message.component';
+import { UpgradeMenuComponent } from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 
 
 
@@ -69,7 +70,8 @@ import { MessageComponent } from './Messages/message/message.component';
     BuildVineyardComponent,
     FishermanComponent,
     BuildFishermanComponent,
-    MessageComponent
+    MessageComponent,
+    UpgradeMenuComponent
   ],
   imports: [
     BrowserModule,
