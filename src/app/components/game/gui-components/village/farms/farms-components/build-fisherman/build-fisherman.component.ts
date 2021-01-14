@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {BuildingService} from '../../../../../../../services/building.service';
+import {FieldServiceService} from '../../../../../../../services/field-service.service';
+import {BuildingModel} from '../../../../../../../models/BuildingModel';
 
-export interface BuildingInfo {
-  image: string;
-  description: string;
-  // inputImg[]: string;
-  // outputImg[]: string;
-  // time: number;
-  workers: number;
-  planks: number;
-  stone: number;
-}
 
 @Component({
   selector: 'app-build-fisherman',
@@ -18,15 +11,24 @@ export interface BuildingInfo {
 })
 export class BuildFishermanComponent implements OnInit {
 
-  buildingInfo: BuildingInfo = {
-    image: 'assets/buildings/26.bmp',
-    description: 'Fisherman\'s hut produces fish for our merchant. The fisherman casts his hook into a lake every morning and brings fresh fish onto our tables. Fisherman\'s hut can be placed only nearby water reservoir.',
-    workers: 2, planks: 4, stone: 3
-  };
+  // buildingInfo: BuildingInfo = {
+  //   image: 'assets/buildings/26.bmp',
+  //   id: 26,
+  //   workers: 2, planks: 4, stone: 3
+  // };
 
-  constructor() { }
+  building: BuildingModel;
+
+  constructor(private buildingService: BuildingService, private fieldService: FieldServiceService) { }
 
   ngOnInit(): void {
+    const selectField = this.fieldService.selectField();
+    console.log('selectedField ' + selectField);
+    this.buildingService.findBuildingByMapAndFieldNumber(selectField.map, selectField.fieldNumber)
+      .subscribe(value => {
+        this.building = value;
+        console.log('value: ' + value);
+      });
   }
 
 }
