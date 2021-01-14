@@ -39,6 +39,7 @@ import { BuildVineyardComponent } from './components/game/gui-components/village
 import { FishermanComponent } from './components/game/gui-components/village/farms/farms-components/fisherman/fisherman.component';
 import { BuildFishermanComponent } from './components/game/gui-components/village/farms/farms-components/build-fisherman/build-fisherman.component';
 import {BuildingMenuComponent} from './components/game/gui-components/village/building-menu/building-menu.component';
+import { MessageComponent } from './Messages/message/message.component';
 
 
 
@@ -67,7 +68,8 @@ import {BuildingMenuComponent} from './components/game/gui-components/village/bu
     BuildFarmComponent,
     BuildVineyardComponent,
     FishermanComponent,
-    BuildFishermanComponent
+    BuildFishermanComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

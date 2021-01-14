@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 export class FieldServiceService {
 
   public field: FieldModel;
-  public fields: FieldModel[];
+  // public fields: FieldModel[];
 
   private fieldsUrl: string;
   private fieldsMapUrl: string;
@@ -26,26 +26,23 @@ export class FieldServiceService {
   }
 
   public selectField(): FieldModel {
+    console.log('selectedField Service: ');
     return this.field;
   }
 
-  public saveFields(fields: FieldModel[]): void {
-    this.fields = fields;
-    console.log('saveTiles: ' + fields);
-    console.log('savedTiles: ' + this.fields);
-  }
-
-  public selectFields(): FieldModel[] {
-    console.log('selectTiles: ' + this.fields);
-    return this.fields;
-  }
+  // public saveFields(fields: FieldModel[]): void {
+  //   this.fields = fields;
+  // }
+  //
+  // public selectFields(): FieldModel[] {
+  //   console.log('selectTiles: ' + this.fields);
+  //   return this.fields;
+  // }
 
   public findFieldByMapAndFieldNumber(map: string, fieldNumber: number): Observable<FieldModel> {
     console.log('findFieldByWhereAndMap!');
     const userId = 1;
-    const url = `${this.fieldsUrl}${userId}?map=${map}&fieldNumber=${fieldNumber}`;
-    console.log('url' + url);
-    return this.http.get<FieldModel>(url);
+    return this.http.get<FieldModel>(`${this.fieldsUrl}${userId}?map=${map}&fieldNumber=${fieldNumber}`);
   }
 
   public findFieldsByMap(map: string): Observable<FieldModel[]> {

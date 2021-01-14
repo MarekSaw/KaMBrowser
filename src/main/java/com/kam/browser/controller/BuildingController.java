@@ -17,6 +17,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/kam-api/buildings")
+@CrossOrigin(origins = "http://localhost:4200")
 public class BuildingController {
 
   public final BuildingService buildingService;

@@ -13,6 +13,7 @@ import java.util.Objects;
 @RestController
 @Slf4j
 @RequestMapping("/kam-api/users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
   private final UserService userService;

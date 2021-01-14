@@ -33,8 +33,6 @@ export class FishermanComponent implements OnInit {
 
   setBuildingId(): void {
     const selectField = this.fieldService.selectField();
-    console.log('fieldBU:' + selectField.className);
-    console.log('fieldBUwhere:' + selectField.fieldNumber);
     selectField.className = 'build-fisherman';
     selectField.buildingLevel = 1;
     this.fieldService.updateField(selectField).subscribe(value => this.goToFarms());

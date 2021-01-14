@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/kam-api/resources")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ResourceController {
 
   private final ResourcesService resourcesService;
