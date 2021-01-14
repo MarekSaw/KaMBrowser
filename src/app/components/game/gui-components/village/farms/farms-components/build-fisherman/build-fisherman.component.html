@@ -1,7 +1,13 @@
 <div class="background">
   <div class="content">
     <div class="grid-container" [ngClass]="buildingInfo">
+      <div class="building">
       <img class="building-image" [src]="buildingInfo.image" alt="Building img">
+        <div class="building-level">
+          <p>20</p>
+        </div>
+
+      </div>
       <div class="building-description">
         {{buildingInfo.description}}
       </div>
@@ -20,9 +26,13 @@
         <img src="assets/resources/worker.bmp" alt="" class="worker">
         <img src="assets/resources/plank.bmp" alt="" class="plank">
         <img src="assets/resources/stone.bmp" alt="" class="stone">
+
+        <img src="assets/resources/clock.png" alt="" class="clock">
         <p class="worker-value">{{buildingInfo.workers}}</p>
         <p class="plank-value">{{buildingInfo.planks}}</p>
         <p class="stone-value">{{buildingInfo.stone}}</p>
+
+        <p class="stone-value">20s</p>
       </div>
       <button class="back-button app-button" [routerLink]="'/game/village/farms'">BACK</button>
       <button class="upgrade-button app-button">UPGRADE</button>
