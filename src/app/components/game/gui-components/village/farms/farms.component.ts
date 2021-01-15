@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FieldServiceService} from '../../../../../services/field-service.service';
 import {FieldModel} from '../../../../../models/FieldModel';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-farms',
@@ -33,7 +33,7 @@ export class FarmsComponent implements OnInit {
     if (buildingLevel === 0){
       this.router.navigate(['/game/village/building-menu']);
     }else {
-      this.router.navigate(['/game/village/farms/', className]);
+      this.router.navigate(['/game/village/upgrade-menu']);
     }
 
   }

@@ -1,13 +1,51 @@
-<div class="content">
-  <mat-grid-list class="grid-list" cols="1" rowHeight="150px" gutterSize="40px">
-    <mat-grid-tile class="grid-tile" *ngFor="let building of buildings">
-      <div class="tile">
-        <img [src]="building.imgSource" [alt]="building.imgAlt">
-        <p [textContent]="building.resourceInfo"></p>
-        <button class="mat-raised-button" (click)="setBuildingId(building.buildingId)">Build</button>
+<div class="background">
+  <div class="content">
+    <div class="grid-container" [ngClass]="building">
+      <div class="building">
+        <img class="building-image" src="assets/buildings/{{building.id}}.bmp" alt="Building img">
+        <div class="building-level">
+          <p>{{field.buildingLevel}}</p>
+        </div>
+
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+      <div class="building-description">
+        <app-message message="buildingDescription{{building.id}}"></app-message>
+      </div>
+      <div class="building-production">
+        <p class="input">GOODS NEEDED</p>
+        <p class="output">GOODS PRODUCED</p>
+        <div>
+          <img src="" class="input-img">
+        </div>
+        <div class="output-img">
+          <img src="assets/resources/fish.bmp" class="">
+          <img src="assets/resources/fish.bmp" class="">
+        </div>
+      </div>
+      <div class="resources-required">
+        <img src="assets/resources/worker.bmp" class="worker">
+        <img src="assets/resources/plank.bmp" class="plank">
+        <img src="assets/resources/stone.bmp" class="stone">
+
+        <img src="assets/resources/clock.png" class="clock">
+        <p class="worker-value">{{building.planksNeed}}</p>
+        <p class="plank-value">{{building.planksNeed}}</p>
+        <p class="stone-value">{{building.stoneNeed}}</p>
+
+        <p class="stone-value">20s</p>
+      </div>
+      <button class="back-button app-button"
+              [routerLink]="['/game/village/', building.mapBelonging]">
+        BACK
+      </button>
+      <button class="upgrade-button app-button"
+              (click)="buildBuilding()"
+              [routerLink]="['/game/village/', building.mapBelonging]">
+        BUILD
+      </button>
+
+    </div>
+
+
+  </div>
 </div>
-
-

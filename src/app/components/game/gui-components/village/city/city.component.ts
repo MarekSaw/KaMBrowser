@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FieldServiceService} from '../../../../../services/field-service.service';
 import {FieldModel} from '../../../../../models/FieldModel';
+import {Router} from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ export class CityComponent implements OnInit {
   fields: FieldModel[];
   field: FieldModel;
 
-  constructor(private fieldService: FieldServiceService) { }
+  constructor(private fieldService: FieldServiceService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.fieldService.findFieldsByMap('city').subscribe(value => this.fields = value);
@@ -28,8 +30,16 @@ export class CityComponent implements OnInit {
     this.fieldService.findFieldByMapAndFieldNumber(map, fileNumber).subscribe(value => {
       this.field = value;
       this.fieldService.saveField(this.field);
+      this.goToSelectedField(this.field.buildingLevel, this.field.className);
     });
   }
 
+  goToSelectedField(buildingLevel: number, className: string): void {
+    if (buildingLevel === 0) {
+      this.router.navigate(['/game/village/building-menu']);
+    } else {
+      this.router.navigate(['/game/village/upgrade-menu']);
+    }
+  }
 
 }
