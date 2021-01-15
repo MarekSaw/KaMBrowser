@@ -18,7 +18,6 @@ import {MinesComponent} from './components/game/gui-components/village/mines/min
 import {UnderCityComponent} from './components/game/gui-components/village/under-city/under-city.component';
 import {GateComponent} from './components/game/gui-components/village/gate/gate.component';
 import {BuildingMenuComponent} from './components/game/gui-components/village/building-menu/building-menu.component';
-import {BuildFishermanComponent} from './components/game/gui-components/village/farms/farms-components/build-fisherman/build-fisherman.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 
 const routes: Routes = [
@@ -37,8 +36,6 @@ const routes: Routes = [
               { path: 'school_menu', component: SchoolMenuComponent },
           { path: 'village/resources', component: ResourcesComponent },
           { path: 'village/farms', component: FarmsComponent},
-              {path: 'village/farms/build-fisherman', component: BuildFishermanComponent},
-
           { path: 'village/mines', component: MinesComponent },
           { path: 'village/underCity', component: UnderCityComponent },
           { path: 'village/gate', component: GateComponent },
