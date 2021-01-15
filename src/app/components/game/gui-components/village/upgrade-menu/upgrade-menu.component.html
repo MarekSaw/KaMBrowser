@@ -2,14 +2,14 @@
   <div class="content">
     <div class="grid-container" [ngClass]="building">
       <div class="building">
-        <img class="building-image" [src]="['assets/buildings/', building.id, '.bmp']" alt="Building img">
+        <img class="building-image" src="assets/buildings/{{building.id}}.bmp" alt="Building img">
         <div class="building-level">
           <p>20</p>
         </div>
 
       </div>
       <div class="building-description">
-
+        <app-message message="buildingDescription{{building.id}}"></app-message>
       </div>
       <div class="building-production">
         <p class="input">GOODS NEEDED</p>
