@@ -24,11 +24,14 @@ export class BuildFishermanComponent implements OnInit {
   ngOnInit(): void {
     const selectField = this.fieldService.selectField();
     console.log('selectedField ' + selectField);
-    this.buildingService.findBuildingByMapAndFieldNumber(selectField.map, selectField.fieldNumber)
+    this.findBuilding(selectField.map, selectField.fieldNumber);
+  }
+
+  findBuilding(map: string, fieldNumber: number): void{
+    this.buildingService.findBuildingByMapAndFieldNumber(map, fieldNumber)
       .subscribe(value => {
         this.building = value;
         console.log('value: ' + value);
       });
   }
-
 }
