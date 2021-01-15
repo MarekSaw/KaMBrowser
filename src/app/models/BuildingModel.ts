@@ -4,8 +4,8 @@ export interface BuildingModel {
   fieldNumberBelonging: number;
   planksNeed: number;
   stoneNeed: number;
-  // workersNeed: number;
+  workersNeed: number;
   timeNeed: number;
-  // inputImg[]: string;
-  // outputImg[]: string;
+  goodsNeededImg: string[];
+  goodsProducedImg: string[];
 }
