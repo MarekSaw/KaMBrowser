@@ -23,7 +23,7 @@ export class FarmsComponent implements OnInit {
     this.fieldService.findFieldByMapAndFieldNumber(map, fieldNumber).subscribe(value => {
       console.log(value);
       this.field = value;
-      this.fieldService.saveField(this.field);
+      localStorage.setItem('field', JSON.stringify(this.field));
       console.log('setField: ' + this.field.className);
       this.goToSelectedField(value.buildingLevel, value.className);
     });

@@ -41,6 +41,9 @@
               (click)="upgradeBuilding()">
         UPGRADE
       </button>
+      <div class="tooltip" [@showHide]="upgradeError ? 'show' : 'hide'">
+        <span class="tooltip-text">Not enough resources</span>
+      </div>
 
     </div>
 

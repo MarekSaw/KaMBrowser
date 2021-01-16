@@ -37,10 +37,13 @@
               [routerLink]="['/game/village/', building.mapBelonging]">
         BACK
       </button>
-      <button class="upgrade-button app-button"
+      <button class="build-button app-button"
               (click)="buildBuilding()">
         BUILD
       </button>
+      <div class="tooltip" [@showHide]="buildError ? 'show' : 'hide'">
+        <span class="tooltip-text">Not enough resources</span>
+      </div>
 
     </div>
 

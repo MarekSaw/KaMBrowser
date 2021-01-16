@@ -22,7 +22,7 @@ export class UnderCityComponent implements OnInit {
   setField(map: string, fileNumber: number): void {
     this.fieldService.findFieldByMapAndFieldNumber(map, fileNumber).subscribe(value => {
       this.field = value;
-      this.fieldService.saveField(this.field);
+      localStorage.setItem('field', JSON.stringify(this.field));
       this.goToSelectedField(this.field.buildingLevel, this.field.className);
     });
   }

@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ResourceServiceImpl implements ResourcesService {
+public class ResourcesServiceImpl implements ResourcesService {
 
   private final ResourcesRepository resourcesRepository;
   private final UserService userService;
 
-  public ResourceServiceImpl(ResourcesRepository resourcesRepository, UserService userService) {
+  public ResourcesServiceImpl(ResourcesRepository resourcesRepository, UserService userService) {
     this.resourcesRepository = resourcesRepository;
     this.userService = userService;
   }
@@ -43,6 +43,7 @@ public class ResourceServiceImpl implements ResourcesService {
   @Override
   public Boolean updateResourcesForUserId(Long userId, Resources resources) {
     if(resourcesRepository.existsByUser_Id(userId)) {
+      resources.setUser(userService.getUserById(userId));
       resourcesRepository.save(resources);
       return true;
     }

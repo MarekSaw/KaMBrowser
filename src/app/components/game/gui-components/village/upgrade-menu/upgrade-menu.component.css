@@ -117,3 +117,26 @@
   padding: 5px 10px 5px 10px;
   justify-self: right;
 }
+
+.tooltip {
+  grid-column: 1;
+  grid-row: 3;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  width: content-box;
+  background-image: url("src/assets/home/scroll2.bmp");
+  background-size: cover;
+  box-shadow: inset 0 0 10px 2px black, 2px 2px 20px 10px black;
+  color: darkred;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 15px 15px 15px;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  font-family: "Architects Daughter", sans-serif;
+  font-weight: bold;
+}

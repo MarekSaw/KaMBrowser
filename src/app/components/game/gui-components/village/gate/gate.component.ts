@@ -22,7 +22,7 @@ export class GateComponent implements OnInit {
   setField(map: string, fieldNumber: number): void {
     this.fieldService.findFieldByMapAndFieldNumber(map, fieldNumber).subscribe(value => {
       this.field = value;
-      this.fieldService.saveField(this.field);
+      localStorage.setItem('field', JSON.stringify(this.field));
       this.goToSelectedField(this.field.buildingLevel, this.field.className);
     });
   }
