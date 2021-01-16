@@ -14,12 +14,11 @@
       <div class="building-production">
         <p class="input">GOODS NEEDED</p>
         <p class="output">GOODS PRODUCED</p>
-        <div>
-          <img src="" class="input-img">
+        <div class="input-img">
+          <img *ngFor="let goodN of building.goodsNeededImg" src="assets/resources/{{goodN}}.bmp">
         </div>
         <div class="output-img">
-          <img src="assets/resources/fish.bmp" class="">
-          <img src="assets/resources/fish.bmp" class="">
+          <img  *ngFor="let goodP of building.goodsProducedImg" src="assets/resources/{{goodP}}.bmp">
         </div>
       </div>
       <div class="resources-required">
