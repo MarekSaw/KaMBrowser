@@ -49,6 +49,9 @@ public class User {
   private Resources resources;
 
   @OneToOne(mappedBy = "user")
+  private AddResources addResources;
+
+  @OneToOne(mappedBy = "user")
   private Units units;
 
 
