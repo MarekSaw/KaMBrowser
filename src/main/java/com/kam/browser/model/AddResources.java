@@ -9,13 +9,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Resources {
+public class AddResources {
 
   @Id
   @GeneratedValue
   private Long id;
+
   @OneToOne(fetch = FetchType.LAZY)
-  @Getter(value=AccessLevel.NONE)
+  @Getter(value= AccessLevel.NONE)
   private User user;
 
   // Living resources
@@ -59,42 +60,4 @@ public class Resources {
   private Integer crossbow;
   private Integer horse;
 
-
-
-  @Override
-  public String toString() {
-    return "Resources{" +
-      "id=" + id +
-      ", worker=" + worker +
-      ", builder=" + builder +
-      ", plank=" + plank +
-      ", stone=" + stone +
-      ", wine=" + wine +
-      ", bread=" + bread +
-      ", fish=" + fish +
-      ", sausage=" + sausage +
-      ", wood=" + wood +
-      ", ironOre=" + ironOre +
-      ", goldOre=" + goldOre +
-      ", coal=" + coal +
-      ", iron=" + iron +
-      ", gold=" + gold +
-      ", wheat=" + wheat +
-      ", flour=" + flour +
-      ", leather=" + leather +
-      ", pig=" + pig +
-      ", skin=" + skin +
-      ", woodenShield=" + woodenShield +
-      ", ironShield=" + ironShield +
-      ", leatherArmor=" + leatherArmor +
-      ", ironArmor=" + ironArmor +
-      ", axe=" + axe +
-      ", sword=" + sword +
-      ", lance=" + lance +
-      ", pike=" + pike +
-      ", bow=" + bow +
-      ", crossbow=" + crossbow +
-      ", horse=" + horse +
-      '}';
-  }
 }
