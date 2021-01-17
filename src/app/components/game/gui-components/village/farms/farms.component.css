@@ -5,13 +5,15 @@
 .map-image {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 114px);
+  min-height: 600px;
   z-index: -1;
 }
 
 .grid-container {
   display: grid;
-  min-height: 100vh;
+  height: calc(100vh - 114px);
+  min-height: 600px;
   grid-template: 22% 14% 32% 12.5% auto / 34% 13% 20% 13% auto;
 }
 

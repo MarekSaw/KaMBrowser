@@ -6,13 +6,10 @@
 .village-map-image {
   position: absolute;
   width: 100%;
-
-  /*min-height: 100%;*/
   height: calc(100vh - 114px);
 }
 
 .grid-list {
-  /*height: 1080px;*/
   height: calc(100vh - 114px);
 }
 
