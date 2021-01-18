@@ -40,6 +40,11 @@ public class ResourceController {
     return resourcesService.updateResourcesForUserId(id, resources) ? ResponseEntity.accepted().build() : ResponseEntity.badRequest().build();
   }
 
+  @PutMapping("/add/{id}")
+  public ResponseEntity<?> addAndUpdateResourcesForUserById(@PathVariable Long id, @RequestBody Resources resources) {
+    return resourcesService.addAndUpdateResourcesForUserId(id, resources) ? ResponseEntity.accepted().build() : ResponseEntity.badRequest().build();
+  }
+
   @DeleteMapping("/{id}")
   public ResponseEntity<?> removeResourcesForUserById(@PathVariable Long id) {
     return resourcesService.removeResourcesListForUserId(id) ? ResponseEntity.accepted().build() : ResponseEntity.badRequest().build();

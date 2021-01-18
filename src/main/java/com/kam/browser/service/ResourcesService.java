@@ -12,6 +12,7 @@ public interface ResourcesService {
   List<Resources> getListOfResourcesForUsers();
   Boolean removeResourcesListForUserId(Long userId);
   Boolean updateResourcesForUserId(Long userId, Resources resources);
+  Boolean addAndUpdateResourcesForUserId(Long userId, Resources resourcesToAdd);
 
 
 }

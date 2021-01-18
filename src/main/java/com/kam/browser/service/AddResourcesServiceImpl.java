@@ -4,6 +4,8 @@ import com.kam.browser.model.AddResources;
 import com.kam.browser.repository.AddResourcesRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.*;
+
 @Service
 public class AddResourcesServiceImpl implements AddResourcesService {
 
@@ -17,7 +19,7 @@ public class AddResourcesServiceImpl implements AddResourcesService {
 
   @Override
   public AddResources initializeAddResourcesForUserId(Long userId) {
-    AddResources addResources = initializeAddResources();
+    AddResources addResources = AddResources.initializeAddResources();
     addResources.setUser(userService.getUserById(userId));
     return addResourcesRepository.save(addResources);
   }
@@ -42,38 +44,24 @@ public class AddResourcesServiceImpl implements AddResourcesService {
     return false;
   }
 
-  private AddResources initializeAddResources() {
-    return AddResources.builder()
-      .axe(0)
-      .bow(0)
-      .bread(0)
-      .builder(0)
-      .coal(0)
-      .crossbow(0)
-      .fish(0)
-      .flour(0)
-      .gold(0)
-      .goldOre(0)
-      .horse(0)
-      .iron(0)
-      .ironArmor(0)
-      .ironOre(0)
-      .ironShield(0)
-      .lance(0)
-      .leather(0)
-      .leatherArmor(0)
-      .pig(0)
-      .pike(0)
-      .plank(0)
-      .sausage(0)
-      .skin(0)
-      .stone(20)
-      .sword(0)
-      .wheat(0)
-      .wine(0)
-      .wood(0)
-      .woodenShield(0)
-      .worker(0)
-      .build();
+  @Override
+  public Long getAddResourcesMultiplierForUserId(Long userId) {
+    LocalDateTime actualDate = LocalDateTime.now().atOffset(ZoneOffset.UTC).toLocalDateTime();
+    System.out.println(actualDate);
+    LocalDateTime dateToCheck = getAddResourcesForUserId(userId).getDate();
+    System.out.println(dateToCheck);
+    if (actualDate.isAfter(dateToCheck)) {
+      return Duration.between(dateToCheck, actualDate).toHours() / 2;
+    }
+    return 0L;
   }
+
+  @Override
+  public Boolean updateResourcesAddingHourForUserId(Long userId) {
+    AddResources addResources = getAddResourcesForUserId(userId);
+    addResources.setDate(LocalDateTime.now());
+    return updateAddResourcesForUserId(userId, addResources);
+  }
+
+
 }

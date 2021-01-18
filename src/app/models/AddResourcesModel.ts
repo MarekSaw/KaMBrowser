@@ -1,0 +1,33 @@
+export interface AddResourcesModel {
+  date: number;
+  worker: number;
+  builder: number;
+  plank: number;
+  stone: number;
+  wine: number;
+  bread: number;
+  fish: number;
+  sausage: number;
+  wood: number;
+  ironOre: number;
+  goldOre: number;
+  coal: number;
+  iron: number;
+  gold: number;
+  wheat: number;
+  flour: number;
+  leather: number;
+  pig: number;
+  skin: number;
+  woodenShield: number;
+  ironShield: number;
+  leatherArmor: number;
+  ironArmor: number;
+  axe: number;
+  sword: number;
+  lance: number;
+  pike: number;
+  bow: number;
+  crossbow: number;
+  horse: number;
+}

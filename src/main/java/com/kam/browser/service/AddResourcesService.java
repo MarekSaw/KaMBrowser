@@ -11,4 +11,8 @@ public interface AddResourcesService {
   Boolean removeAddResourcesListForUserId(Long userId);
 
   Boolean updateAddResourcesForUserId(Long userId, AddResources addResources);
+
+  Long getAddResourcesMultiplierForUserId(Long userId);
+
+  Boolean updateResourcesAddingHourForUserId(Long userId);
 }

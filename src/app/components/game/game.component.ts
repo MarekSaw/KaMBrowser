@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Observable} from 'rxjs';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {BreakpointObserver} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
 import {ResourcesService} from '../../services/resources.service';
 import {ResourcesModel} from '../../models/ResourcesModel';
+import {ObservableService} from '../../services/observable.service';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnInit, OnChanges {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe('(max-width: 1260px)')
     .pipe(
@@ -18,18 +19,23 @@ export class GameComponent implements OnInit {
       shareReplay()
     );
 
-  public resourcesModel: ResourcesModel;
+  resourcesModel: ResourcesModel;
+  isDataAvailable: boolean;
 
-  constructor(private breakpointObserver: BreakpointObserver, private resourcesService: ResourcesService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private resourcesService: ResourcesService, private observableService: ObservableService) {
+    observableService.configObservable.subscribe(value => this.resourcesModel = value);
+  }
 
   ngOnInit(): void {
-    console.log('game init!');
     this.resourcesService.findResources().subscribe(value => {
       this.resourcesModel = value;
-      console.log('resources got!' + this.resourcesModel);
       this.resourcesService.cacheResources(this.resourcesModel);
-      console.log('resources cached!');
+      this.isDataAvailable = true;
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.resourcesModel = this.resourcesService.getResources();
   }
 
 

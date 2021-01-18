@@ -24,6 +24,11 @@ public class AddResourcesController {
     return ResponseEntity.ok(addResourcesService.getAddResourcesForUserId(id));
   }
 
+  @GetMapping("/check/{id}")
+  public ResponseEntity<Long> getAddResourcesMultiplier(@PathVariable Long id) {
+    return ResponseEntity.ok(addResourcesService.getAddResourcesMultiplierForUserId(id));
+  }
+
   @PostMapping("/{id}")
   public ResponseEntity<?> initializeAddResourcesForUser(@PathVariable Long id) {
     AddResources createdAddResources = addResourcesService.initializeAddResourcesForUserId(id);
@@ -33,6 +38,11 @@ public class AddResourcesController {
   @PutMapping("/{id}")
   public ResponseEntity<?> updateAddResourcesForUserById(@PathVariable Long id, @RequestBody AddResources addResources) {
     return addResourcesService.updateAddResourcesForUserId(id, addResources) ? ResponseEntity.accepted().build() : ResponseEntity.badRequest().build();
+  }
+
+  @PutMapping("/check/{id}")
+  public ResponseEntity<?> updateResourcesAddingDate(@PathVariable Long id) {
+    return addResourcesService.updateResourcesAddingHourForUserId(id) ? ResponseEntity.accepted().build() : ResponseEntity.badRequest().build();
   }
 
   @DeleteMapping("/{id}")

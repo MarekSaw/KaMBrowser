@@ -10,7 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridList, MatGridListModule, MatGridTile} from '@angular/material/grid-list';
-import {DialogAddingResourcesComponent, VillageComponent} from './components/game/gui-components/village/village.component';
+import {VillageComponent} from './components/game/gui-components/village/village.component';
 import {WorldMapComponent} from './components/game/gui-components/world-map/world-map.component';
 import {CityComponent} from './components/game/gui-components/village/city/city.component';
 import {LoginComponent} from './components/login/login.component';
@@ -38,6 +38,7 @@ import {BuildingMenuComponent} from './components/game/gui-components/village/bu
 import {MessageComponent} from './Messages/message/message.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {DialogAddingResourcesComponent} from './components/game/gui-components/village/dialog-adding-resources.component';
 
 
 @NgModule({
