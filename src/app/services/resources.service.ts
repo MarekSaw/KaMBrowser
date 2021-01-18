@@ -3,7 +3,7 @@ import {ResourcesModel} from '../models/ResourcesModel';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ObservableService} from './observable.service';
-import {hasOwnProperty} from 'tslint/lib/utils';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +27,7 @@ export class ResourcesService {
   }
   public addToCachedResources(resources: ResourcesModel): void {
     for (const key in this.resources) {
-      if (hasOwnProperty(resources, key)) {
-        this.resources[key] += resources[key];
-      }
+      this.resources[key] += resources[key];
     }
   }
 
