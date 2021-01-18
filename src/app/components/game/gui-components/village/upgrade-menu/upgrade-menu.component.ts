@@ -36,6 +36,7 @@ export class UpgradeMenuComponent implements OnInit {
   building: BuildingModel;
   resources: ResourcesModel;
   upgradeError: boolean;
+  isDataAvailable: boolean;
 
   constructor(private buildService: BuildingService,
               private fieldService: FieldServiceService,
@@ -44,9 +45,13 @@ export class UpgradeMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.field = JSON.parse(localStorage.getItem('field'));
-    this.findBuilding(this.field.map, this.field.fieldNumber);
-    this.findResources();
-    this.upgradeError = false;
+    this.buildService.findBuildingByMapAndFieldNumber(this.field.map, this.field.fieldNumber).subscribe(value => {
+      this.building = value;
+      this.findResources();
+      this.upgradeError = false;
+      this.isDataAvailable = true;
+    });
+
   }
 
   upgradeBuilding(): void {
@@ -60,11 +65,6 @@ export class UpgradeMenuComponent implements OnInit {
     }
   }
 
-  private findBuilding(map: string, fieldNumber: number): void {
-    this.buildService.findBuildingByMapAndFieldNumber(map, fieldNumber).subscribe(value => {
-      this.building = value;
-    });
-  }
 
   private findResources(): void {
     this.resourcesService.findResources().subscribe(value => {
