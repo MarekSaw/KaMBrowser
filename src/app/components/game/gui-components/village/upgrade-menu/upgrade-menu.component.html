@@ -30,7 +30,8 @@
         <p class="worker-value">{{building.workersNeed}}</p>
         <p class="plank-value">{{building.planksNeed}}</p>
         <p class="stone-value">{{building.stoneNeed}}</p>
-        <p class="stone-value">20s</p>
+<!--        <p class="stone-value">20s</p>-->
+        <p class="stone-value"><countdown [config]="{leftTime: this.duration}"></countdown></p>
       </div>
       <button class="back-button app-button"
               [routerLink]="['/game/village/', building.mapBelonging]">

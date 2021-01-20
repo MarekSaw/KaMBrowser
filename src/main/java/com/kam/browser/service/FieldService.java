@@ -2,6 +2,7 @@ package com.kam.browser.service;
 
 import com.kam.browser.model.Field;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface FieldService {
@@ -13,5 +14,7 @@ public interface FieldService {
   Field updateFieldByUserId(Field field, Long id);
 
   Field getFieldByMapAndFieldNumberAndUserId(String map, Integer fieldNumber, Long id);
+
+  Long getTimeSecondsToEndUpgrade(Long endOfUpgradeTime);
 
 }

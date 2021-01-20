@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -45,5 +46,9 @@ public class FieldController {
     return Objects.isNull(updatedField) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(updatedField);
   }
 
-
+  @GetMapping("/time")
+  public ResponseEntity<?> getTimeSecondsToEndUpgrade(@RequestParam Long endOfBuildingTime){
+    Long time = fieldService.getTimeSecondsToEndUpgrade(endOfBuildingTime);
+    return Objects.isNull(time) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(time);
+  }
 }

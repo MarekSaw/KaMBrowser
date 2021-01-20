@@ -38,6 +38,8 @@ export class UpgradeMenuComponent implements OnInit {
   upgradeError: boolean;
   isDataAvailable: boolean;
 
+  duration: number;
+
   constructor(private buildService: BuildingService,
               private fieldService: FieldServiceService,
               private resourcesService: ResourcesService,
@@ -50,6 +52,8 @@ export class UpgradeMenuComponent implements OnInit {
       this.findResources();
       this.upgradeError = false;
       this.isDataAvailable = true;
+      this.fieldService.getTimeSecondToEndUpgrade(new Date(this.field.endOfBuildingTime).valueOf())
+        .subscribe(value1 => this.duration = value1);
     });
 
   }
@@ -72,9 +76,9 @@ export class UpgradeMenuComponent implements OnInit {
     });
   }
   private areResourcesAvailable(): boolean {
-    return (this.resources.worker - this.building.workersNeed) > 0 &&
-      (this.resources.plank - this.building.planksNeed) > 0 &&
-      (this.resources.stone - this.building.stoneNeed) > 0;
+    return (this.resources.worker - this.building.workersNeed) >= 0 &&
+      (this.resources.plank - this.building.planksNeed) >= 0 &&
+      (this.resources.stone - this.building.stoneNeed) >= 0;
   }
 
   private upgrade(): void {

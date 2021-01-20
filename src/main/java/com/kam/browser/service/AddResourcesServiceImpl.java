@@ -47,9 +47,7 @@ public class AddResourcesServiceImpl implements AddResourcesService {
   @Override
   public Long getAddResourcesMultiplierForUserId(Long userId) {
     LocalDateTime actualDate = LocalDateTime.now().atOffset(ZoneOffset.UTC).toLocalDateTime();
-    System.out.println(actualDate);
     LocalDateTime dateToCheck = getAddResourcesForUserId(userId).getDate();
-    System.out.println(dateToCheck);
     if (actualDate.isAfter(dateToCheck)) {
       return Duration.between(dateToCheck, actualDate).toHours() / 2;
     }

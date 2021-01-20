@@ -12,7 +12,7 @@
   padding: 5% 0 5% 0;
   min-width: 950px;
   /*min-height: 900px;*/
-  overflow: auto;
+
 }
 
 .content {
@@ -98,7 +98,7 @@
   grid-column: 1;
   grid-row: 3;
   display: grid;
-  grid-template: 50% 50% / 1fr 1fr 1fr 1fr;
+  grid-template: 50% 50% / 1fr 1fr 1fr 2fr;
   grid-template-areas: "worker plank stone clock"
                       "wroker-value plank-value stone-value time";
   justify-self: center;

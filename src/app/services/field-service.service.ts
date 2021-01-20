@@ -11,7 +11,6 @@ import {Observable} from 'rxjs';
 export class FieldServiceService {
 
   public field: FieldModel;
-  // public fields: FieldModel[];
 
   private fieldsUrl: string;
   private fieldsMapUrl: string;
@@ -26,35 +25,26 @@ export class FieldServiceService {
   }
 
   public selectField(): FieldModel {
-    console.log('selectedField Service: ');
     return this.field;
   }
 
-  // public saveFields(fields: FieldModel[]): void {
-  //   this.fields = fields;
-  // }
-  //
-  // public selectFields(): FieldModel[] {
-  //   console.log('selectTiles: ' + this.fields);
-  //   return this.fields;
-  // }
 
   public findFieldByMapAndFieldNumber(map: string, fieldNumber: number): Observable<FieldModel> {
-    console.log('findFieldByWhereAndMap!');
     const userId = 1;
     return this.http.get<FieldModel>(`${this.fieldsUrl}${userId}?map=${map}&fieldNumber=${fieldNumber}`);
   }
 
   public findFieldsByMap(map: string): Observable<FieldModel[]> {
-    console.log('findFieldMap!');
     const userId = 1;
     return this.http.get<FieldModel[]>(`${this.fieldsMapUrl}${userId}?map=${map}`);
   }
 
   public updateField(fieldUpdate: FieldModel): Observable<FieldModel> {
-    console.log('updateField!');
-    console.log('updateField:' + fieldUpdate.className);
     const userId = 1;
     return this.http.put<FieldModel>(`${this.fieldsUrl}${userId}`, fieldUpdate);
+  }
+
+  public getTimeSecondToEndUpgrade(endOfBuildingTime: number): Observable<number>{
+    return this.http.get<number>(`${this.fieldsUrl}time?endOfBuildingTime=${endOfBuildingTime}`);
   }
 }

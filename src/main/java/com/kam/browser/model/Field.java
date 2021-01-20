@@ -4,6 +4,7 @@ import lombok.*;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -25,4 +26,5 @@ public class Field {
   private String className;
   private Integer buildingId;
   private Integer buildingLevel;
+  private LocalDateTime endOfBuildingTime;
 }

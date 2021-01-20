@@ -39,6 +39,7 @@ import {MessageComponent} from './Messages/message/message.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogAddingResourcesComponent} from './components/game/gui-components/village/dialog-adding-resources.component';
+import {CountdownModule} from 'ngx-countdown';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import {DialogAddingResourcesComponent} from './components/game/gui-components/v
     MatFormFieldModule,
     MatTooltipModule,
     MatDialogModule,
+    CountdownModule,
   ],
   providers: [
     MatIcon,

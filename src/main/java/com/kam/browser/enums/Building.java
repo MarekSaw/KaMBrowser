@@ -26,7 +26,7 @@ public enum Building {
   GOLD_SMITH(15, "city", 5,3,4, 3, 5L, new String[]{"gold-ore","coal"}, new String[]{"gold"}),
   WEAPON_WORKSHOP(16, "underCity", 4,4,4, 3, 5L, new String[]{"plank"}, new String[]{"axe","lance","bow"}),
   TANNERY(17, "underCity", 2,3,4, 3, 5L, new String[]{"skin"}, new String[]{"leather"}),
-  ARMORY_WORKSHOP(18, "underCity", 3,3,4, 3, 5L, new String[]{"plank","leather"}, new String[]{"leather-armor","wooden-shield"}),
+  ARMORY_WORKSHOP(18, "underCity", 3,3,4, 3, 10800L, new String[]{"plank","leather"}, new String[]{"leather-armor","wooden-shield"}),
   STABLE(19, "underCity", 1,4,6, 5, 5L, new String[]{"wheat"}, new String[]{"horse"}),
   IRON_MINE(20, "mines", 3,2,3, 2, 5L, new String[]{"none"}, new String[]{"iron-ore"}),
   IRON_SMITH(21, "mines", 4,3,4, 3, 5L, new String[]{"iron-ore","coal"}, new String[]{"iron"}),
