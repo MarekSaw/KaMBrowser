@@ -4,5 +4,5 @@ export interface FieldModel {
   className: string;
   buildingId: number;
   buildingLevel: number;
-  endOfBuildingTime: Date;
+  endOfBuildingTime: number;
 }

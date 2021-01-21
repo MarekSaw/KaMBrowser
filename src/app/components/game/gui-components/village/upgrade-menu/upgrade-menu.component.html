@@ -31,13 +31,14 @@
         <p class="plank-value">{{building.planksNeed}}</p>
         <p class="stone-value">{{building.stoneNeed}}</p>
 <!--        <p class="stone-value">20s</p>-->
-        <p class="stone-value"><countdown [config]="{leftTime: this.duration}"></countdown></p>
+        <p class="stone-value" *ngIf="duration<0"><countdown [config]="{leftTime: this.timeToUpgrade, demand: true}"></countdown></p>
+        <p class="stone-value" *ngIf="duration>=0"><countdown [config]="{leftTime: this.duration}"></countdown></p>
       </div>
       <button class="back-button app-button"
               [routerLink]="['/game/village/', building.mapBelonging]">
         BACK
       </button>
-      <button class="upgrade-button app-button"
+      <button id="upgrade-button" class="upgrade-button app-button"
               (click)="upgradeBuilding()">
         UPGRADE
       </button>

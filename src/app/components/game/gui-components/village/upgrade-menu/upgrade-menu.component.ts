@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BuildingModel} from '../../../../../models/BuildingModel';
 import {FieldServiceService} from '../../../../../services/field-service.service';
 import {BuildingService} from '../../../../../services/building.service';
@@ -39,11 +39,13 @@ export class UpgradeMenuComponent implements OnInit {
   isDataAvailable: boolean;
 
   duration: number;
+  timeToUpgrade: number;
 
   constructor(private buildService: BuildingService,
               private fieldService: FieldServiceService,
               private resourcesService: ResourcesService,
-              private router: Router) {}
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.field = JSON.parse(localStorage.getItem('field'));
@@ -52,20 +54,33 @@ export class UpgradeMenuComponent implements OnInit {
       this.findResources();
       this.upgradeError = false;
       this.isDataAvailable = true;
-      this.fieldService.getTimeSecondToEndUpgrade(new Date(this.field.endOfBuildingTime).valueOf())
-        .subscribe(value1 => this.duration = value1);
+
+      this.fieldService.getTimeSecondToEndUpgrade(this.field.map, this.field.fieldNumber)
+        .subscribe(value1 => {
+          this.duration = value1;
+          if (this.duration < 0) {
+            this.fieldService.getTimeSecondToUpgrade(this.field.map, this.field.fieldNumber)
+              .subscribe(value2 => this.timeToUpgrade = value2);
+            document.getElementById('upgrade-button').classList.remove('disable');
+          } else {
+            document.getElementById('upgrade-button').classList.add('disable');
+          }
+          console.log('duration2:' + this.duration);
+        });
     });
 
   }
 
   upgradeBuilding(): void {
-    if (this.areResourcesAvailable()) {
-      this.upgrade();
-      this.resourcesService.updateResources(this.resources).subscribe();
-      this.fieldService.updateField(this.field).subscribe();
-      this.redirect();
-    } else {
-      this.upgradeError = true;
+    if (this.duration < 0) {
+      if (this.areResourcesAvailable()) {
+        this.upgrade();
+        this.resourcesService.updateResources(this.resources).subscribe();
+        this.fieldService.updateField(this.field).subscribe();
+        this.redirect();
+      } else {
+        this.upgradeError = true;
+      }
     }
   }
 
@@ -75,6 +90,7 @@ export class UpgradeMenuComponent implements OnInit {
       this.resources = value;
     });
   }
+
   private areResourcesAvailable(): boolean {
     return (this.resources.worker - this.building.workersNeed) >= 0 &&
       (this.resources.plank - this.building.planksNeed) >= 0 &&
@@ -89,9 +105,10 @@ export class UpgradeMenuComponent implements OnInit {
   }
 
   private redirect(): void {
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['/game/village/upgrade-menu']);
-    });
+    // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+    //   this.router.navigate(['/game/village/upgrade-menu']);
+    // });
+    this.router.navigate(['/game/village/', this.field.map]);
   }
 
 }

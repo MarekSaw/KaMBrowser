@@ -7,7 +7,6 @@ import com.kam.browser.repository.FieldRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Arrays;
@@ -20,6 +19,7 @@ public class FieldServiceImpl implements FieldService {
 
   private final FieldRepository fieldRepository;
   private final UserService userService;
+
 
 
   public FieldServiceImpl(FieldRepository fieldRepository, UserService userService) {
@@ -60,14 +60,27 @@ public class FieldServiceImpl implements FieldService {
       field.setUser(userService.getUserById(id));
 
 
-      //todo change input time
-      LocalDateTime time = LocalDateTime.now().plusSeconds(Building.ARMORY_WORKSHOP.getTimeNeed());
-      field.setEndOfBuildingTime(time);
 
+      //current level of building
+      int buildingLevel = fieldToUpdate.getBuildingLevel();
+      long buildingTimeSeconds = getBuildingTimeSeconds(buildingLevel);
+      LocalDateTime time = LocalDateTime.now().plusSeconds(buildingTimeSeconds);
+      field.setEndOfBuildingTime(time);
+      log.info("TIME: "+time);
 
       return fieldRepository.save(field);
     }
     return null;
+  }
+
+  private long getBuildingTimeSeconds(int buildingLevel) {
+    double buildingTimeSeconds;
+    if (buildingLevel == 0){
+      buildingTimeSeconds = 5.0;
+    }else {
+      buildingTimeSeconds = 7.185 * Math.pow(buildingLevel, 3) - 24.35 * Math.pow(buildingLevel, 2) + 36.18 * buildingLevel - 6;
+    }
+    return Math.round(buildingTimeSeconds);
   }
 
   @Override
@@ -79,8 +92,15 @@ public class FieldServiceImpl implements FieldService {
   }
 
   @Override
-  public Long getTimeSecondsToEndUpgrade(Long endOfUpgradeTime) {
-    return  (endOfUpgradeTime / 1000) - LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+  public Long getTimeSecondsToEndUpgradeField(String map, Integer fieldNumber, Long id) {
+    Field fieldFromDatabase = getFieldByMapAndFieldNumberAndUserId(map, fieldNumber, id);
+    return  (fieldFromDatabase.getEndOfBuildingTime().toEpochSecond(ZoneOffset.UTC)) - LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+  }
+
+  @Override
+  public Long getTimeSecondsToUpgradeField(String map, Integer fieldNumber, Long id) {
+    Field fieldFromDatabase = getFieldByMapAndFieldNumberAndUserId(map, fieldNumber, id);
+    return  getBuildingTimeSeconds(fieldFromDatabase.getBuildingLevel());
   }
 
   private Field[] getFields() {

@@ -116,6 +116,16 @@
   justify-self: left;
   font-size: 30px;
 }
+.upgrade-button.disable {
+  grid-column: 3;
+  grid-row: 3;
+  height: fit-content;
+  padding: 5px 5px 5px 5px;
+  justify-self: left;
+  font-size: 30px;
+  color: gray;
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
 .back-button {
   grid-column: 2;
