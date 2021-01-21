@@ -27,7 +27,12 @@ export class ResourcesService {
   }
   public addToCachedResources(resources: ResourcesModel): void {
     for (const key in this.resources) {
-      this.resources[key] += resources[key];
+        this.resources[key] += resources[key];
+    }
+  }
+  public subtractDifferenceFromCache(resources: ResourcesModel): void {
+    for (const key in this.resources) {
+      this.resources[key] -= (this.resources[key] - resources[key]);
     }
   }
 

@@ -76,6 +76,7 @@ export class UpgradeMenuComponent implements OnInit {
       if (this.areResourcesAvailable()) {
         this.upgrade();
         this.resourcesService.updateResources(this.resources).subscribe();
+        this.resourcesService.subtractDifferenceFromCache(this.resources);
         this.fieldService.updateField(this.field).subscribe();
         this.redirect();
       } else {
@@ -83,7 +84,6 @@ export class UpgradeMenuComponent implements OnInit {
       }
     }
   }
-
 
   private findResources(): void {
     this.resourcesService.findResources().subscribe(value => {
