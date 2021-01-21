@@ -28,11 +28,7 @@ export class UnderCityComponent implements OnInit {
   }
 
   goToSelectedField(buildingLevel: number, className: string): void {
-    if (buildingLevel === 0) {
-      this.router.navigate(['/game/village/building-menu']);
-    } else {
-      this.router.navigate(['/game/village/upgrade-menu']);
-    }
+    this.router.navigate(['/game/village/upgrade-menu']);
   }
 
 }

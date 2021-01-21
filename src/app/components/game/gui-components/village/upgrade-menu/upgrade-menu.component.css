@@ -136,6 +136,10 @@
   font-size: 30px;
 }
 
+.upgrade-button p {
+  margin: 0;
+}
+
 .tooltip {
   grid-column: 1;
   grid-row: 3;

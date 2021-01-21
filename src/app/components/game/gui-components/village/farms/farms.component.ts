@@ -21,20 +21,13 @@ export class FarmsComponent implements OnInit {
 
   setField(map: string, fieldNumber: number): void {
     this.fieldService.findFieldByMapAndFieldNumber(map, fieldNumber).subscribe(value => {
-      console.log(value);
       this.field = value;
       localStorage.setItem('field', JSON.stringify(this.field));
-      console.log('setField: ' + this.field.className);
-      this.goToSelectedField(value.buildingLevel, value.className);
+      this.goToUpgradeMenu();
     });
   }
 
-  goToSelectedField(buildingLevel: number, className: string): void{
-    if (buildingLevel === 0){
-      this.router.navigate(['/game/village/building-menu']);
-    }else {
-      this.router.navigate(['/game/village/upgrade-menu']);
-    }
-
+  goToUpgradeMenu(): void{
+    this.router.navigate(['/game/village/upgrade-menu']);
   }
 }

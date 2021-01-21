@@ -39,8 +39,10 @@
         BACK
       </button>
       <button id="upgrade-button" class="upgrade-button app-button"
-              (click)="upgradeBuilding()">
-        UPGRADE
+              (click)="upgradeBuilding()"
+              [ngSwitch]="field.buildingLevel">
+        <p *ngSwitchCase="0">BUILD</p>
+        <p *ngSwitchDefault>UPGRADE</p>
       </button>
       <div class="tooltip" [@showHide]="upgradeError ? 'show' : 'hide'">
         <span class="tooltip-text">Not enough resources</span>

@@ -98,6 +98,9 @@ export class UpgradeMenuComponent implements OnInit {
   }
 
   private upgrade(): void {
+    if (this.field.buildingLevel === 0) {
+      this.field.className = `build-${this.field.className}`;
+    }
     this.field.buildingLevel++;
     this.resources.worker -= this.building.workersNeed;
     this.resources.plank -= this.building.planksNeed;

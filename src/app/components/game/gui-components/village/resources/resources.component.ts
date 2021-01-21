@@ -23,15 +23,11 @@ export class ResourcesComponent implements OnInit {
     this.fieldService.findFieldByMapAndFieldNumber(map, fileNumber).subscribe(value => {
       this.field = value;
       localStorage.setItem('field', JSON.stringify(this.field));
-      this.goToSelectedField(this.field.buildingLevel, this.field.className);
+      this.goToUpgradeMenu();
     });
   }
 
-  goToSelectedField(buildingLevel: number, className: string): void {
-    if (buildingLevel === 0) {
-      this.router.navigate(['/game/village/building-menu']);
-    } else {
-      this.router.navigate(['/game/village/upgrade-menu']);
-    }
+  goToUpgradeMenu(): void{
+    this.router.navigate(['/game/village/upgrade-menu']);
   }
 }
