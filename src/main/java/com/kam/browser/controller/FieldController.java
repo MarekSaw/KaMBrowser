@@ -46,17 +46,4 @@ public class FieldController {
     return Objects.isNull(updatedField) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(updatedField);
   }
 
-  @GetMapping("/time/end")
-  public ResponseEntity<?> getTimeSecondsToEndUpgrade(@RequestParam String map, @RequestParam Integer fieldNumber){
-    Long id = 1L;
-    Long time = fieldService.getTimeSecondsToEndUpgradeField(map,fieldNumber,id);
-    return Objects.isNull(time) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(time);
-  }
-
-  @GetMapping("/time/upgrade")
-  public ResponseEntity<?> getTimeSecondsToUpgrade(@RequestParam String map, @RequestParam Integer fieldNumber){
-    Long id = 1L;
-    Long time = fieldService.getTimeSecondsToUpgradeField(map,fieldNumber,id);
-    return Objects.isNull(time) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(time);
-  }
 }

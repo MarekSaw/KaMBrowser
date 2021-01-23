@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FieldServiceService} from '../../../../../services/field-service.service';
 import {FieldModel} from '../../../../../models/FieldModel';
 import {Router} from '@angular/router';
+import {FieldResourcesInformationService} from '../../../../../services/field-resources-information.service';
+import {CountdownEvent} from 'ngx-countdown';
 
 
 
@@ -13,17 +15,24 @@ import {Router} from '@angular/router';
 
 export class CityComponent implements OnInit {
 
-  pathStart = 'assets/buildings/';
-  pathEnd = '.bmp';
+
 
   fields: FieldModel[];
   field: FieldModel;
+  duration: number[] = Array<number>(8);
 
-  constructor(private fieldService: FieldServiceService, private router: Router) {
+  constructor(private fieldService: FieldServiceService,
+              private fieldResourcesInformationService: FieldResourcesInformationService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.fieldService.findFieldsByMap('city').subscribe(value => this.fields = value);
+    this.fieldService.findFieldsByMap('city').subscribe(value => {
+      this.fields = value;
+      this.fields.forEach((oneField, index) =>
+        this.fieldResourcesInformationService.getTimeSecondToEndUpgrade(oneField.map, oneField.fieldNumber)
+          .subscribe(value1 => this.duration[index] = value1));
+    });
   }
 
   setField(map: string, fileNumber: number): void {
@@ -42,4 +51,15 @@ export class CityComponent implements OnInit {
     }
   }
 
+  handleEvent($event: CountdownEvent): void {
+    const leftSecondsToEndUpgrade = $event.left;
+
+    if (leftSecondsToEndUpgrade === 0){
+      this.fields.forEach((oneField, index) =>
+        this.fieldResourcesInformationService.getTimeSecondToEndUpgrade(oneField.map, oneField.fieldNumber)
+          .subscribe(value1 => {
+            this.duration[index] = value1;
+          }));
+    }
+  }
 }

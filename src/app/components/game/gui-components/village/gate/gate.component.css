@@ -90,3 +90,9 @@
   grid-column: 4 / 4;
   grid-row: 6 / 6;
 }
+.countdown-map{
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "Architects Daughter", sans-serif;
+  color: white;
+}

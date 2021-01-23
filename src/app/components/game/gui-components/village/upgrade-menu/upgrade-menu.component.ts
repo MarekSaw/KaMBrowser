@@ -69,20 +69,7 @@ export class UpgradeMenuComponent implements OnInit {
           } else {
             document.getElementById('upgrade-button').classList.add('disable');
           }
-          console.log('duration2:' + this.fieldResourcesInformation.timeSecondsToEndUpgrade);
         });
-      // this.fieldService.getTimeSecondToEndUpgrade(this.field.map, this.field.fieldNumber)
-      //   .subscribe(value1 => {
-      //     this.duration = value1;
-      //     if (this.duration < 0) {
-      //       this.fieldService.getTimeSecondToUpgrade(this.field.map, this.field.fieldNumber)
-      //         .subscribe(value2 => this.timeToUpgrade = value2);
-      //       document.getElementById('upgrade-button').classList.remove('disable');
-      //     } else {
-      //       document.getElementById('upgrade-button').classList.add('disable');
-      //     }
-      //     console.log('duration2:' + this.duration);
-      //   });
     });
 
   }

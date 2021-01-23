@@ -15,7 +15,4 @@ public interface FieldService {
 
   Field getFieldByMapAndFieldNumberAndUserId(String map, Integer fieldNumber, Long id);
 
-  Long getTimeSecondsToEndUpgradeField(String map, Integer fieldNumber, Long id);
-
-  Long getTimeSecondsToUpgradeField(String map, Integer fieldNumber, Long id);
 }

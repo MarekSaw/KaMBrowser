@@ -11,14 +11,14 @@ import java.time.ZoneOffset;
 
 @Service
 @Slf4j
-public class FieldResourcesInformationServiceServiceImpl implements FieldResourcesInformationService {
+public class FieldResourcesInformationServiceImpl implements FieldResourcesInformationService {
 
   private final FieldService fieldService;
   private final BuildingService buildingService;
 
   private final Double WORKERS_BASIS_OF_POWER = 1.24;
 
-  public FieldResourcesInformationServiceServiceImpl(FieldService fieldService, BuildingService buildingService) {
+  public FieldResourcesInformationServiceImpl(FieldService fieldService, BuildingService buildingService) {
     this.fieldService = fieldService;
     this.buildingService = buildingService;
   }
@@ -35,24 +35,29 @@ public class FieldResourcesInformationServiceServiceImpl implements FieldResourc
     long workersNeeded = getWorkersNeeded(buildingLevel);
 
     return FieldResourcesInformation.builder()
-      .planksNeeded(Math.round(resourcesNeeded*building.getPlanksMultiplier()))
-      .stonesNeeded(Math.round(resourcesNeeded*building.getStoneMultiplier()))
-      .workersNeeded(Math.round(workersNeeded*building.getWorkersMultiplier()))
-      .timeSecondsToUpgrade(Math.round(buildingTimeSeconds*building.getTimeMultiplier()))
-      .timeSecondsToEndUpgrade(getTimeSecondsToEndUpgradeField(field))
+      .planksNeeded(Math.round(resourcesNeeded * building.getPlanksMultiplier()))
+      .stonesNeeded(Math.round(resourcesNeeded * building.getStoneMultiplier()))
+      .workersNeeded(Math.round(workersNeeded * building.getWorkersMultiplier()))
+      .timeSecondsToUpgrade(Math.round(buildingTimeSeconds * building.getTimeMultiplier()))
+      .timeSecondsToEndUpgrade(getTimeSecondsToEndUpgrade(field))
       .build();
   }
 
-
-  private Long getTimeSecondsToEndUpgradeField(Field field) {
-    return  (field.getEndOfBuildingTime().toEpochSecond(ZoneOffset.UTC)) - LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+  @Override
+  public Long getTimeSecondsToEndUpgradeField(String map, Integer fieldNumber, Long id) {
+    Field field = fieldService.getFieldByMapAndFieldNumberAndUserId(map, fieldNumber, id);
+    return getTimeSecondsToEndUpgrade(field);
   }
 
-  private long getBuildingTimeSeconds(int buildingLevel) {
+  private long getTimeSecondsToEndUpgrade(Field field) {
+    return (field.getEndOfBuildingTime().toEpochSecond(ZoneOffset.UTC)) - LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+  }
+
+  public static long getBuildingTimeSeconds(int buildingLevel) {
     double buildingTimeSeconds;
-    if (buildingLevel <= 0){
+    if (buildingLevel <= 0) {
       buildingTimeSeconds = 5.0;
-    }else {
+    } else {
       buildingTimeSeconds = 7.185 * Math.pow(buildingLevel, 3) - 24.35 * Math.pow(buildingLevel, 2) + 36.18 * buildingLevel - 6;
     }
     return Math.round(buildingTimeSeconds);
@@ -60,9 +65,9 @@ public class FieldResourcesInformationServiceServiceImpl implements FieldResourc
 
   private long getPlanksAndStonesNeeded(int buildingLevel) {
     double buildingResourcesNeeded;
-    if (buildingLevel <= 0){
+    if (buildingLevel <= 0) {
       buildingResourcesNeeded = 4.0;
-    } else if (buildingLevel<=20){
+    } else if (buildingLevel <= 20) {
       buildingResourcesNeeded = 0.017 * Math.pow(buildingLevel, 4) - 0.314 * Math.pow(buildingLevel, 3) + 4.052 * Math.pow(buildingLevel, 3) - 0.404 * buildingLevel + 4.128;
     } else {
       //todo change for 20+ lvl
@@ -73,10 +78,10 @@ public class FieldResourcesInformationServiceServiceImpl implements FieldResourc
 
   private long getWorkersNeeded(int buildingLevel) {
     double buildingWorkersNeeded;
-    if (buildingLevel <= 0){
+    if (buildingLevel <= 0) {
       buildingWorkersNeeded = 1.0;
     } else {
-      buildingWorkersNeeded = Math.pow(WORKERS_BASIS_OF_POWER, buildingLevel) +1;
+      buildingWorkersNeeded = Math.pow(WORKERS_BASIS_OF_POWER, buildingLevel) + 1;
     }
     return Math.round(buildingWorkersNeeded);
   }

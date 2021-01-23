@@ -28,5 +28,10 @@ public class FieldResourcesInformationController {
     FieldResourcesInformation fieldResourcesInformation = fieldResourcesInformationService.getFieldResourcesInformation(map, fieldNumber, userId);
     return Objects.isNull(fieldResourcesInformation) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(fieldResourcesInformation);
   }
-
+  @GetMapping("/time/end")
+  public ResponseEntity<?> getTimeSecondsToEndUpgrade(@RequestParam String map, @RequestParam Integer fieldNumber){
+    Long id = 1L;
+    Long time = fieldResourcesInformationService.getTimeSecondsToEndUpgradeField(map,fieldNumber,id);
+    return Objects.isNull(time) ? ResponseEntity.badRequest().build() : ResponseEntity.ok(time);
+  }
 }

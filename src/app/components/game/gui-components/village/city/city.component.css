@@ -142,4 +142,9 @@
   grid-row: 4 / 4;
 }
 
-
+.countdown-map{
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "Architects Daughter", sans-serif;
+  color: white;
+}

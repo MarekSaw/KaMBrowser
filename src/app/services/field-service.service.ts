@@ -33,10 +33,5 @@ export class FieldServiceService {
     return this.http.put<FieldModel>(`${this.fieldsUrl}${userId}`, fieldUpdate);
   }
 
-  public getTimeSecondToEndUpgrade(map: string, fieldNumber: number): Observable<number>{
-    return this.http.get<number>(`${this.fieldsUrl}time/end?map=${map}&fieldNumber=${fieldNumber}`);
-  }
-  public getTimeSecondToUpgrade(map: string, fieldNumber: number): Observable<number>{
-    return this.http.get<number>(`${this.fieldsUrl}time/upgrade?map=${map}&fieldNumber=${fieldNumber}`);
-  }
+
 }

@@ -52,26 +52,23 @@ public class FieldServiceImpl implements FieldService {
 
   @Override
   public Field updateFieldByUserId(Field field, Long id) {
-    log.info("up: "+field.toString());
-    log.info("us: "+id);
     if (Objects.nonNull(userService.getUserById(id))) {
       Field fieldToUpdate = fieldRepository.findFieldByMapAndFieldNumberAndUser_Id(field.getMap(), field.getFieldNumber(), id);
       field.setId(fieldToUpdate.getId());
       field.setUser(userService.getUserById(id));
 
-
-
-      //current level of building
-      int buildingLevel = fieldToUpdate.getBuildingLevel();
-      Double timeMultiplier = buildingService.getBuildingByMapAndFieldNumber(fieldToUpdate.getMap(), fieldToUpdate.getFieldNumber()).getTimeMultiplier();
-      long buildingTimeSeconds = Math.round(getBuildingTimeSeconds(buildingLevel) * timeMultiplier);
-      LocalDateTime time = LocalDateTime.now().plusSeconds(buildingTimeSeconds);
-      field.setEndOfBuildingTime(time);
-      log.info("TIME: "+time);
+      field.setEndOfBuildingTime(getBuildingUpdateTime(fieldToUpdate));
 
       return fieldRepository.save(field);
     }
     return null;
+  }
+
+  private LocalDateTime getBuildingUpdateTime(Field fieldToUpdate) {
+    int buildingLevel = fieldToUpdate.getBuildingLevel();
+    Double timeMultiplier = buildingService.getBuildingByMapAndFieldNumber(fieldToUpdate.getMap(), fieldToUpdate.getFieldNumber()).getTimeMultiplier();
+    long buildingTimeSeconds = Math.round(FieldResourcesInformationServiceImpl.getBuildingTimeSeconds(buildingLevel) * timeMultiplier);
+    return LocalDateTime.now().plusSeconds(buildingTimeSeconds);
   }
 
   private long getBuildingTimeSeconds(int buildingLevel) {
@@ -90,18 +87,6 @@ public class FieldServiceImpl implements FieldService {
       return fieldRepository.findFieldByMapAndFieldNumberAndUser_Id(map, fieldNumber, id);
     }
     return null;
-  }
-
-  @Override
-  public Long getTimeSecondsToEndUpgradeField(String map, Integer fieldNumber, Long id) {
-    Field fieldFromDatabase = getFieldByMapAndFieldNumberAndUserId(map, fieldNumber, id);
-    return  (fieldFromDatabase.getEndOfBuildingTime().toEpochSecond(ZoneOffset.UTC)) - LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
-  }
-
-  @Override
-  public Long getTimeSecondsToUpgradeField(String map, Integer fieldNumber, Long id) {
-    Field fieldFromDatabase = getFieldByMapAndFieldNumberAndUserId(map, fieldNumber, id);
-    return  getBuildingTimeSeconds(fieldFromDatabase.getBuildingLevel());
   }
 
   private Field[] getFields() {
@@ -136,11 +121,11 @@ public class FieldServiceImpl implements FieldService {
       Field.builder().map("underCity").fieldNumber(3).buildingId(18).buildingLevel(0).className("armory-workshop").endOfBuildingTime(currentTime).build(),
       Field.builder().map("underCity").fieldNumber(4).buildingId(16).buildingLevel(0).className("weapon-workshop").endOfBuildingTime(currentTime).build(),
 
-      Field.builder().map("gate").fieldNumber(1).buildingId(24).buildingLevel(0).className("barracks").endOfBuildingTime(null).build(),
-      Field.builder().map("gate").fieldNumber(2).buildingId(25).buildingLevel(0).className("upper-tower").endOfBuildingTime(null).build(),
-      Field.builder().map("gate").fieldNumber(3).buildingId(22).buildingLevel(0).className("weapon-smith").endOfBuildingTime(null).build(),
-      Field.builder().map("gate").fieldNumber(4).buildingId(25).buildingLevel(0).className("down-tower").endOfBuildingTime(null).build(),
-      Field.builder().map("gate").fieldNumber(5).buildingId(23).buildingLevel(0).className("armor-smith").endOfBuildingTime(null).build(),
+      Field.builder().map("gate").fieldNumber(1).buildingId(24).buildingLevel(0).className("barracks").endOfBuildingTime(currentTime).build(),
+      Field.builder().map("gate").fieldNumber(2).buildingId(25).buildingLevel(0).className("upper-tower").endOfBuildingTime(currentTime).build(),
+      Field.builder().map("gate").fieldNumber(3).buildingId(22).buildingLevel(0).className("weapon-smith").endOfBuildingTime(currentTime).build(),
+      Field.builder().map("gate").fieldNumber(4).buildingId(25).buildingLevel(0).className("down-tower").endOfBuildingTime(currentTime).build(),
+      Field.builder().map("gate").fieldNumber(5).buildingId(23).buildingLevel(0).className("armor-smith").endOfBuildingTime(currentTime).build(),
     };
   }
 }
