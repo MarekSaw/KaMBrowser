@@ -34,7 +34,6 @@ import {FarmsComponent} from './components/game/gui-components/village/farms/far
 import {MinesComponent} from './components/game/gui-components/village/mines/mines.component';
 import {GateComponent} from './components/game/gui-components/village/gate/gate.component';
 import {UnderCityComponent} from './components/game/gui-components/village/under-city/under-city.component';
-import {BuildingMenuComponent} from './components/game/gui-components/village/building-menu/building-menu.component';
 import {MessageComponent} from './Messages/message/message.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -55,7 +54,6 @@ import {CountdownModule} from 'ngx-countdown';
     MainSiteComponent,
     PageNotFoundComponent,
     MainNavComponent,
-    BuildingMenuComponent,
     StorehouseMenuComponent,
     InnMenuComponent,
     SchoolMenuComponent,

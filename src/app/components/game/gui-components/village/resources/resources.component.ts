@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FieldModel} from '../../../../../models/FieldModel';
 import {FieldServiceService} from '../../../../../services/field-service.service';
 import {Router} from '@angular/router';

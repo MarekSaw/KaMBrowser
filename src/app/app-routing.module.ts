@@ -17,7 +17,6 @@ import {FarmsComponent} from './components/game/gui-components/village/farms/far
 import {MinesComponent} from './components/game/gui-components/village/mines/mines.component';
 import {UnderCityComponent} from './components/game/gui-components/village/under-city/under-city.component';
 import {GateComponent} from './components/game/gui-components/village/gate/gate.component';
-import {BuildingMenuComponent} from './components/game/gui-components/village/building-menu/building-menu.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 
 const routes: Routes = [
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'game', component: GameComponent, children: [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
-          { path: 'village/building-menu', component: BuildingMenuComponent },
           { path: 'village/upgrade-menu', component: UpgradeMenuComponent},
           { path: 'village/city', component: CityComponent },
               { path: 'village/city/storehouse-menu', component: StorehouseMenuComponent },
