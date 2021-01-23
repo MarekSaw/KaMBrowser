@@ -39,7 +39,6 @@ import {MessageComponent} from './Messages/message/message.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogAddingResourcesComponent} from './components/game/gui-components/village/dialog-adding-resources.component';
-import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -85,8 +84,7 @@ import {MatSliderModule} from '@angular/material/slider';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatTooltipModule,
-    MatDialogModule,
-    MatSliderModule
+    MatDialogModule
   ],
   providers: [
     MatIcon,

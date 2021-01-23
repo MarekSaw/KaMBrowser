@@ -45,6 +45,8 @@ export class SchoolMenuComponent implements OnInit {
     {name: 'Recruit', goldCost: 2, timeNeeded: 15}
   ];
   unitIterator = 0;
+  goldRequired: number;
+  timeRequired: number;
 
 
   constructor(private buildService: BuildingService,
@@ -59,7 +61,7 @@ export class SchoolMenuComponent implements OnInit {
       this.building = value;
       this.findResources();
       this.upgradeError = false;
-      this.isDataAvailable = true;
+
     });
   }
 
@@ -75,7 +77,6 @@ export class SchoolMenuComponent implements OnInit {
   }
 
   nextUnit(direction: number): void {
-    console.log(this.unitIterator);
     if (direction === 1){
       if (this.unitIterator === this.units.length - 1) {
         this.unitIterator = 0;
@@ -83,7 +84,6 @@ export class SchoolMenuComponent implements OnInit {
       } else {
         this.unit = this.units[++this.unitIterator];
       }
-      console.log(this.unitIterator);
     } else {
       if (this.unitIterator === 0) {
         this.unitIterator = this.units.length - 1;
@@ -91,14 +91,31 @@ export class SchoolMenuComponent implements OnInit {
       } else {
         this.unit = this.units[--this.unitIterator];
       }
-      console.log(this.unitIterator);
     }
+    this.updateRequiredValuesOnNextUnit();
+  }
+
+  updateRequiredValues(): void {
+    const multiplier = (document.getElementById('unit-slider') as HTMLInputElement).value;
+    this.goldRequired = this.unit.goldCost * Number.parseInt(multiplier);
+    this.timeRequired = this.unit.timeNeeded * Number.parseInt(multiplier);
+  }
+
+  updateRequiredValuesOnNextUnit(): void {
+    this.goldRequired = this.unit.goldCost * this.getMaxUnitsToRecruit();
+    this.timeRequired = this.unit.timeNeeded * this.getMaxUnitsToRecruit();
+  }
+
+  getMaxUnitsToRecruit(): number {
+    return this.resources.gold / this.unit.goldCost;
   }
 
 
   private findResources(): void {
     this.resourcesService.findResources().subscribe(value => {
       this.resources = value;
+      this.isDataAvailable = true;
+      this.updateRequiredValuesOnNextUnit();
     });
   }
   private areResourcesAvailable(): boolean {

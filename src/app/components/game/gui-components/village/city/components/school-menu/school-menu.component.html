@@ -20,12 +20,16 @@
           <p class="details-title">REQUIREMENTS</p>
           <div class="requirements">
             <img src="assets/resources/gold.bmp" alt="">
-            <p>{{unit.goldCost}}</p>
+            <p>{{goldRequired}}</p>
             <img src="assets/resources/clock.png" alt="">
-            <p>{{unit.timeNeeded}}</p>
+            <p>{{timeRequired}}</p>
           </div>
-          <div class="slider-container">
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+          <div class="input-unit">
+            <form id="input-value-element">
+              <input type="text" name="amountInput" min="0" max="{{getMaxUnitsToRecruit()}}" value="{{getMaxUnitsToRecruit()}}" disabled id="unit-value" class="input-unit-value" />
+              <input type="range" name="amountRange" min="0" max="{{getMaxUnitsToRecruit()}}" value="{{getMaxUnitsToRecruit()}}"
+                     oninput="this.form.amountInput.value = this.value" (input)="updateRequiredValues()" id="unit-slider"/>
+            </form>
           </div>
         </div>
         <div class="navigation">
@@ -36,7 +40,6 @@
             <img src="assets/icons/right-arrow.png" class="arrow-image">
           </button>
         </div>
-
         <button class="button recruit-button app-button">
           RECRUIT
         </button>
