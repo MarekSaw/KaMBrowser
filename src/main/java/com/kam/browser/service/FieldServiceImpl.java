@@ -1,6 +1,5 @@
 package com.kam.browser.service;
 
-import com.kam.browser.enums.Building;
 import com.kam.browser.model.Field;
 import com.kam.browser.model.User;
 import com.kam.browser.repository.FieldRepository;
@@ -19,12 +18,13 @@ public class FieldServiceImpl implements FieldService {
 
   private final FieldRepository fieldRepository;
   private final UserService userService;
+  private final BuildingService buildingService;
 
 
-
-  public FieldServiceImpl(FieldRepository fieldRepository, UserService userService) {
+  public FieldServiceImpl(FieldRepository fieldRepository, UserService userService, BuildingService buildingService) {
     this.fieldRepository = fieldRepository;
     this.userService = userService;
+    this.buildingService = buildingService;
   }
 
   @Override
@@ -63,7 +63,8 @@ public class FieldServiceImpl implements FieldService {
 
       //current level of building
       int buildingLevel = fieldToUpdate.getBuildingLevel();
-      long buildingTimeSeconds = getBuildingTimeSeconds(buildingLevel);
+      Double timeMultiplier = buildingService.getBuildingByMapAndFieldNumber(fieldToUpdate.getMap(), fieldToUpdate.getFieldNumber()).getTimeMultiplier();
+      long buildingTimeSeconds = Math.round(getBuildingTimeSeconds(buildingLevel) * timeMultiplier);
       LocalDateTime time = LocalDateTime.now().plusSeconds(buildingTimeSeconds);
       field.setEndOfBuildingTime(time);
       log.info("TIME: "+time);

@@ -3,9 +3,10 @@
 
   <div class="grid-container">
 
-    <div *ngFor="let field of fields"
+    <div *ngFor="let field of fields; let i = index" [attr.data-index]="i"
          class="field {{field.className}}"
          (click)="setField(field.map ,field.fieldNumber)">
+      <p class="countdown-map" *ngIf="this.duration[i]>=0"><countdown [config]="{leftTime: this.duration[i]}"></countdown></p>
     </div>
 
   </div>

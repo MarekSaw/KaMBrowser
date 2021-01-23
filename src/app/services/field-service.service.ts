@@ -10,8 +10,6 @@ import {Observable} from 'rxjs';
 })
 export class FieldServiceService {
 
-  public field: FieldModel;
-
   private fieldsUrl: string;
   private fieldsMapUrl: string;
 
@@ -19,15 +17,6 @@ export class FieldServiceService {
     this.fieldsUrl = 'http://localhost:8080/kam-api/fields/';
     this.fieldsMapUrl = 'http://localhost:8080/kam-api/fields/map/';
   }
-
-  public saveField(fieldToSave: FieldModel): void {
-    this.field = fieldToSave;
-  }
-
-  public selectField(): FieldModel {
-    return this.field;
-  }
-
 
   public findFieldByMapAndFieldNumber(map: string, fieldNumber: number): Observable<FieldModel> {
     const userId = 1;

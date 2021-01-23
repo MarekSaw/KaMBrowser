@@ -15,24 +15,35 @@
         <p class="input">GOODS NEEDED</p>
         <p class="output">GOODS PRODUCED</p>
         <div class="input-img">
-          <img class="resources-icon" *ngFor="let goodN of building.goodsNeededImg" src="assets/resources/{{goodN}}.bmp">
+          <img class="resources-icon" *ngFor="let goodN of building.goodsNeededImg"
+               src="assets/resources/{{goodN}}.bmp">
         </div>
         <div class="output-img">
-          <img class="resources-icon" *ngFor="let goodP of building.goodsProducedImg" src="assets/resources/{{goodP}}.bmp">
+          <img class="resources-icon" *ngFor="let goodP of building.goodsProducedImg"
+               src="assets/resources/{{goodP}}.bmp">
         </div>
       </div>
       <div class="resources-required">
-        <img class="worker resources-icon" src="assets/resources/worker.bmp" >
-        <img class="plank resources-icon" src="assets/resources/plank.bmp" >
-        <img class="stone resources-icon" src="assets/resources/stone.bmp" >
-        <img class="clock resources-icon" src="assets/resources/clock.png" >
+        <img class="worker resources-icon" src="assets/resources/worker.bmp">
+        <img class="plank resources-icon" src="assets/resources/plank.bmp">
+        <img class="stone resources-icon" src="assets/resources/stone.bmp">
+        <img class="clock resources-icon" src="assets/resources/clock.png">
 
-        <p class="worker-value">{{building.workersNeed}}</p>
-        <p class="plank-value">{{building.planksNeed}}</p>
-        <p class="stone-value">{{building.stoneNeed}}</p>
-<!--        <p class="stone-value">20s</p>-->
-        <p class="stone-value" *ngIf="duration<0"><countdown [config]="{leftTime: this.timeToUpgrade, demand: true}"></countdown></p>
-        <p class="stone-value" *ngIf="duration>=0"><countdown [config]="{leftTime: this.duration}"></countdown></p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.workersNeeded}}</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.planksNeeded}}</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.stonesNeeded}}</p>
+        <div class="countdown-container" *ngIf="fieldResourcesInformation !== undefined">
+          <p class="resources-value" *ngIf="this.fieldResourcesInformation.timeSecondsToEndUpgrade<0">
+            <countdown
+              [config]="{leftTime: this.fieldResourcesInformation.timeSecondsToUpgrade, demand: true}"></countdown>
+          </p>
+          <p class="resources-value" *ngIf="this.fieldResourcesInformation.timeSecondsToEndUpgrade>=0">
+            <countdown [config]="{leftTime: this.fieldResourcesInformation.timeSecondsToEndUpgrade}"></countdown>
+          </p>
+        </div>
       </div>
       <button class="back-button app-button"
               [routerLink]="['/game/village/', building.mapBelonging]">

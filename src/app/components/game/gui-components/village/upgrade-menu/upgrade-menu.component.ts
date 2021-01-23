@@ -7,6 +7,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {ResourcesModel} from '../../../../../models/ResourcesModel';
 import {ResourcesService} from '../../../../../services/resources.service';
 import {Router} from '@angular/router';
+import {FieldResourcesInformationModel} from '../../../../../models/FieldResourcesInformationModel';
+import {FieldResourcesInformationService} from '../../../../../services/field-resources-information.service';
 
 @Component({
   selector: 'app-upgrade-menu',
@@ -41,9 +43,12 @@ export class UpgradeMenuComponent implements OnInit {
   duration: number;
   timeToUpgrade: number;
 
+  fieldResourcesInformation: FieldResourcesInformationModel;
+
   constructor(private buildService: BuildingService,
               private fieldService: FieldServiceService,
               private resourcesService: ResourcesService,
+              private fieldResourcesInformationService: FieldResourcesInformationService,
               private router: Router) {
   }
 
@@ -55,24 +60,35 @@ export class UpgradeMenuComponent implements OnInit {
       this.upgradeError = false;
       this.isDataAvailable = true;
 
-      this.fieldService.getTimeSecondToEndUpgrade(this.field.map, this.field.fieldNumber)
+
+      this.fieldResourcesInformationService.getFieldResourcesInformation(this.field.map, this.field.fieldNumber)
         .subscribe(value1 => {
-          this.duration = value1;
-          if (this.duration < 0) {
-            this.fieldService.getTimeSecondToUpgrade(this.field.map, this.field.fieldNumber)
-              .subscribe(value2 => this.timeToUpgrade = value2);
+          this.fieldResourcesInformation = value1;
+          if (this.fieldResourcesInformation.timeSecondsToEndUpgrade < 0) {
             document.getElementById('upgrade-button').classList.remove('disable');
           } else {
             document.getElementById('upgrade-button').classList.add('disable');
           }
-          console.log('duration2:' + this.duration);
+          console.log('duration2:' + this.fieldResourcesInformation.timeSecondsToEndUpgrade);
         });
+      // this.fieldService.getTimeSecondToEndUpgrade(this.field.map, this.field.fieldNumber)
+      //   .subscribe(value1 => {
+      //     this.duration = value1;
+      //     if (this.duration < 0) {
+      //       this.fieldService.getTimeSecondToUpgrade(this.field.map, this.field.fieldNumber)
+      //         .subscribe(value2 => this.timeToUpgrade = value2);
+      //       document.getElementById('upgrade-button').classList.remove('disable');
+      //     } else {
+      //       document.getElementById('upgrade-button').classList.add('disable');
+      //     }
+      //     console.log('duration2:' + this.duration);
+      //   });
     });
 
   }
 
   upgradeBuilding(): void {
-    if (this.duration < 0) {
+    if (this.fieldResourcesInformation.timeSecondsToEndUpgrade < 0) {
       if (this.areResourcesAvailable()) {
         this.upgrade();
         this.resourcesService.updateResources(this.resources).subscribe();
@@ -92,9 +108,9 @@ export class UpgradeMenuComponent implements OnInit {
   }
 
   private areResourcesAvailable(): boolean {
-    return (this.resources.worker - this.building.workersNeed) >= 0 &&
-      (this.resources.plank - this.building.planksNeed) >= 0 &&
-      (this.resources.stone - this.building.stoneNeed) >= 0;
+    return (this.resources.worker - this.fieldResourcesInformation.workersNeeded) >= 0 &&
+      (this.resources.plank - this.fieldResourcesInformation.planksNeeded) >= 0 &&
+      (this.resources.stone - this.fieldResourcesInformation.stonesNeeded) >= 0;
   }
 
   private upgrade(): void {
@@ -102,9 +118,9 @@ export class UpgradeMenuComponent implements OnInit {
       this.field.className = `build-${this.field.className}`;
     }
     this.field.buildingLevel++;
-    this.resources.worker -= this.building.workersNeed;
-    this.resources.plank -= this.building.planksNeed;
-    this.resources.stone -= this.building.stoneNeed;
+    this.resources.worker -= this.fieldResourcesInformation.workersNeeded;
+    this.resources.plank -= this.fieldResourcesInformation.planksNeeded;
+    this.resources.stone -= this.fieldResourcesInformation.stonesNeeded;
   }
 
   private redirect(): void {
