@@ -46,16 +46,26 @@
 
       </div>
       <div class="resources-required">
-        <img src="assets/resources/worker.bmp" class="worker">
-        <img src="assets/resources/plank.bmp" class="plank">
-        <img src="assets/resources/stone.bmp" class="stone">
+        <img class="worker resources-icon" src="assets/resources/worker.bmp">
+        <img class="plank resources-icon" src="assets/resources/plank.bmp">
+        <img class="stone resources-icon" src="assets/resources/stone.bmp">
+        <img class="clock resources-icon" src="assets/resources/clock.png">
 
-        <img src="assets/resources/clock.png" class="clock">
-        <p class="worker-value">{{fieldResourcesInformation.workersNeeded}}</p>
-        <p class="plank-value">{{fieldResourcesInformation.planksNeeded}}</p>
-        <p class="stone-value">{{fieldResourcesInformation.stonesNeeded}}</p>
-
-        <p class="stone-value">20s</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.workersNeeded}}</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.planksNeeded}}</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.stonesNeeded}}</p>
+        <div class="countdown-container" *ngIf="fieldResourcesInformation !== undefined">
+          <p class="resources-value" *ngIf="this.fieldResourcesInformation.timeSecondsToEndUpgrade<0">
+            <countdown
+              [config]="{leftTime: this.fieldResourcesInformation.timeSecondsToUpgrade, demand: true}"></countdown>
+          </p>
+          <p class="resources-value" *ngIf="this.fieldResourcesInformation.timeSecondsToEndUpgrade>=0">
+            <countdown [config]="{leftTime: this.fieldResourcesInformation.timeSecondsToEndUpgrade}"></countdown>
+          </p>
+        </div>
       </div>
       <button class=" button back-button app-button"
               [routerLink]="['/game/village/', building.mapBelonging]">

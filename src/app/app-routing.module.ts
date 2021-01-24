@@ -37,8 +37,6 @@ const routes: Routes = [
           { path: 'village/mines', component: MinesComponent },
           { path: 'village/underCity', component: UnderCityComponent },
           { path: 'village/gate', component: GateComponent },
-
-
       { path: 'world_map', component: WorldMapComponent }
     ] },
   { path: '**', component: PageNotFoundComponent }

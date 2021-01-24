@@ -40,9 +40,6 @@ export class UpgradeMenuComponent implements OnInit {
   upgradeError: boolean;
   isDataAvailable: boolean;
 
-  duration: number;
-  timeToUpgrade: number;
-
   fieldResourcesInformation: FieldResourcesInformationModel;
 
   constructor(private buildService: BuildingService,
@@ -111,9 +108,6 @@ export class UpgradeMenuComponent implements OnInit {
   }
 
   private redirect(): void {
-    // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-    //   this.router.navigate(['/game/village/upgrade-menu']);
-    // });
     this.router.navigate(['/game/village/', this.field.map]);
   }
 

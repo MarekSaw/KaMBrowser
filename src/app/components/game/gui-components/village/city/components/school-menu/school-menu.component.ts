@@ -68,7 +68,6 @@ export class SchoolMenuComponent implements OnInit {
       this.findResources();
       this.upgradeError = false;
 
-
       this.fieldResourcesInformationService.getFieldResourcesInformation(this.field.map, this.field.fieldNumber)
         .subscribe(value1 => {
           this.fieldResourcesInformation = value1;
@@ -77,7 +76,6 @@ export class SchoolMenuComponent implements OnInit {
           } else {
             document.getElementById('upgrade-button').classList.add('disable');
           }
-          console.log('duration2:' + this.fieldResourcesInformation.timeSecondsToEndUpgrade);
         });
     });
   }
@@ -136,9 +134,9 @@ export class SchoolMenuComponent implements OnInit {
     });
   }
   private areResourcesAvailable(): boolean {
-    return (this.resources.worker - this.fieldResourcesInformation.workersNeeded) > 0 &&
-      (this.resources.plank - this.fieldResourcesInformation.planksNeeded) > 0 &&
-      (this.resources.stone - this.fieldResourcesInformation.stonesNeeded) > 0;
+    return (this.resources.worker - this.fieldResourcesInformation.workersNeeded) >= 0 &&
+      (this.resources.plank - this.fieldResourcesInformation.planksNeeded) >= 0 &&
+      (this.resources.stone - this.fieldResourcesInformation.stonesNeeded) >= 0;
   }
 
   private upgrade(): void {
