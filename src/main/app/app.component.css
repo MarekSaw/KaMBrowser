@@ -1,0 +1,31 @@
+
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-width: 950px;
+}
+.navigation {
+  display: grid;
+  grid-area: 1 / 1 / span 1 / span 1;
+  min-width: max-content;
+}
+
+.app-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("src/main/assets/home/background_h.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 30px 8px black;
+  /* very important properties*/
+  min-height: calc(100vh - 244px);
+}
+
+
+

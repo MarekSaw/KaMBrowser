@@ -1,0 +1,87 @@
+.map {
+  box-shadow: inset 0 0 10px 10px black;
+}
+
+.map-image {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 114px);
+  min-height: 600px;
+  z-index: -1;
+}
+
+.grid-container {
+  display: grid;
+  height: calc(100vh - 114px);
+  min-height: 600px;
+  grid-template: 22% 14% 32% 12.5% auto / 34% 13% 20% 13% auto;
+}
+
+.field:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 10%;
+  box-shadow: 0 0 10px 2px black;
+  cursor: url('src/main/assets/home/cursor-hover.bmp'), auto;
+}
+
+
+.farm {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+}
+.build-farm {
+  background-image: url('src/main/assets/buildings/7.bmp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+
+}
+
+.swine-farm {
+  grid-column: 4 / 4;
+  grid-row: 2 / 2;
+}
+.build-swine-farm {
+  background-image: url('src/main/assets/buildings/10.bmp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: 4 / 4;
+  grid-row: 2 / 2;
+}
+
+.vineyard {
+  grid-column: 2 / 2;
+  grid-row: 4 / 4;
+}
+.build-vineyard {
+  background-image: url('src/main/assets/buildings/12.bmp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: 2 / 2;
+  grid-row: 4 / 4;
+}
+
+.fisherman {
+  grid-column: 4 / 4;
+  grid-row: 4 / 4;
+}
+.build-fisherman {
+  background-image: url('src/main/assets/buildings/26.bmp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: 4 / 4;
+  grid-row: 4 / 4;
+}
+
+
+.countdown-map{
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "Architects Daughter", sans-serif;
+  color: white;
+}

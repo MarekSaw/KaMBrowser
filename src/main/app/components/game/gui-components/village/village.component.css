@@ -1,0 +1,30 @@
+
+.village-map {
+  box-shadow: inset 0 0 10px 10px black;
+}
+
+.village-map-image {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 114px);
+}
+
+.grid-list {
+  height: calc(100vh - 114px);
+}
+
+.grid-component {
+  font-weight: bold;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 30px;
+  color: black;
+}
+
+.grid-component:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 10%;
+  box-shadow: 0 0 10px 2px black;
+  cursor: url('src/main/assets/home/cursor-hover.bmp'), auto;
+}
+
+

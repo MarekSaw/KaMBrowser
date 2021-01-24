@@ -1,0 +1,220 @@
+
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: url('src/main/assets/home/cursor.bmp'), auto;
+}
+
+.example-container:active {
+  cursor: url('src/main/assets/home/cursor-focus.bmp'), auto;
+}
+
+.top-nav {
+  padding: 0px 20px 50px;
+  background-image: url("src/main/assets/home/sidenav_background_turned.bmp");
+  background-position: bottom left;
+  min-width: max-content;
+}
+
+.toolbar {
+  background-image: url("src/main/assets/home/background.png");
+  box-shadow: inset 0 0 10px black, 10px 10px 10px 2px black;
+  grid-template: 100% / max-content max-content auto max-content;
+  display: grid;
+  column-gap: 10px;
+  grid-template-areas: "menu-icon logo rest resources-icon";
+}
+
+.logo-container {
+  display: flex;
+  justify-self: flex-start;
+  grid-area: logo;
+}
+
+img.toolbar-logo {
+  position: relative;
+  height: 50px;
+  margin: 10px;
+}
+
+.menu-icon {
+  width: 50px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 6px;
+  cursor: url('src/main/assets/home/cursor.bmp'), auto;
+  grid-area: menu-icon;
+}
+
+.menu-icon:hover {
+  background-color: rgba(169, 164, 166, 0.1);
+}
+
+.menu-icon:active {
+  cursor: url('src/main/assets/home/cursor-focus.bmp'), auto;
+}
+
+.resources-icon {
+  display: flex;
+  justify-content: flex-end;
+  width: 50px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 6px;
+  cursor: url('src/main/assets/home/cursor.bmp'), auto;
+  grid-area: resources-icon;
+}
+
+.resources-icon:hover {
+  background-color: rgba(169, 164, 166, 0.1);
+}
+
+.resources-icon:active {
+  cursor: url('src/main/assets/home/cursor-focus.bmp'), auto;
+}
+
+.nav-button {
+  background-image: url("src/main/assets/home/sidenav-button.bmp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 5px 40px 20px 10px;
+  padding: 2px 0 2px 0;
+  box-shadow: inset 0 0 5px 2px black, 0 0 5px 4px black;
+
+}
+
+.nav-button:hover {
+  box-shadow: inset 0 0 20px 2px rgba(169, 164, 166, 1), 2px 2px 20px 5px rgba(169, 164, 166, 1);
+}
+
+.nav-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: black;
+  font-family: "Architects Daughter", sans-serif;
+  cursor: url('src/main/assets/home/cursor.bmp'), auto;
+}
+
+.nav-button a:active {
+  cursor: url('src/main/assets/home/cursor-focus.bmp'), auto;
+}
+
+.top-resources-grid-container {
+  display: grid;
+  grid-template-columns: repeat(8, max-content);
+  grid-template-rows: 100%;
+  column-gap: 5px;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  grid-template-areas:
+                  "worker builder plank stone wine bread fish sausage";
+}
+
+.hidden {
+  display: none;
+}
+
+.resources-grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(8, auto);
+  row-gap: 10px;
+  margin: 20px 10px 0 30px;
+  grid-template-areas:
+                  "worker"
+                  "builder"
+                  "plank"
+                  "stone"
+                  "wine"
+                  "bread"
+                  "fish"
+                  "sausage";
+}
+
+.resource-workers{
+  grid-area: worker;
+
+}
+.resource-builders{
+  grid-area: builder;
+}
+
+.resource-plank{
+  grid-area: plank;
+}
+.resource-stone {
+  grid-area: stone;
+}
+
+.resource-bread{
+  grid-area: bread;
+}
+.resource-sausage{
+  grid-area: sausage;
+}
+.resource-fish{
+  grid-area: fish;
+}
+.resource-wine{
+  grid-area: wine;
+}
+
+.mb {
+  margin-bottom: 20px;
+}
+.mr {
+  margin-right: 20px;
+}
+
+.resource {
+  display: grid;
+  width: 100px;
+  max-height: 30px;
+  background-image: url("src/main/assets/resources/background.bmp");
+  background-size: cover;
+  box-shadow: 5px 5px 5px 1px black;
+  grid-template: 100% / 20% 80%;
+  grid-template-areas: "resource-icon resource-value";
+}
+
+.resource-icon {
+  display: grid;
+  justify-self: flex-start;
+  align-self: center;
+  margin: 3px 0 0 6px;
+}
+
+.resource-value {
+  display: grid;
+  justify-self: flex-end;
+  align-self: center;
+  margin: 6px 8px 6px 0;
+
+  font-size: 16px;
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+}
+
+.side-resources {
+  background-image: url("src/main/assets/home/sidenav_resource.png");
+  box-shadow: 0 0 20px 5px black;
+  z-index: 2;
+}
+
+.side-nav {
+  background-image: url("src/main/assets/home/sidenav_background.bmp");
+  background-position: right top;
+}
+
+.site-content {
+  box-shadow: inset 0 0 10px 5px black;
+  height: calc(100vh - 114px);
+}

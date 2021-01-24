@@ -1,0 +1,184 @@
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("src/main/assets/home/background_h.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 30px 8px black;
+  /* very important properties*/
+  /*min-height: 100%;*/
+  padding: 5% 0 5% 0;
+  min-width: 950px;
+  /*min-height: 900px;*/
+
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  height: 80vh;
+  min-height: 500px;
+  min-width: 850px;
+  background-image: url("src/main/assets/home/scroll6.png");
+  background-size: cover;
+  padding: 8% 50px 50px 5%;
+  box-shadow: inset 0 0 15px 10px black, 0 0 30px 15px black;
+  border-radius: 20px 20px 5px 5px;
+}
+
+.grid-container {
+  display: grid;
+  min-width: 750px;
+  width: 100%;
+  min-height: 90%;
+  grid-template: 40% 30%  30% / 40% 30% 30%;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.building {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  display: grid;
+  justify-self: flex-start;
+  align-self: flex-start;
+  grid-template: 50px auto / 50px auto;
+  width: 70%;
+  height: 70%;
+}
+
+.building-level {
+  grid-column: 1;
+  grid-row: 1;
+  background-image: url("src/main/assets/resources/background.bmp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 46px;
+  box-shadow: 5px 5px 30px 15px black;
+}
+.building-level p {
+  margin-bottom: 0;
+}
+
+.building-image {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.building-description {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  align-self: center;
+}
+
+.building-production {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  display: grid;
+  grid-template: 30% 70% / 50% 50%;
+  grid-template-areas: "input output"
+                      "input-img output-img";
+  justify-items: center;
+  width: 100%;
+}
+
+.resources-required {
+  grid-column: 1;
+  grid-row: 3;
+  display: grid;
+  grid-template: 50% 50% / 1fr 1fr 1fr 2fr;
+  grid-template-areas: "worker plank stone clock"
+                      "wroker-value plank-value stone-value time";
+  justify-self: center;
+  justify-items: center;
+  font-size: 30px;
+  width: 100%;
+  height: 75%;
+}
+
+.upgrade-button {
+  grid-column: 3;
+  grid-row: 3;
+  height: fit-content;
+  padding: 5px 5px 5px 5px;
+  justify-self: left;
+  font-size: 30px;
+}
+.upgrade-button.disable {
+  grid-column: 3;
+  grid-row: 3;
+  height: fit-content;
+  padding: 5px 5px 5px 5px;
+  justify-self: left;
+  font-size: 30px;
+  color: gray;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-button {
+  grid-column: 2;
+  grid-row: 3;
+  height: fit-content;
+  padding: 5px 10px 5px 10px;
+  justify-self: right;
+  font-size: 30px;
+}
+
+.upgrade-button p {
+  margin: 0;
+}
+
+.tooltip {
+  grid-column: 1;
+  grid-row: 3;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  width: content-box;
+  background-image: url("src/main/assets/home/scroll2.bmp");
+  background-size: cover;
+  box-shadow: inset 0 0 10px 2px black, 2px 2px 20px 10px black;
+  color: darkred;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 15px 15px 15px;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  font-family: "Architects Daughter", sans-serif;
+  font-weight: bold;
+}
+
+.resources-icon{
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+}
+.resources-value{
+  margin: 5px 8px 5px 8px;
+}
+
+.countdown-container{
+  min-width: 140px;
+  display: flex;
+  justify-content: flex-start;
+}
