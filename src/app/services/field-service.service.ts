@@ -14,8 +14,8 @@ export class FieldServiceService {
   private fieldsMapUrl: string;
 
   constructor(private http: HttpClient) {
-    this.fieldsUrl = 'http://localhost:8080/kam-api/fields/';
-    this.fieldsMapUrl = 'http://localhost:8080/kam-api/fields/map/';
+    this.fieldsUrl = '/kam-api/fields/';
+    this.fieldsMapUrl = '/kam-api/fields/map/';
   }
 
   public findFieldByMapAndFieldNumber(map: string, fieldNumber: number): Observable<FieldModel> {

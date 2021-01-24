@@ -12,7 +12,7 @@ export class BuildingService {
   private building: BuildingModel;
 
   constructor(private http: HttpClient) {
-    this.buildingsUrl = 'http://localhost:8080/kam-api/buildings';
+    this.buildingsUrl = '/kam-api/buildings';
   }
 
   public cacheBuilding(building: BuildingModel): void {

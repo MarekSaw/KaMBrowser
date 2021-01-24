@@ -15,7 +15,7 @@ export class AddResourcesService {
   userId = 1;
 
   constructor(private http: HttpClient) {
-    this.addResourcesUrl = 'http://localhost:8080/kam-api/add-resources/';
+    this.addResourcesUrl = '/kam-api/add-resources/';
   }
 
   public cacheResources(resources: ResourcesModel): void {

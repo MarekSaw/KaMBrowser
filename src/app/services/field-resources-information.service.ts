@@ -12,8 +12,8 @@ export class FieldResourcesInformationService {
   private fieldResourcesInformationTimeURL: string;
 
   constructor(private http: HttpClient) {
-    this.fieldResourcesInformationURL = 'http://localhost:8080/kam-api/fieldResourcesInformation';
-    this.fieldResourcesInformationTimeURL = 'http://localhost:8080/kam-api/fieldResourcesInformation/time';
+    this.fieldResourcesInformationURL = '/kam-api/fieldResourcesInformation';
+    this.fieldResourcesInformationTimeURL = '/kam-api/fieldResourcesInformation/time';
   }
 
   public getFieldResourcesInformation(map: string, fieldNumber: number): Observable<FieldResourcesInformationModel>{
