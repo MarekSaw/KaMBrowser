@@ -75,6 +75,7 @@
         </executions>
         <configuration>
           <skip>true</skip>
+          <mainClass>com.kam.browser.KaMBrowserApplication</mainClass>
         </configuration>
       </plugin>
     </plugins>
