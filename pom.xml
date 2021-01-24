@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+    <start-class>com.kam.browser.KaMBrowserApplication</start-class>
 	</properties>
 
 	<dependencies>
