@@ -5,6 +5,7 @@ import {map, shareReplay} from 'rxjs/operators';
 import {ResourcesService} from '../../services/resources.service';
 import {ResourcesModel} from '../../models/ResourcesModel';
 import {ObservableService} from '../../services/observable.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -20,20 +21,19 @@ export class GameComponent implements OnInit, OnChanges {
     );
 
   resourcesModel: ResourcesModel;
-  isDataAvailable: boolean;
+
 
   constructor(private breakpointObserver: BreakpointObserver,
               private resourcesService: ResourcesService,
-              private observableService: ObservableService) {
+              private observableService: ObservableService,
+              private router: ActivatedRoute) {
     observableService.configObservable.subscribe(value => this.resourcesModel = value);
   }
 
   ngOnInit(): void {
-    this.resourcesService.findResources().subscribe(value => {
-      this.resourcesModel = value;
-      this.resourcesService.cacheResources(this.resourcesModel);
-      this.isDataAvailable = true;
-    });
+    this.resourcesModel = this.router.snapshot.data.resources;
+    this.resourcesService.cacheResources(this.resourcesModel);
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
