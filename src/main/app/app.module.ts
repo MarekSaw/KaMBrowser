@@ -39,6 +39,7 @@ import {UpgradeMenuComponent} from './components/game/gui-components/village/upg
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogAddingResourcesComponent} from './components/game/gui-components/village/dialog-adding-resources.component';
 import {CountdownModule} from 'ngx-countdown';
+import { PageLoadingComponent } from './components/page-loading/page-loading.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import {CountdownModule} from 'ngx-countdown';
     UnderCityComponent,
     MessageComponent,
     UpgradeMenuComponent,
-    DialogAddingResourcesComponent
+    DialogAddingResourcesComponent,
+    PageLoadingComponent
   ],
   imports: [
     BrowserModule,
