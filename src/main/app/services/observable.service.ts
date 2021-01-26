@@ -7,12 +7,12 @@ import {ResourcesModel} from '../models/ResourcesModel';
 })
 export class ObservableService {
 
-  configObservable = new Subject<ResourcesModel>();
+  resourcesObservable = new Subject<ResourcesModel>();
 
   constructor() { }
 
-  public emitConfig(resources: ResourcesModel): void {
-    this.configObservable.next(resources);
+  public emitResources(resources: ResourcesModel): void {
+    this.resourcesObservable.next(resources);
   }
 
 }
