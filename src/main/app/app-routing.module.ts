@@ -18,13 +18,14 @@ import {MinesComponent} from './components/game/gui-components/village/mines/min
 import {UnderCityComponent} from './components/game/gui-components/village/under-city/under-city.component';
 import {GateComponent} from './components/game/gui-components/village/gate/gate.component';
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
+import {ResourcesResolve} from './services/resources.resolve';
 
 const routes: Routes = [
   { path: '', component: MainSiteComponent, data: { animation: 'MainSitePage' } },
   { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
   { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
   { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
-  { path: 'game', component: GameComponent, children: [
+  { path: 'game', component: GameComponent, resolve: { resources: ResourcesResolve }, children: [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
           { path: 'village/upgrade-menu', component: UpgradeMenuComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [ResourcesResolve],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
