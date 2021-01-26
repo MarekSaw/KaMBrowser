@@ -30,7 +30,6 @@ export class AppComponent {
   }
 
   private navigationEvents(event: RouterEvent): void {
-    console.log(this.loadingBarEnabled);
     if (event instanceof NavigationStart) {
       this.zIndexValue = 10;
       this.loadingBarEnabled = true;
