@@ -18,7 +18,7 @@ export class ResourcesService {
 
   constructor(private http: HttpClient, private observableService: ObservableService) {
     this.resourcesUrl = '/kam-api/resources/';
-    observableService.emitConfig(this.resources);
+    observableService.emitResources(this.resources);
   }
 
 

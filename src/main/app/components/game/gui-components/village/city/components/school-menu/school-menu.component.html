@@ -2,7 +2,7 @@
   <div class="content">
     <div class="grid-container" [ngClass]="building">
       <div class="building">
-        <img class="building-image" src="assets/buildings/{{building.id}}.bmp" alt="Building img">
+        <img class="building-image" src="src/main/assets/buildings/{{building.id}}.bmp" alt="Building img">
         <div class="building-level">
           <p>{{field.buildingLevel}}</p>
         </div>
@@ -13,15 +13,15 @@
       </div>
       <div class="building-production" [ngClass]="unit">
         <div class="unit">
-        <img src="assets/units/{{unit.name.toLowerCase()}}.png" alt="Unit image" class="unit-image">
+        <img src="src/main/assets/units/{{unit.name.toLowerCase()}}.png" alt="Unit image" class="unit-image">
           <p class="unit-name">{{unit.name}}</p>
         </div>
         <div class="details">
           <p class="details-title">REQUIREMENTS</p>
           <div class="requirements">
-            <img src="assets/resources/gold.bmp" alt="">
+            <img src="src/main/assets/resources/gold.bmp" alt="">
             <p>{{goldRequired}}</p>
-            <img src="assets/resources/clock.png" alt="">
+            <img src="src/main/assets/resources/clock.png" alt="">
             <p>{{timeRequired}}</p>
           </div>
           <div class="input-unit">
@@ -34,10 +34,10 @@
         </div>
         <div class="navigation">
           <button class="button navigation-button" (click)="nextUnit(0)">
-            <img src="assets/icons/left-arrow.png" class="arrow-image">
+            <img src="src/main/assets/icons/left-arrow.png" class="arrow-image">
           </button>
           <button class="button navigation-button" (click)="nextUnit(1)">
-            <img src="assets/icons/right-arrow.png" class="arrow-image">
+            <img src="src/main/assets/icons/right-arrow.png" class="arrow-image">
           </button>
         </div>
         <button class="button recruit-button app-button">
@@ -46,16 +46,26 @@
 
       </div>
       <div class="resources-required">
-        <img src="assets/resources/worker.bmp" class="worker">
-        <img src="assets/resources/plank.bmp" class="plank">
-        <img src="assets/resources/stone.bmp" class="stone">
+        <img class="worker resources-icon" src="src/main/assets/resources/worker.bmp">
+        <img class="plank resources-icon" src="src/main/assets/resources/plank.bmp">
+        <img class="stone resources-icon" src="src/main/assets/resources/stone.bmp">
+        <img class="clock resources-icon" src="src/main/assets/resources/clock.png">
 
-        <img src="assets/resources/clock.png" class="clock">
-        <p class="worker-value">{{fieldResourcesInformation.workersNeeded}}</p>
-        <p class="plank-value">{{fieldResourcesInformation.planksNeeded}}</p>
-        <p class="stone-value">{{fieldResourcesInformation.stonesNeeded}}</p>
-
-        <p class="stone-value">20s</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.workersNeeded}}</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.planksNeeded}}</p>
+        <p class="resources-value"
+           *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.stonesNeeded}}</p>
+        <div class="countdown-container" *ngIf="fieldResourcesInformation !== undefined">
+          <p class="resources-value" *ngIf="this.fieldResourcesInformation.timeSecondsToEndUpgrade<0">
+            <countdown
+              [config]="{leftTime: this.fieldResourcesInformation.timeSecondsToUpgrade, demand: true}"></countdown>
+          </p>
+          <p class="resources-value" *ngIf="this.fieldResourcesInformation.timeSecondsToEndUpgrade>=0">
+            <countdown [config]="{leftTime: this.fieldResourcesInformation.timeSecondsToEndUpgrade}"></countdown>
+          </p>
+        </div>
       </div>
       <button class=" button back-button app-button"
               [routerLink]="['/game/village/', building.mapBelonging]">

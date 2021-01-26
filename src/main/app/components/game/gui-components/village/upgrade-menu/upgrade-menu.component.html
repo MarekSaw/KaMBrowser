@@ -2,7 +2,7 @@
   <div class="content">
     <div class="grid-container" [ngClass]="building">
       <div class="building">
-        <img class="building-image" src="assets/buildings/{{building.id}}.bmp" alt="Building img">
+        <img class="building-image" src="../../../../../../assets/buildings/{{building.id}}.bmp" alt="Building img">
         <div class="building-level">
           <p>{{field.buildingLevel}}</p>
         </div>
@@ -16,18 +16,18 @@
         <p class="output">GOODS PRODUCED</p>
         <div class="input-img">
           <img class="resources-icon" *ngFor="let goodN of building.goodsNeededImg"
-               src="assets/resources/{{goodN}}.bmp">
+               src="../../../../../../assets/resources/{{goodN}}.bmp">
         </div>
         <div class="output-img">
           <img class="resources-icon" *ngFor="let goodP of building.goodsProducedImg"
-               src="assets/resources/{{goodP}}.bmp">
+               src="../../../../../../assets/resources/{{goodP}}.bmp">
         </div>
       </div>
       <div class="resources-required">
-        <img class="worker resources-icon" src="assets/resources/worker.bmp">
-        <img class="plank resources-icon" src="assets/resources/plank.bmp">
-        <img class="stone resources-icon" src="assets/resources/stone.bmp">
-        <img class="clock resources-icon" src="assets/resources/clock.png">
+        <img class="worker resources-icon" src="../../../../../../assets/resources/worker.bmp">
+        <img class="plank resources-icon" src="../../../../../../assets/resources/plank.bmp">
+        <img class="stone resources-icon" src="../../../../../../assets/resources/stone.bmp">
+        <img class="clock resources-icon" src="../../../../../../assets/resources/clock.png">
 
         <p class="resources-value"
            *ngIf="fieldResourcesInformation !== undefined">{{fieldResourcesInformation.workersNeeded}}</p>

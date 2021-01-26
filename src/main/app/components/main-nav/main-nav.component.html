@@ -47,15 +47,15 @@
            aria-label="Toggle sidenav"
            (click)="drawer.toggle()"
            *ngIf="isHandset$ | async">
-          <img class="sidenav-menu-icon" src="assets/icons/table.bmp"
+          <img class="sidenav-menu-icon" src="../../../assets/icons/table.bmp"
                alt="menu icon" >
         </a>
 
         <!--        logo img as home button-->
         <div [routerLink]="['/']" class="home-logo-container">
-          <img class="toolbar-home-logo" src="assets/home/leftarm.bmp" alt="Left arm logo">
-          <img class="toolbar-home-logo" src="assets/home/logo.bmp" alt="Knights and Merchants logo">
-          <img class="toolbar-home-logo" src="assets/home/rightarm.bmp" alt="Right arm logo">
+          <img class="toolbar-home-logo" src="../../../assets/home/leftarm.bmp" alt="Left arm logo">
+          <img class="toolbar-home-logo" src="../../../assets/home/logo.bmp" alt="Knights and Merchants logo">
+          <img class="toolbar-home-logo" src="../../../assets/home/rightarm.bmp" alt="Right arm logo">
         </div>
 
         <!--      split elements on left and right side-->
@@ -94,9 +94,9 @@
       <div class="footer-container">
         <footer>
           <div>
-            <a href="https://www.facebook.com"><img class="social-link" src="assets/icons/facebook.svg" alt="Facebook"></a>
-            <a href="https://www.instagram.com"><img class="social-link" src="assets/icons/instagram.svg" alt="Instagram"></a>
-            <a href="https://www.twitter.com"><img class="social-link" src="assets/icons/twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com"><img class="social-link" src="../../../assets/icons/facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com"><img class="social-link" src="../../../assets/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.twitter.com"><img class="social-link" src="../../../assets/icons/twitter.svg" alt="Twitter"></a>
           </div>
         </footer>
         <div class="scrollTop-button mat-flat-button" (click)="scrollTopOfWindowScreen()">

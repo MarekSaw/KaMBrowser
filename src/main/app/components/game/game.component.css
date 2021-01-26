@@ -17,7 +17,7 @@
 }
 
 .top-nav {
-  padding: 0px 20px 50px;
+  padding: 0 20px 50px;
   background-image: url("src/main/assets/home/sidenav_background_turned.bmp");
   background-position: bottom left;
   min-width: max-content;

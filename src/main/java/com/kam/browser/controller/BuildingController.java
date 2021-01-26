@@ -30,7 +30,6 @@ public class BuildingController {
   @GetMapping
   public ResponseEntity<?> getMapBuildings(@RequestParam String map, @RequestParam Integer fieldNumber){
     Building building = buildingService.getBuildingByMapAndFieldNumber(map, fieldNumber);
-
     return Objects.isNull(building) ? ResponseEntity.badRequest().build() : ResponseEntity.status(HttpStatus.CREATED).body(building);
   }
 

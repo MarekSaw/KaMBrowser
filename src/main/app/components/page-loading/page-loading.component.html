@@ -1,0 +1,5 @@
+<div class="page-loading-container" [style.z-index]="zIndex">
+
+  <img class="spinner-image" [@spinner]="animationState" (@spinner.done)="onDone()" [src]="spinnerImageSource" alt="Spinner Animation">
+
+</div>
