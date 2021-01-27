@@ -5,7 +5,9 @@ A non profit, fan-made browser version of legendary Knights and Merchants game. 
 This project is available on the heroku platform at: https://kam-browser.herokuapp.com/.
 <b>The first launch may take a few moments, because the website goes to sleep after 30 minutes of inactivity and has to restart.</b>
 ### Database layer
-The PostgreSQL database was used in this project.
+The PostgreSQL database was used in this project. The entity diagram is shown below:
+![databaseEntitiesDiagram](src/main/assets/readmeImages/databaseEntitiesDiagram.PNG)
+
 ### Back-end layer
 Technologies used:
 * Java 11,
