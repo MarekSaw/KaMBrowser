@@ -1,0 +1,56 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.building {
+  width: 99px;
+  height: 65px;
+  align-self: center;
+}
+
+.container {
+  width: 198px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+}
+
+.builder {
+  position: absolute;
+
+  &.top {
+    align-self: flex-start;
+    //top: 33vh;
+    z-index: -1;
+  }
+
+  &.bottom {
+    align-self: flex-end;
+    //bottom: 35vh;
+  }
+
+  &.left {
+    align-self: center;
+    justify-self: flex-start;
+    //left: 43vw;
+  }
+
+  &.right {
+    align-self: center;
+    justify-self: flex-end;
+    //right: 44vw;
+  }
+}
+
+.walk {
+  animation: walk-left 8s infinite linear;
+}
+
+@keyframes walk-left {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-500px);}
+}

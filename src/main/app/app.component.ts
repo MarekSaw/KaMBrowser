@@ -2,13 +2,18 @@ import {Component} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
+import { SLIDE_IN_ANIMATION } from './animations/routing.animation';
+import { RouterOutlet } from '@angular/router';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 import {ObservableService} from './services/observable.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    SLIDE_IN_ANIMATION
+  ]
 })
 export class AppComponent {
   title = 'KaM';
@@ -48,5 +53,9 @@ export class AppComponent {
     }
   }
 
+  prepareRoute(outlet: RouterOutlet): string {
+    // console.log(outlet.activatedRouteData.animation);
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  }
 }
 

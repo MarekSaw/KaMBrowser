@@ -94,12 +94,12 @@
       <div class="footer-container">
         <footer>
           <div>
-            <a href="https://www.facebook.com"><img class="social-link" src="../../../assets/icons/facebook.svg" alt="Facebook"></a>
-            <a href="https://www.instagram.com"><img class="social-link" src="../../../assets/icons/instagram.svg" alt="Instagram"></a>
-            <a href="https://www.twitter.com"><img class="social-link" src="../../../assets/icons/twitter.svg" alt="Twitter"></a>
+            <a href="https://www.facebook.com"><img class="social-link facebook" src="../../../assets/icons/facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com"><img class="social-link instagram" src="../../../assets/icons/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.twitter.com"><img class="social-link twitter" src="../../../assets/icons/twitter.svg" alt="Twitter"></a>
           </div>
         </footer>
-        <div class="scrollTop-button mat-flat-button" (click)="scrollTopOfWindowScreen()">
+        <div *ngIf="isMainSite()" [@showAfterRoutingAnimation]="scrollTopBtnState" class="scrollTop-button mat-flat-button" (click)="scrollTopOfWindowScreen()">
           <a>
             Scroll to top of the window
           </a>
