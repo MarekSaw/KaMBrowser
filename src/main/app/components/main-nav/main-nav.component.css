@@ -167,9 +167,19 @@ footer {
   margin: 7px 5px 5px 5px;
 }
 
-.social-link:hover {
-  background-color: rgba(16, 147, 244, 1);
-  box-shadow: 0 0 10px 5px rgba(16, 147, 244, 1);
+.twitter:hover {
+  background-color: #1DA1F2;
+  box-shadow: 0 0 10px 5px #1DA1F2;
+}
+
+.facebook:hover {
+  background-color: #4267B2;
+  box-shadow: 0 0 10px 5px #4267B2;
+}
+
+.instagram:hover {
+  background-color: #C13584;
+  box-shadow: 0 0 10px 5px #C13584;
 }
 
 .scrollTop-button{

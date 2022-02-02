@@ -25,7 +25,7 @@ export class AppComponent {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   prepareRoute(outlet: RouterOutlet): string {
-    console.log(outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation);
+    // console.log(outlet.activatedRouteData.animation);
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

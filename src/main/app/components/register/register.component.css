@@ -48,7 +48,7 @@
 .tooltip {
   position: relative;
   display: inline-block;
-
+  opacity: 0;
 }
 
 .tooltip .tooltip-text {
