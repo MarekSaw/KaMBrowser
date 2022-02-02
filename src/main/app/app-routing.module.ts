@@ -1,4 +1,4 @@
-import {Component, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {VillageComponent} from './components/game/gui-components/village/village.component';
 import {WorldMapComponent} from './components/game/gui-components/world-map/world-map.component';
@@ -20,10 +20,10 @@ import {GateComponent} from './components/game/gui-components/village/gate/gate.
 import {UpgradeMenuComponent} from './components/game/gui-components/village/upgrade-menu/upgrade-menu.component';
 
 const routes: Routes = [
-  { path: '', component: MainSiteComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: '', component: MainSiteComponent, data: { animation: 'MainSitePage' } },
+  { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
+  { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
+  { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
   { path: 'game', component: GameComponent, children: [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },

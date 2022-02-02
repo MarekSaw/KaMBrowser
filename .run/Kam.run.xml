@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Kam" type="CompoundRunConfigurationType">
+    <toRun name="KaMBrowserClient" type="js.build_tools.npm" />
+    <toRun name="KaMBrowserServer" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
