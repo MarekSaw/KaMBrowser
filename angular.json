@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/KaM",
+            "outputPath": "src/main/resources/static",
             "index": "src/main/index.html",
             "main": "src/main/main.ts",
             "polyfills": "src/main/polyfills.ts",
