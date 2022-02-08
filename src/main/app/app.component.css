@@ -6,12 +6,7 @@
   left: 0;
   right: 0;
   min-width: 950px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.example-container::-webkit-scrollbar {
-  display: none;
+  overflow: hidden;
 }
 
 .navigation {
