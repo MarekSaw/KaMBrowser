@@ -21,10 +21,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: MainSiteComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: '', component: MainSiteComponent, data: { animation: 'MainSitePage' } },
+  { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
+  { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
+  { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
   { path: 'game', component: GameComponent, resolve: { resources: ResourcesResolve }, children: [
       { path: '', redirectTo: 'village', pathMatch: 'full' },
       { path: 'village', component: VillageComponent },
