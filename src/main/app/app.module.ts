@@ -13,12 +13,8 @@ import {MatGridList, MatGridListModule, MatGridTile} from '@angular/material/gri
 import {VillageComponent} from './pages/game/gui-components/village/village.component';
 import {WorldMapComponent} from './pages/game/gui-components/world-map/world-map.component';
 import {CityComponent} from './pages/game/gui-components/village/city/city.component';
-import {LoginComponent} from './components/login/login.component';
-import {RegisterComponent} from './components/register/register.component';
 import {ContactComponent} from './pages/contact/contact.component';
 import {GameComponent} from './pages/game/game.component';
-import {MainSiteComponent} from './components/main-site/main-site.component';
-import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MainNavComponent} from './components/main-nav/main-nav.component';
@@ -39,7 +35,11 @@ import {UpgradeMenuComponent} from './pages/game/gui-components/village/upgrade-
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogAddingResourcesComponent} from './pages/game/gui-components/village/dialog-adding-resources.component';
 import {CountdownModule} from 'ngx-countdown';
-import { PageLoadingComponent } from './components/page-loading/page-loading.component';
+import {PageLoadingComponent} from './components/page-loading/page-loading.component';
+import {LoginComponent} from './pages/login/login.component';
+import {RegisterComponent} from './pages/register/register.component';
+import {MainSiteComponent} from './pages/main-site/main-site.component';
+import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 
 
 @NgModule({
