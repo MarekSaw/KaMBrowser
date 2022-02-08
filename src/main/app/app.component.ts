@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
-import { SLIDE_IN_ANIMATION } from './animations/routing.animation';
-import { RouterOutlet } from '@angular/router';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 import {ObservableService} from './services/observable.service';
+import { SLIDE_IN_ANIMATION } from './animations/routing.animation';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +35,7 @@ export class AppComponent {
   }
 
   private navigationEvents(event: RouterEvent): void {
+    console.log(this.loadingBarEnabled);
     if (event instanceof NavigationStart) {
       this.zIndexValue = 10;
       this.loadingBarEnabled = true;
