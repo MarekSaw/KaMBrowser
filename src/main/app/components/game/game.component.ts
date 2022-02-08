@@ -27,7 +27,6 @@ export class GameComponent implements OnInit, OnChanges {
               private resourcesService: ResourcesService,
               private observableService: ObservableService,
               private router: ActivatedRoute) {
-    observableService.configObservable.subscribe(value => this.resourcesModel = value);
   }
 
   ngOnInit(): void {
